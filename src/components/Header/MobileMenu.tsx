@@ -20,9 +20,20 @@ const MobileMenu: React.FC<Props> = ({
     setIsSubMenuOpen(false);
   };
 
+  const handleMenuClick = (e: React.MouseEvent) => {
+    // Prevent closing when clicking inside the menu
+    e.stopPropagation();
+  };
+
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 z-40 block md:hidden">
-      <div className="absolute top-0 left-0 w-2/3 h-full bg-white p-8">
+    <div
+      className="fixed inset-0 bg-gray-800 bg-opacity-75 z-40 block md:hidden"
+      onClick={handleCloseMenu} // Close menu when clicking outside
+    >
+      <div
+        className="absolute top-0 left-0 w-4/5 h-full bg-white p-8"
+        onClick={handleMenuClick} // Prevent closing on menu clicks
+      >
         {isSubMenuOpen ? (
           <>
             <div className="flex justify-between items-center text-xl">
@@ -40,6 +51,9 @@ const MobileMenu: React.FC<Props> = ({
                 <IoClose size={30} />
               </button>
             </div>
+            <br />
+            <hr />
+
             <ul className="mt-8 space-y-6">
               {links[2].dropdown?.map((dropdownItem, idx) => (
                 <li key={idx}>
@@ -65,6 +79,8 @@ const MobileMenu: React.FC<Props> = ({
                 <IoClose size={30} />
               </button>
             </div>
+            <br />
+            <hr />
             <ul className="mt-8 space-y-6">
               {links.map((link) =>
                 link.dropdown.length > 0 ? (
