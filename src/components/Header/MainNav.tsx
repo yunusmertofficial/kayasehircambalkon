@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { links } from "@/utils/data";
 
 type Props = {
@@ -20,7 +20,7 @@ const MainNav: React.FC<Props> = ({
         {/* Logo */}
         <div className="text-2xl font-bold">
           <Link href="/">
-            <Image src="/logo.png" alt="logo" width={250} height={73} />
+            <Image src="/logo.webp" alt="logo" width={250} height={73} />
           </Link>
         </div>
 
@@ -90,7 +90,7 @@ const MainNav: React.FC<Props> = ({
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-gray-700"
           >
-            {isMobileMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
+            <FaBars size={30} />
           </button>
         </div>
       </div>

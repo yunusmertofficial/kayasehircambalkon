@@ -1,6 +1,7 @@
 import { links } from "@/utils/data";
 import Link from "next/link";
-import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 type Props = {
   isSubMenuOpen: boolean;
@@ -24,7 +25,7 @@ const MobileMenu: React.FC<Props> = ({
       <div className="absolute top-0 left-0 w-2/3 h-full bg-white p-8">
         {isSubMenuOpen ? (
           <>
-            <div className="text-2xl font-bold flex justify-between items-center">
+            <div className="flex justify-between items-center text-xl">
               <button
                 onClick={() => setIsSubMenuOpen(false)}
                 className="text-gray-700 flex items-center"
@@ -36,7 +37,7 @@ const MobileMenu: React.FC<Props> = ({
                 onClick={() => handleCloseMenu()}
                 className="text-gray-700"
               >
-                <FaTimes size={30} />
+                <IoClose size={30} />
               </button>
             </div>
             <ul className="mt-8 space-y-6">
@@ -61,7 +62,7 @@ const MobileMenu: React.FC<Props> = ({
                 onClick={() => handleCloseMenu()}
                 className="text-gray-700"
               >
-                <FaTimes size={30} />
+                <IoClose size={30} />
               </button>
             </div>
             <ul className="mt-8 space-y-6">
