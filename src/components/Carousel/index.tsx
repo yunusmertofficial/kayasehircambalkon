@@ -10,13 +10,11 @@ const Carousel = () => {
       src: "/images/carousel-1.webp",
       title: "CAM BALKON SİSTEMLERİ",
       description: "Cam balkon montajı, üretimi ve satışı.",
-      link: "/urunler/cam-balkon-sistemleri",
     },
     {
       src: "/images/carousel-2.webp",
       title: "KATLANIR CAM BALKON",
       description: "Farklı tasarım ve Katlanır modelleri sizlerle.",
-      link: "/urunler/katlanir-cam-balkon",
     },
   ];
 
@@ -65,8 +63,8 @@ const Carousel = () => {
               </p>
               <div className="mt-6 flex space-x-4">
                 <LinkButton
-                  label="Ürünleri İncele"
-                  href={slide.link}
+                  label="Fiyat Hesapla"
+                  href={"/cam-balkon-fiyat-hesapla"}
                   bgColor="bg-blue-500 hover:scale-105 hover:bg-blue-600 transition-all duration-300"
                 />
                 <LinkButton
