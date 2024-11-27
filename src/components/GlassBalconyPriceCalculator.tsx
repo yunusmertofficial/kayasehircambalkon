@@ -8,8 +8,8 @@ const GlassBalconyPriceCalculator = () => {
 
   return (
     <div className="relative z-20 w-full max-w-4xl mx-auto -mt-24 px-4">
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-green-500 text-center">
+      <div className="bg-gray-50 shadow-lg rounded-lg p-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-primary text-center">
           Cam Balkon Fiyat Hesaplama
         </h2>
         <form
@@ -20,7 +20,7 @@ const GlassBalconyPriceCalculator = () => {
           <div>
             <label
               htmlFor="length"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-secondary-foreground font-bold mb-2"
             >
               Uzunluk (cm)
             </label>
@@ -30,7 +30,7 @@ const GlassBalconyPriceCalculator = () => {
               min="1"
               step="1"
               placeholder="Tam sayı giriniz"
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-green-300"
+              className="w-full p-3 border border-secondary-foreground rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-primary"
               required
             />
           </div>
@@ -39,7 +39,7 @@ const GlassBalconyPriceCalculator = () => {
           <div>
             <label
               htmlFor="width"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-secondary-foreground font-bold mb-2"
             >
               Genişlik (cm)
             </label>
@@ -49,7 +49,7 @@ const GlassBalconyPriceCalculator = () => {
               min="1"
               step="1"
               placeholder="Tam sayı giriniz"
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-green-300"
+              className="w-full p-3 border border-secondary-foreground rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-primary"
               required
             />
           </div>
@@ -58,13 +58,13 @@ const GlassBalconyPriceCalculator = () => {
           <div>
             <label
               htmlFor="type"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-secondary-foreground font-bold mb-2"
             >
               Cam Balkon Türü
             </label>
             <select
               id="type"
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-green-300"
+              className="w-full p-3 border border-secondary-foreground rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-primary"
               required
             >
               <option value="">Bir tür seçiniz</option>
@@ -78,7 +78,7 @@ const GlassBalconyPriceCalculator = () => {
           <div className="col-span-1 md:col-span-3 flex justify-center">
             <button
               type="submit"
-              className="w-full md:w-auto px-6 py-3 bg-green-500 text-white font-bold rounded-lg shadow hover:bg-green-600"
+              className="w-full md:w-auto px-6 py-3 bg-primary text-primary-foreground font-bold rounded-lg shadow hover:text-secondary"
               aria-label="Hesapla"
             >
               Hesapla

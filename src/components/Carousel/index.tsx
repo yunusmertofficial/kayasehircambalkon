@@ -56,7 +56,7 @@ const Carousel = () => {
               priority={index === 0}
             />
             {/* Metin Katmanı */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary-foreground px-4">
               <h2
                 className="text-3xl md:text-5xl font-bold tracking-tight"
                 style={{ fontFamily: "var(--font-geist-sans)" }}

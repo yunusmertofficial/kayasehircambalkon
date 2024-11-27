@@ -38,15 +38,15 @@ const MainNav: React.FC<Props> = ({
               link.dropdown.length > 0 ? (
                 <li
                   key={link.id}
-                  className="relative  group text-gray-900 hover:text-blue-600"
+                  className="relative  group text-secondary-foreground hover:text-primary"
                 >
                   <div className="flex items-center">
                     <Link
                       className={`capitalize ${
                         activeUrl === link.href
-                          ? "text-blue-600 font-bold"
-                          : "text-gray-900"
-                      } hover:text-blue-600`}
+                          ? "text-primary font-bold"
+                          : "text-secondary-foreground"
+                      } hover:text-primary`}
                       href={link.href}
                     >
                       {link.label}
@@ -71,9 +71,9 @@ const MainNav: React.FC<Props> = ({
                   key={link.id}
                   className={`capitalize ${
                     activeUrl === link.href
-                      ? "text-blue-600 font-bold"
-                      : "text-gray-900"
-                  } hover:text-blue-600`}
+                      ? "text-primary font-bold"
+                      : "text-secondary-foreground"
+                  } hover:text-primary`}
                 >
                   <Link href={link.href}>{link.label}</Link>
                 </li>
