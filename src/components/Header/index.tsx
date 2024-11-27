@@ -13,22 +13,26 @@ const Navbar: React.FC = () => {
   const activeUrl = `/${segment || ""}`;
 
   return (
-    <div className="w-full fixed z-50 bg-white shadow-md">
-      <TopBar />
-      <MainNav
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        activeUrl={activeUrl}
-      />
-      {isMobileMenuOpen && (
-        <MobileMenu
-          isSubMenuOpen={isSubMenuOpen}
-          setIsSubMenuOpen={setIsSubMenuOpen}
-          setIsMobileMenuOpen={setIsMobileMenuOpen}
-          activeUrl={activeUrl}
-        />
-      )}
-    </div>
+    <header>
+      <div className="w-full fixed z-50 bg-white shadow-md">
+        <TopBar />
+        <nav aria-label="Ana Menü">
+          <MainNav
+            isMobileMenuOpen={isMobileMenuOpen}
+            setIsMobileMenuOpen={setIsMobileMenuOpen}
+            activeUrl={activeUrl}
+          />
+          {isMobileMenuOpen && (
+            <MobileMenu
+              isSubMenuOpen={isSubMenuOpen}
+              setIsSubMenuOpen={setIsSubMenuOpen}
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              activeUrl={activeUrl}
+            />
+          )}
+        </nav>
+      </div>
+    </header>
   );
 };
 
