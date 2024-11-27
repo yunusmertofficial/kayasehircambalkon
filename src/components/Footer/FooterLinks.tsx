@@ -33,9 +33,9 @@ export const FooterLinks = () => {
     <>
       {linksData.map((section, index) => (
         <div key={index} className="text-left">
-          <h4 className="text-lg font-semibold text-foreground mb-2">
+          <div className="text-lg font-semibold text-foreground mb-2">
             {section.title}
-          </h4>
+          </div>
           <hr />
           <br />
           <ul className="text-sm space-y-6">
