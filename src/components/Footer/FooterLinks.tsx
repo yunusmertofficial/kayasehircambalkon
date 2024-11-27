@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const linksData = [
@@ -40,12 +41,12 @@ export const FooterLinks = () => {
           <ul className="text-sm space-y-6">
             {section.links.map((link, idx) => (
               <li key={idx}>
-                <a
+                <Link
                   href={link.href}
                   className="text-secondary-foreground hover:text-primary transition-all"
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
