@@ -96,7 +96,7 @@ const Carousel = () => {
 
       {/* Controls */}
       <button
-        className="absolute top-1/2 left-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+        className="absolute top-1/2 left-0 z-30  hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
         onClick={prevSlide}
         aria-label="Önceki Slide"
       >
@@ -105,7 +105,7 @@ const Carousel = () => {
         </span>
       </button>
       <button
-        className="absolute top-1/2 right-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+        className="absolute top-1/2 right-0 z-30  hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
         onClick={nextSlide}
         aria-label="Sonraki Slide"
       >
