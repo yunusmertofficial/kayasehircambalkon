@@ -64,13 +64,13 @@ const Carousel = () => {
               <div className="mt-6 flex space-x-4">
                 <LinkButton
                   label="Fiyat Hesapla"
-                  href={"/cam-balkon-fiyat-hesapla"}
-                  bgColor="bg-blue-500 hover:scale-105 hover:bg-blue-600 transition-all duration-300"
+                  href={"/fiyat-hesapla"}
+                  bgColor="bg-primary hover:scale-105 transition-all duration-300"
                 />
                 <LinkButton
                   label="İletişim"
                   href="/iletisim"
-                  bgColor="bg-green-500 hover:scale-105 hover:bg-green-600 transition-all duration-300"
+                  bgColor="bg-accent-foreground hover:scale-105 transition-all duration-300"
                 />
               </div>
             </div>
@@ -89,6 +89,7 @@ const Carousel = () => {
                 ? "bg-blue-500 scale-125"
                 : "bg-gray-300 scale-100"
             }`}
+            aria-label={`Slide ${index + 1}`}
           ></button>
         ))}
       </div>
