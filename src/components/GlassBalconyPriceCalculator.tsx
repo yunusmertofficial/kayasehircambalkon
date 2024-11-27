@@ -79,6 +79,7 @@ const GlassBalconyPriceCalculator = () => {
             <button
               type="submit"
               className="w-full md:w-auto px-6 py-3 bg-green-500 text-white font-bold rounded-lg shadow hover:bg-green-600"
+              aria-label="Hesapla"
             >
               Hesapla
             </button>

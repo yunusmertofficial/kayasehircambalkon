@@ -79,6 +79,7 @@ const Carousel = () => {
         {slides.map((_, index) => (
           <button
             key={index}
+            aria-label={`Slide ${index + 1}`}
             onClick={() => setCurrentSlide(index)}
             className={`w-4 h-4 rounded-full ${
               currentSlide === index ? "bg-blue-500" : "bg-gray-300"
@@ -91,7 +92,7 @@ const Carousel = () => {
       <button
         className="absolute top-1/2 left-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 pointer-events-auto"
         onClick={prevSlide}
-        aria-label="Previous Slide"
+        aria-label="Önceki Slide"
       >
         <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
           <FaChevronLeft className="text-white" size={20} />
@@ -100,7 +101,7 @@ const Carousel = () => {
       <button
         className="absolute top-1/2 right-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 pointer-events-auto"
         onClick={nextSlide}
-        aria-label="Next Slide"
+        aria-label="Sonraki Slide"
       >
         <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
           <FaChevronRight className="text-white" size={20} />

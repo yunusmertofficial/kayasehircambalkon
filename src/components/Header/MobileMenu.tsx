@@ -37,16 +37,20 @@ const MobileMenu: React.FC<Props> = ({
         {isSubMenuOpen ? (
           <>
             <div className="flex justify-between items-center text-xl">
-              <button
-                onClick={() => setIsSubMenuOpen(false)}
-                className="text-gray-700 flex items-center"
-              >
-                <FaChevronLeft className="mr-2" />
-                <span>Hizmetlerimiz</span>
-              </button>
+              <div className="flex items-center">
+                <button
+                  onClick={() => setIsSubMenuOpen(false)}
+                  className="text-gray-700 flex items-center"
+                  aria-label="Ana Menüye Geri Dön"
+                >
+                  <FaChevronLeft className="mr-2" />
+                </button>
+                <div>Hizmetlerimiz</div>
+              </div>
               <button
                 onClick={() => handleCloseMenu()}
                 className="text-gray-700"
+                aria-label="Menüyü Kapat"
               >
                 <IoClose size={30} />
               </button>
@@ -75,6 +79,7 @@ const MobileMenu: React.FC<Props> = ({
               <button
                 onClick={() => handleCloseMenu()}
                 className="text-gray-700"
+                aria-label="Menüyü Kapat"
               >
                 <IoClose size={30} />
               </button>

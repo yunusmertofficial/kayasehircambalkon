@@ -45,6 +45,7 @@ const MainNav: React.FC<Props> = ({
                         ? "text-blue-600 font-bold"
                         : "text-gray-900"
                     } hover:text-blue-600`}
+                    aria-label="Açılır Menü"
                   >
                     <Link href={link.href}>{link.label}</Link>
                     <svg
@@ -95,6 +96,7 @@ const MainNav: React.FC<Props> = ({
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-gray-700"
+            aria-label="Mobile Menu"
           >
             <FaBars size={30} />
           </button>
