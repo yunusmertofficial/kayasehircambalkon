@@ -2,29 +2,31 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import LinkButton from "@/components/LinkButton";
 
 const Carousel = () => {
   const slides = [
     {
       src: "/images/carousel-1.webp",
-      title: "Başlık 1",
-      description: "Bu, ilk slaytın açıklamasıdır.",
+      title: "CAM BALKON SİSTEMLERİ",
+      description: "Cam balkon montajı, üretimi ve satışı.",
+      link: "/urunler/cam-balkon-sistemleri",
     },
     {
       src: "/images/carousel-2.webp",
-      title: "Başlık 2",
-      description: "Bu, ikinci slaytın açıklamasıdır.",
+      title: "KATLANIR CAM BALKON",
+      description: "Farklı tasarım ve Katlanır modelleri sizlerle.",
+      link: "/urunler/katlanir-cam-balkon",
     },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Otomatik slayt geçişi için efekt
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // 5 saniye aralıklarla slayt değişimi
-    return () => clearInterval(interval); // Cleanup
+    }, 6000); // 6 saniye aralıklarla slayt değişimi
+    return () => clearInterval(interval);
   }, [slides.length]);
 
   const nextSlide = () => {
@@ -36,17 +38,16 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full h-[75vh]">
+    <div className="relative w-full h-[75vh] overflow-hidden">
       {/* Slide Container */}
-      <div className="relative w-full h-full overflow-hidden">
+      <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              currentSlide === index ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+              currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            {/* Görüntü */}
             <Image
               src={slide.src}
               alt={slide.title}
@@ -55,34 +56,40 @@ const Carousel = () => {
               className="brightness-75"
               priority={index === 0}
             />
-            {/* Metin Katmanı */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-primary-foreground px-4">
-              <h2
-                className="text-3xl md:text-5xl font-bold tracking-tight"
-                style={{ fontFamily: "var(--font-geist-sans)" }}
-              >
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight shadow-lg">
                 {slide.title}
               </h2>
-              <p
-                className="mt-4 text-lg md:text-2xl"
-                style={{ fontFamily: "var(--font-geist-sans)" }}
-              >
+              <p className="mt-4 text-lg md:text-2xl shadow-md">
                 {slide.description}
               </p>
+              <div className="mt-6 flex space-x-4">
+                <LinkButton
+                  label="Ürünleri İncele"
+                  href={slide.link}
+                  bgColor="bg-blue-500 hover:scale-105 hover:bg-blue-600 transition-all duration-300"
+                />
+                <LinkButton
+                  label="İletişim"
+                  href="/iletisim"
+                  bgColor="bg-green-500 hover:scale-105 hover:bg-green-600 transition-all duration-300"
+                />
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Indicators - Dikey ve Daha Aşağıda */}
-      <div className="absolute z-30 flex flex-col space-y-3 top-[60%] right-5 transform -translate-y-1/2">
+      {/* Indicators */}
+      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
-            aria-label={`Slide ${index + 1}`}
             onClick={() => setCurrentSlide(index)}
-            className={`w-4 h-4 rounded-full ${
-              currentSlide === index ? "bg-blue-500" : "bg-gray-300"
+            className={`w-4 h-4 rounded-full transition-all duration-300 ${
+              currentSlide === index
+                ? "bg-blue-500 scale-125"
+                : "bg-gray-300 scale-100"
             }`}
           ></button>
         ))}
@@ -90,7 +97,7 @@ const Carousel = () => {
 
       {/* Controls */}
       <button
-        className="absolute top-1/2 left-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 pointer-events-auto"
+        className="absolute top-1/2 left-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
         onClick={prevSlide}
         aria-label="Önceki Slide"
       >
@@ -99,7 +106,7 @@ const Carousel = () => {
         </span>
       </button>
       <button
-        className="absolute top-1/2 right-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 pointer-events-auto"
+        className="absolute top-1/2 right-0 z-30 flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
         onClick={nextSlide}
         aria-label="Sonraki Slide"
       >
