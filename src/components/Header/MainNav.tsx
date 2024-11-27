@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaBars } from "react-icons/fa";
 import { links } from "@/utils/data";
+import { FaChevronDown } from "react-icons/fa";
 
 type Props = {
   isMobileMenuOpen: boolean;
@@ -37,32 +38,21 @@ const MainNav: React.FC<Props> = ({
               link.dropdown.length > 0 ? (
                 <li
                   key={link.id}
-                  className="relative group text-gray-900 hover:text-blue-600"
+                  className="relative  group text-gray-900 hover:text-blue-600"
                 >
-                  <button
-                    className={`flex items-center capitalize ${
-                      activeUrl === link.href
-                        ? "text-blue-600 font-bold"
-                        : "text-gray-900"
-                    } hover:text-blue-600`}
-                    aria-label="Açılır Menü"
-                  >
-                    <Link href={link.href}>{link.label}</Link>
-                    <svg
-                      className="w-2.5 h-2.5 ml-2"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
+                  <div className="flex items-center">
+                    <Link
+                      className={`capitalize ${
+                        activeUrl === link.href
+                          ? "text-blue-600 font-bold"
+                          : "text-gray-900"
+                      } hover:text-blue-600`}
+                      href={link.href}
                     >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m1 1 4 4 4-4"
-                      />
-                    </svg>
-                  </button>
+                      {link.label}
+                    </Link>
+                    <FaChevronDown className="ml-1" />
+                  </div>
                   <ul className="absolute hidden group-hover:block bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                     {link.dropdown.map((dropdownItem, idx) => (
                       <li key={idx}>

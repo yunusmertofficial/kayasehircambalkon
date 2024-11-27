@@ -50,8 +50,8 @@ const Carousel = () => {
             <Image
               src={slide.src}
               alt={slide.title}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               className="brightness-75"
               priority={index === 0}
             />
