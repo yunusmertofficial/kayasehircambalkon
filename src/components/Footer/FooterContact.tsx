@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
 import {
   FaFacebookF,
@@ -22,15 +22,6 @@ export const FooterContact = () => {
             className="hover:text-primary transition-all"
           >
             +90 555 555 5555
-          </Link>
-        </li>
-        <li className="flex items-center space-x-2">
-          <FaEnvelope className="text-primary" />
-          <Link
-            href="mailto:kayasehircambalkon@gmail.com"
-            className="hover:text-primary transition-all"
-          >
-            kayasehircambalkon@gmail.com
           </Link>
         </li>
         <li className="flex mt-4 space-x-4">
