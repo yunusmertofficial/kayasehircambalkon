@@ -11,7 +11,7 @@ import {
 export const FooterContact = () => {
   return (
     <div>
-      <h4 className="text-lg font-semibold text-foreground mb-2">İletişim</h4>
+      <div className="text-lg font-semibold text-foreground mb-2">İletişim</div>
       <hr />
       <br />
       <ul className="text-sm space-y-4">
