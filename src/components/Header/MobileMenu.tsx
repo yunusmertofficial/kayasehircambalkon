@@ -31,7 +31,7 @@ const MobileMenu: React.FC<Props> = ({
       onClick={handleCloseMenu} // Close menu when clicking outside
     >
       <div
-        className="absolute top-0 left-0 w-4/5 h-full bg-white p-8"
+        className="absolute top-0 left-0 w-4/5 h-full bg-background p-8"
         onClick={handleMenuClick} // Prevent closing on menu clicks
       >
         {isSubMenuOpen ? (
@@ -40,7 +40,7 @@ const MobileMenu: React.FC<Props> = ({
               <div className="flex items-center">
                 <button
                   onClick={() => setIsSubMenuOpen(false)}
-                  className="text-gray-700 flex items-center"
+                  className="text-secondary-foreground flex items-center"
                   aria-label="Ana Menüye Geri Dön"
                 >
                   <FaChevronLeft className="mr-2" />
@@ -49,7 +49,7 @@ const MobileMenu: React.FC<Props> = ({
               </div>
               <button
                 onClick={() => handleCloseMenu()}
-                className="text-gray-700"
+                className="text-secondary-foreground"
                 aria-label="Menüyü Kapat"
               >
                 <IoClose size={30} />
@@ -63,7 +63,7 @@ const MobileMenu: React.FC<Props> = ({
                 <li key={idx}>
                   <Link
                     href={dropdownItem.href}
-                    className="text-gray-700 hover:text-blue-600"
+                    className="text-secondary-foreground hover:text-primary"
                     onClick={handleCloseMenu}
                   >
                     {dropdownItem.label}
@@ -78,7 +78,7 @@ const MobileMenu: React.FC<Props> = ({
               <span>Menü</span>
               <button
                 onClick={() => handleCloseMenu()}
-                className="text-gray-700"
+                className="text-secondary-foreground"
                 aria-label="Menüyü Kapat"
               >
                 <IoClose size={30} />
@@ -95,7 +95,7 @@ const MobileMenu: React.FC<Props> = ({
                   >
                     <Link
                       href={link.href || ""}
-                      className="text-gray-700 hover:text-blue-600"
+                      className="text-secondary-foreground hover:text-primary"
                       onClick={handleCloseMenu}
                     >
                       {link.label}
@@ -111,7 +111,7 @@ const MobileMenu: React.FC<Props> = ({
                   <li key={link.id}>
                     <Link
                       href={link.href || ""}
-                      className="text-gray-700 hover:text-blue-600"
+                      className="text-secondary-foreground hover:text-primary"
                       onClick={handleCloseMenu}
                     >
                       {link.label}

@@ -8,7 +8,7 @@ const GlassBalconyPriceCalculator = () => {
 
   return (
     <div className="relative z-20 w-full max-w-4xl mx-auto -mt-24 px-4">
-      <div className="bg-gray-50 shadow-lg rounded-lg p-6">
+      <div className="bg-background shadow-lg rounded-lg p-6">
         <h2 className="text-2xl md:text-3xl font-bold text-primary text-center">
           Cam Balkon Fiyat Hesaplama
         </h2>
