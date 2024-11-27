@@ -21,7 +21,7 @@ export const FooterContact = () => {
             href="tel:+905555555555"
             className="hover:text-primary transition-all"
           >
-            +90 555 555 5555
+            +90 536 560 8595
           </Link>
         </li>
         <li className="flex mt-4 space-x-4">

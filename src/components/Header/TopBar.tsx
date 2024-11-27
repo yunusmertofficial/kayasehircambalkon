@@ -14,7 +14,7 @@ const TopBar: React.FC = () => {
         <div className="flex items-center space-x-4">
           <span className="flex items-center space-x-1">
             <MdPhone className="text-gray-600" />
-            <span>+90 536 560 85 95</span>
+            <span>+90 536 560 8595</span>
           </span>
           <span className="flex items-center space-x-1">
             <MdEmail className="text-gray-600" />
