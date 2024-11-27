@@ -2,7 +2,6 @@ import React from "react";
 import { FooterLogo } from "./FooterLogo";
 import { FooterLinks } from "./FooterLinks";
 import { FooterContact } from "./FooterContact";
-import { FooterSocials } from "./FooterSocials";
 import Link from "next/link";
 
 export default function Footer() {
@@ -25,7 +24,6 @@ export default function Footer() {
                 kayasehircambalkon.com
               </Link>
             </span>
-            <FooterSocials />
           </div>
         </div>
       </div>
