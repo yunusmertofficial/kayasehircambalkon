@@ -16,12 +16,14 @@ export const FooterLogo = () => {
           "Türkiye'nin her yerinde kaliteli cam balkon çözümleri sunuyoruz. Herhangi bir sorunuz var mı?"
         }
       </p>
-      <Link
-        href="/iletisim"
-        className="py-2.5 px-5 h-9 bg-primary text-primary-foreground rounded-full text-xs text-white mx-auto lg:mx-0 shadow hover:bg-secondary-foreground transition-all"
-      >
-        İletişime Geçin
-      </Link>
+      <div className="flex justify-center lg:justify-start">
+        <Link
+          href="/iletisim"
+          className="py-2.5 px-5 h-9 bg-primary text-primary-foreground rounded-full text-xs mx-auto lg:mx-0 shadow hover:bg-secondary-foreground transition-all"
+        >
+          İletişime Geçin
+        </Link>
+      </div>
     </div>
   );
 };
