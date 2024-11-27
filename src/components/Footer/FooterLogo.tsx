@@ -18,7 +18,7 @@ export const FooterLogo = () => {
       </p>
       <a
         href="/iletisim"
-        className="py-2.5 px-5 h-9 bg-primary text-primary-foreground rounded-full text-xs text-white mx-auto lg:mx-0 shadow hover:bg-primary-foreground transition-all"
+        className="py-2.5 px-5 h-9 bg-primary text-primary-foreground rounded-full text-xs text-white mx-auto lg:mx-0 shadow hover:bg-secondary-foreground transition-all"
       >
         İletişime Geçin
       </a>
