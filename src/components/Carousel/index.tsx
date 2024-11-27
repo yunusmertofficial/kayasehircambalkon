@@ -53,7 +53,6 @@ const Carousel = () => {
               layout="fill"
               objectFit="cover"
               className="brightness-75"
-              quality={60}
               priority={index === 0}
             />
             {/* Metin Katmanı */}
