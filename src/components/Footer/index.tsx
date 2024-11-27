@@ -7,7 +7,7 @@ import { Copyright } from "./Copyright";
 export default function Footer() {
   return (
     <footer className="w-full bg-accent py-10">
-      <div className="container mx-auto px-2 lg:px-8">
+      <div className="container mx-auto px-3 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6">
           <FooterLogo />
           <FooterLinks />
