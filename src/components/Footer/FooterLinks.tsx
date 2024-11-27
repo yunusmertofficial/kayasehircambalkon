@@ -25,6 +25,14 @@ const linksData = [
       { name: "Blog", href: "/blog" },
     ],
   },
+  {
+    title: "İletişim",
+    links: [
+      { name: "İletişim", href: "/iletisim" },
+      { name: "Adres", href: "/iletisim" },
+      { name: "Telefon", href: "/iletisim" },
+    ],
+  },
 ];
 
 export const FooterLinks = () => {
@@ -32,7 +40,7 @@ export const FooterLinks = () => {
     <>
       {linksData.map((section, index) => (
         <div key={index} className="text-left">
-          <h4 className="text-lg font-medium text-foreground mb-2">
+          <h4 className="text-lg  font-semibold text-foreground mb-2">
             {section.title}
           </h4>
           <hr />
