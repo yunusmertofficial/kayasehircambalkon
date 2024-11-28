@@ -11,6 +11,38 @@ export const links = [
       { label: "FAQs", href: "/faqs" },
     ],
   },
-  { id: 4, label: "Galeri", href: "/blog", dropdown: [] },
+  {
+    id: 4,
+    label: "Referanslar",
+    href: "/cam-balkon-referanslar",
+    dropdown: [],
+  },
   { id: 5, label: "İletişim", href: "/contact", dropdown: [] },
+] as const;
+
+export const images = [
+  {
+    id: 0,
+    height: 1280,
+    width: 1920,
+    public_id: "59",
+    format: "jpg",
+    blurDataUrl: "/59.jpg",
+  },
+  {
+    id: 1,
+    height: 1280,
+    width: 1920,
+    public_id: "68",
+    format: "jpg",
+    blurDataUrl: "/68.jpg",
+  },
+  {
+    id: 2,
+    height: 1280,
+    width: 1920,
+    public_id: "76",
+    format: "jpg",
+    blurDataUrl: "/76.jpg",
+  },
 ] as const;
