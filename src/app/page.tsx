@@ -1,11 +1,11 @@
-import Carousel from "@/components/Carousel";
+import HeroCarousel from "@/components/HeroCarousel";
 //import GlassBalconyPriceCalculator from "@/components/GlassBalconyPriceCalculator";
 
 export default function Home() {
   return (
     <>
       <section aria-label="Cam Balkon">
-        <Carousel />
+        <HeroCarousel />
       </section>
       {/*     <section aria-label="Cam Balkon Fiyat Hesaplama">
         <GlassBalconyPriceCalculator />

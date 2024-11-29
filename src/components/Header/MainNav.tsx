@@ -21,13 +21,7 @@ const MainNav: React.FC<Props> = ({
         {/* Logo */}
         <div className="text-2xl font-bold">
           <Link href="/">
-            <Image
-              src="/logo.webp"
-              alt="logo"
-              width={250}
-              height={73}
-              priority
-            />
+            <Image src="/logo.webp" alt="logo" width={250} height={73} />
           </Link>
         </div>
 

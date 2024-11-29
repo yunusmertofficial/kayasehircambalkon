@@ -2,7 +2,7 @@ import { images } from "@/utils/data";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Referanslar() {
+export default function Reference() {
   return (
     <>
       <section className="mx-auto max-w-[1960px] p-4">

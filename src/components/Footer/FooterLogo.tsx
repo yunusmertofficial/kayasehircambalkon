@@ -5,11 +5,8 @@ import Image from "next/image";
 export const FooterLogo = () => {
   return (
     <div className="col-span-full lg:col-span-2 mb-10 lg:mb-0">
-      <Link
-        href="https://kayasehircambalkon.com"
-        className="flex justify-center lg:justify-start"
-      >
-        <Image src="/logo.webp" alt="logo" width={250} height={73} priority />
+      <Link href="/" className="flex justify-center lg:justify-start">
+        <Image src="/logo.webp" alt="logo" width={250} height={73} />
       </Link>
       <p className="py-8 text-sm text-secondary-foreground lg:max-w-xs text-center lg:text-left">
         {

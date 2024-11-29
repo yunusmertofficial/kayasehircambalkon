@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import LinkButton from "@/components/LinkButton";
 
-const Carousel = () => {
+const HeroCarousel = () => {
   const slides = [
     {
       src: "/images/carousel-1.webp",
@@ -117,4 +117,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default HeroCarousel;
