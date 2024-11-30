@@ -6,7 +6,14 @@ export const FooterLogo = () => {
   return (
     <div className="col-span-full lg:col-span-2 mb-10 lg:mb-0">
       <Link href="/" className="flex justify-center lg:justify-start">
-        <Image src="/logo.webp" alt="logo" width={250} height={73} />
+        <Image
+          src="/logo.webp"
+          alt="logo"
+          width={250}
+          height={73}
+          placeholder="blur"
+          blurDataURL={"/logo.webp"}
+        />
       </Link>
       <p className="py-8 text-sm text-secondary-foreground lg:max-w-xs text-center lg:text-left">
         {

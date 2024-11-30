@@ -3,8 +3,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import LinkButton from "@/components/LinkButton";
+import { useSwipeable } from "react-swipeable";
 
 const HeroCarousel = () => {
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
+    trackMouse: true,
+  });
+
   const slides = [
     {
       src: "/images/carousel-1.webp",
@@ -38,7 +45,7 @@ const HeroCarousel = () => {
   return (
     <div className="relative w-full h-[75vh] overflow-hidden">
       {/* Slide Container */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full" {...handlers}>
         {slides.map((slide, index) => (
           <div
             key={index}

@@ -27,7 +27,7 @@ const MobileMenu: React.FC<Props> = ({
 
   return (
     <div
-      className="fixed inset-0 bg-gray-800 bg-opacity-75 z-40 block md:hidden"
+      className="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 block md:hidden"
       onClick={handleCloseMenu} // Close menu when clicking outside
     >
       <div
