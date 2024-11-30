@@ -115,7 +115,7 @@ const MainNav: React.FC<Props> = ({
                       animate={{
                         width: activeUrl === link.href ? "100%" : 0,
                       }}
-                      transition={{ duration: 0.9 }}
+                      transition={{ duration: 0.6 }}
                     />
                   </Link>
                 </li>
