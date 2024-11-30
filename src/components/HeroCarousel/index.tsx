@@ -1,19 +1,10 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import LinkButton from "@/components/LinkButton";
-import { useSwipeable } from "react-swipeable";
-import { useHotkeys } from "react-hotkeys-hook";
 
 const HeroCarousel = () => {
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(true),
-    onSwipedRight: () => prevSlide(true),
-    trackMouse: true,
-  });
-
   const slides = [
     {
       src: "/images/carousel-1.webp",
@@ -30,46 +21,11 @@ const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0); // -1: Geri, 1: İleri
   const [isFirstLoad, setIsFirstLoad] = useState(true);
-  const [showControls, setShowControls] = useState(false); // Kontrollerin görünürlüğü
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const clearTimer = useCallback(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-  }, []);
-
-  const nextSlide = useCallback(
-    (manual = false) => {
-      if (manual) {
-        clearTimer();
-      }
-      setDirection(1);
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-      toggleControls(); // Kontrolleri gizle/göster
-    },
-    [clearTimer, slides.length]
-  );
-
-  const prevSlide = useCallback(
-    (manual = false) => {
-      if (manual) {
-        clearTimer();
-      }
-      setDirection(-1);
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-      toggleControls(); // Kontrolleri gizle/göster
-    },
-    [clearTimer, slides.length]
-  );
-
-  const toggleControls = () => {
-    setShowControls(false); // Kontrolleri gizle
-    setTimeout(() => {
-      setShowControls(true); // Bir süre sonra geri getir
-    }, 1200); // Animasyon süresiyle uyumlu olacak şekilde ayarlandı
-  };
+  const nextSlide = useCallback(() => {
+    setDirection(1);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
 
   useEffect(() => {
     if (isFirstLoad) {
@@ -77,36 +33,17 @@ const HeroCarousel = () => {
       return () => clearTimeout(timer);
     }
 
-    toggleControls(); // Kontrolleri gizle/göster
-
     const interval = setInterval(() => {
-      nextSlide(false);
-    }, 8000);
+      nextSlide();
+    }, 5000);
 
     return () => {
-      clearTimer();
       clearInterval(interval);
     };
-  }, [isFirstLoad, nextSlide, clearTimer]);
-
-  useHotkeys(
-    "ArrowRight",
-    () => {
-      nextSlide(true);
-    },
-    [nextSlide]
-  );
-
-  useHotkeys(
-    "ArrowLeft",
-    () => {
-      prevSlide(true);
-    },
-    [prevSlide]
-  );
+  }, [isFirstLoad, nextSlide]);
 
   return (
-    <div className="relative w-full h-[75vh] overflow-hidden" {...handlers}>
+    <div className="relative w-full h-[75vh] overflow-hidden">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -179,48 +116,6 @@ const HeroCarousel = () => {
           )}
         </AnimatePresence>
       </motion.div>
-
-      {/* Kontroller */}
-      {showControls && (
-        <motion.button
-          className="absolute top-1/2 left-4 z-30 hidden md:flex items-center justify-center px-4"
-          onClick={() => prevSlide(true)}
-          aria-label="Önceki Slide"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          whileTap={{ scale: 1.2 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.span
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-            className="inline-flex items-center justify-center w-12 h-12 bg-white/30 rounded-full shadow-md"
-          >
-            <FaChevronLeft className="text-white" size={24} />
-          </motion.span>
-        </motion.button>
-      )}
-      {showControls && (
-        <motion.button
-          className="absolute top-1/2 right-4 z-30 hidden md:flex items-center justify-center px-4"
-          onClick={() => nextSlide(true)}
-          aria-label="Sonraki Slide"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          whileTap={{ scale: 1.2 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.span
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-            className="inline-flex items-center justify-center w-12 h-12 bg-white/30 rounded-full shadow-md"
-          >
-            <FaChevronRight className="text-white" size={24} />
-          </motion.span>
-        </motion.button>
-      )}
     </div>
   );
 };
