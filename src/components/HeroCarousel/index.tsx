@@ -62,7 +62,7 @@ const HeroCarousel = () => {
   return (
     <div className="relative w-full h-[75vh] overflow-hidden">
       {/* Slide Container */}
-      <div className="relative w-full h-full animate-fadeIn" {...handlers}>
+      <div className="relative w-full h-full" {...handlers}>
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -79,31 +79,13 @@ const HeroCarousel = () => {
               priority={index === 0}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-              <h2
-                className={`text-4xl md:text-6xl font-bold tracking-tight shadow-lg ${
-                  currentSlide === index
-                    ? "animate-slideDown delay-[200ms]"
-                    : ""
-                }`}
-              >
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight shadow-lg">
                 {slide.title}
               </h2>
-              <p
-                className={`mt-4 text-lg md:text-2xl shadow-md ${
-                  currentSlide === index
-                    ? "animate-slideDown delay-[400ms]"
-                    : ""
-                }`}
-              >
+              <p className="mt-4 text-lg md:text-2xl shadow-md">
                 {slide.description}
               </p>
-              <div
-                className={`mt-6 flex space-x-4 ${
-                  currentSlide === index
-                    ? "animate-slideDown delay-[600ms]"
-                    : ""
-                }`}
-              >
+              <div className="mt-6 flex space-x-4">
                 <LinkButton
                   label="Fiyat Hesapla"
                   href={"/fiyat-hesapla"}
