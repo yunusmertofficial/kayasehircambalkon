@@ -5,6 +5,7 @@ import TopBar from "./TopBar";
 import MainNav from "./MainNav";
 import MobileMenu from "./MobileMenu";
 import { useSelectedLayoutSegment } from "next/navigation";
+import { AnimatePresence } from "framer-motion";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,14 +27,15 @@ const Navbar: React.FC = () => {
           setIsMobileMenuOpen={setIsMobileMenuOpen}
           activeUrl={activeUrl}
         />
-        {isMobileMenuOpen && (
-          <MobileMenu
-            isSubMenuOpen={isSubMenuOpen}
-            setIsSubMenuOpen={setIsSubMenuOpen}
-            setIsMobileMenuOpen={setIsMobileMenuOpen}
-            activeUrl={activeUrl}
-          />
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <MobileMenu
+              isSubMenuOpen={isSubMenuOpen}
+              setIsSubMenuOpen={setIsSubMenuOpen}
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+            />
+          )}
+        </AnimatePresence>
       </nav>
     </>
   );

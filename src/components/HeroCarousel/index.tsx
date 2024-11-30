@@ -103,7 +103,7 @@ const HeroCarousel = () => {
       </div>
 
       {/* Indicators */}
-      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
+      {/*     <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -116,7 +116,7 @@ const HeroCarousel = () => {
             aria-label={`Slide ${index + 1}`}
           ></button>
         ))}
-      </div>
+      </div> */}
 
       {/* Controls */}
       <button
