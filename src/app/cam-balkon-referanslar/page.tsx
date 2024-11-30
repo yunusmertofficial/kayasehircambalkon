@@ -31,7 +31,6 @@ export default function Reference() {
     window.history.pushState(null, "", `/cam-balkon-referanslar/${id}`);
   }
   useEffect(() => {
-    // This effect keeps track of the last viewed photo in the modal to keep the index page in sync when the user navigates back
     if (lastViewedPhotoRef?.current && !curIndex) {
       lastViewedPhotoRef.current.scrollIntoView({ block: "center" });
       setLastViewedPhoto(null);
