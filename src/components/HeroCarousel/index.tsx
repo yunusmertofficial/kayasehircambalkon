@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import LinkButton from "@/components/LinkButton";
 import { useSwipeable } from "react-swipeable";
@@ -8,8 +9,8 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 const HeroCarousel = () => {
   const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
+    onSwipedLeft: () => nextSlide(true),
+    onSwipedRight: () => prevSlide(true),
     trackMouse: true,
   });
 
@@ -27,116 +28,199 @@ const HeroCarousel = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0); // -1: Geri, 1: İleri
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [showControls, setShowControls] = useState(false); // Kontrollerin görünürlüğü
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const clearTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  const nextSlide = useCallback(
+    (manual = false) => {
+      if (manual) {
+        clearTimer();
+      }
+      setDirection(1);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      toggleControls(); // Kontrolleri gizle/göster
+    },
+    [clearTimer, slides.length]
+  );
+
+  const prevSlide = useCallback(
+    (manual = false) => {
+      if (manual) {
+        clearTimer();
+      }
+      setDirection(-1);
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      toggleControls(); // Kontrolleri gizle/göster
+    },
+    [clearTimer, slides.length]
+  );
+
+  const toggleControls = () => {
+    setShowControls(false); // Kontrolleri gizle
+    setTimeout(() => {
+      setShowControls(true); // Bir süre sonra geri getir
+    }, 1200); // Animasyon süresiyle uyumlu olacak şekilde ayarlandı
+  };
+
+  useEffect(() => {
+    if (isFirstLoad) {
+      const timer = setTimeout(() => setIsFirstLoad(false), 1500);
+      return () => clearTimeout(timer);
+    }
+
+    toggleControls(); // Kontrolleri gizle/göster
+
+    const interval = setInterval(() => {
+      nextSlide(false);
+    }, 8000);
+
+    return () => {
+      clearTimer();
+      clearInterval(interval);
+    };
+  }, [isFirstLoad, nextSlide, clearTimer]);
 
   useHotkeys(
     "ArrowRight",
     () => {
-      nextSlide();
+      nextSlide(true);
     },
-    [currentSlide]
+    [nextSlide]
   );
 
   useHotkeys(
     "ArrowLeft",
     () => {
-      prevSlide();
+      prevSlide(true);
     },
-    [currentSlide]
+    [prevSlide]
   );
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000); // 6 saniye aralıklarla slayt değişimi
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   return (
-    <div className="relative w-full h-[75vh] overflow-hidden">
-      {/* Slide Container */}
-      <div className="relative w-full h-full" {...handlers}>
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-              currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
+    <div className="relative w-full h-[75vh] overflow-hidden" {...handlers}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0"
+      >
+        <AnimatePresence initial={false} custom={direction}>
+          {slides.map((slide, index) =>
+            currentSlide === index ? (
+              <motion.div
+                key={index}
+                custom={direction}
+                initial={{
+                  opacity: 0,
+                  x: direction === 1 ? "100%" : "-100%",
+                }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{
+                  opacity: 0,
+                  x: direction === 1 ? "-100%" : "100%",
+                }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={slide.src}
+                  alt={slide.title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  className="brightness-75"
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+                  <motion.h2
+                    initial={isFirstLoad ? { opacity: 0, y: -30 } : false}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 1 }}
+                    className="text-4xl md:text-6xl font-bold tracking-tight shadow-lg"
+                  >
+                    {slide.title}
+                  </motion.h2>
+                  <motion.p
+                    initial={isFirstLoad ? { opacity: 0, y: 30 } : false}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 1 }}
+                    className="mt-4 text-lg md:text-2xl shadow-md"
+                  >
+                    {slide.description}
+                  </motion.p>
+                  <motion.div
+                    initial={isFirstLoad ? { opacity: 0, scale: 0.8 } : false}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.7, duration: 1 }}
+                    className="mt-6 flex space-x-4"
+                  >
+                    <LinkButton
+                      label="Fiyat Hesapla"
+                      href={"/fiyat-hesapla"}
+                      bgColor="bg-primary hover:scale-105 transition-all duration-300"
+                    />
+                    <LinkButton
+                      label="İletişim"
+                      href="/iletisim"
+                      bgColor="bg-accent-foreground hover:scale-105 transition-all duration-300"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            ) : null
+          )}
+        </AnimatePresence>
+      </motion.div>
+
+      {/* Kontroller */}
+      {showControls && (
+        <motion.button
+          className="absolute top-1/2 left-4 z-30 hidden md:flex items-center justify-center px-4"
+          onClick={() => prevSlide(true)}
+          aria-label="Önceki Slide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          whileTap={{ scale: 1.2 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.span
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+            className="inline-flex items-center justify-center w-12 h-12 bg-white/30 rounded-full shadow-md"
           >
-            <Image
-              src={slide.src}
-              alt={slide.title}
-              fill
-              style={{ objectFit: "cover" }}
-              className="brightness-75"
-              priority={index === 0}
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight shadow-lg">
-                {slide.title}
-              </h2>
-              <p className="mt-4 text-lg md:text-2xl shadow-md">
-                {slide.description}
-              </p>
-              <div className="mt-6 flex space-x-4">
-                <LinkButton
-                  label="Fiyat Hesapla"
-                  href={"/fiyat-hesapla"}
-                  bgColor="bg-primary hover:scale-105 transition-all duration-300"
-                />
-                <LinkButton
-                  label="İletişim"
-                  href="/iletisim"
-                  bgColor="bg-accent-foreground hover:scale-105 transition-all duration-300"
-                />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Indicators */}
-      {/*     <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-4 h-4 rounded-full transition-all duration-300 ${
-              currentSlide === index
-                ? "bg-blue-500 scale-125"
-                : "bg-gray-300 scale-100"
-            }`}
-            aria-label={`Slide ${index + 1}`}
-          ></button>
-        ))}
-      </div> */}
-
-      {/* Controls */}
-      <button
-        className="absolute top-1/2 left-0 z-30  hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-        onClick={prevSlide}
-        aria-label="Önceki Slide"
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
-          <FaChevronLeft className="text-white" size={20} />
-        </span>
-      </button>
-      <button
-        className="absolute top-1/2 right-0 z-30  hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-        onClick={nextSlide}
-        aria-label="Sonraki Slide"
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
-          <FaChevronRight className="text-white" size={20} />
-        </span>
-      </button>
+            <FaChevronLeft className="text-white" size={24} />
+          </motion.span>
+        </motion.button>
+      )}
+      {showControls && (
+        <motion.button
+          className="absolute top-1/2 right-4 z-30 hidden md:flex items-center justify-center px-4"
+          onClick={() => nextSlide(true)}
+          aria-label="Sonraki Slide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          whileTap={{ scale: 1.2 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.span
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+            className="inline-flex items-center justify-center w-12 h-12 bg-white/30 rounded-full shadow-md"
+          >
+            <FaChevronRight className="text-white" size={24} />
+          </motion.span>
+        </motion.button>
+      )}
     </div>
   );
 };
