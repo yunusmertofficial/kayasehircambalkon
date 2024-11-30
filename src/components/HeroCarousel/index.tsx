@@ -102,6 +102,7 @@ const HeroCarousel = () => {
               className="brightness-75"
               placeholder="blur"
               blurDataURL={slide.src}
+              priority={slideIndex === 0}
             />
             <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
               <h2 className="text-4xl md:text-5xl font-bold">{slide.title}</h2>
