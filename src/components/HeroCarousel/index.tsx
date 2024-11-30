@@ -100,6 +100,7 @@ const HeroCarousel = () => {
               fill
               style={{ objectFit: "cover" }}
               className="brightness-75"
+              quality={50}
               priority={slideIndex === 0}
             />
             <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
