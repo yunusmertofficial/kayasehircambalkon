@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaBars, FaChevronDown } from "react-icons/fa";
 import { links } from "@/utils/data";
+import { useState } from "react";
 
 type Props = {
   isMobileMenuOpen: boolean;
@@ -17,6 +18,7 @@ const MainNav: React.FC<Props> = ({
   setIsMobileMenuOpen,
   activeUrl,
 }) => {
+  const [, setLoaded] = useState(false);
   const dropdownVariants = {
     hidden: { opacity: 0, scaleY: 0 },
     visible: {
@@ -37,8 +39,9 @@ const MainNav: React.FC<Props> = ({
               alt="logo"
               width={250}
               height={73}
-              placeholder="blur"
-              blurDataURL={"/logo.webp"}
+              onLoad={() => {
+                setLoaded(true);
+              }}
             />
           </Link>
         </div>

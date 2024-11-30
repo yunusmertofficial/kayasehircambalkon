@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface ImageProps {
   id: number;
   height: string;
@@ -9,6 +11,6 @@ export interface ImageProps {
 
 export interface HeroCarouselThumbnailImageProps {
   id: number;
-  href: string;
+  href: string | StaticImageData;
   alt: string;
 }

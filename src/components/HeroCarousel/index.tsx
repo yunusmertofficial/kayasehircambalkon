@@ -6,19 +6,20 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { range } from "@/utils/range";
 import Thumbnail from "./ThumbnailComponent";
 import Link from "next/link";
-
+import Carousel1 from "/public/images/carousel-1.webp";
+import Carousel2 from "/public/images/carousel-2.webp";
 const HeroCarousel = () => {
   const [index, setIndex] = useState(0); // Yeni index state
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      src: "/images/carousel-1.webp",
+      src: Carousel1,
       title: "CAM BALKON SİSTEMLERİ",
       description: "Cam balkon montajı, üretimi ve satışı.",
     },
     {
-      src: "/images/carousel-2.webp",
+      src: Carousel2,
       title: "KATLANIR CAM BALKON",
       description: "Farklı tasarım ve Katlanır modelleri sizlerle.",
     },
@@ -47,12 +48,12 @@ const HeroCarousel = () => {
 
   const images = [
     {
-      href: "/images/carousel-1.webp",
+      href: Carousel1,
       alt: "Cam balkon sistemi",
       id: 0,
     },
     {
-      href: "/images/carousel-2.webp",
+      href: Carousel2,
       alt: "Katlanır cam balkon",
       id: 1,
     },
@@ -82,7 +83,6 @@ const HeroCarousel = () => {
     },
     [currentSlide]
   );
-
   return (
     <div className="relative w-full h-[75vh] overflow-hidden">
       {/* Slide Container */}
@@ -100,8 +100,6 @@ const HeroCarousel = () => {
               fill
               style={{ objectFit: "cover" }}
               className="brightness-75"
-              placeholder="blur"
-              blurDataURL={slide.src}
               priority={slideIndex === 0}
             />
             <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
