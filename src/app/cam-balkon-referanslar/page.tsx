@@ -1,9 +1,10 @@
 "use client";
 import { images } from "@/utils/data";
 import Image from "next/image";
-import { Modal } from "./_components/modal";
 import SharedModal from "./_components/SharedModal";
 import { useEffect, useRef, useState } from "react";
+import Modal from "./_components/modal";
+import { useHotkeys } from "react-hotkeys-hook";
 
 export default function Reference() {
   const [curIndex, setCurIndex] = useState<number | null>(null);
@@ -36,6 +37,34 @@ export default function Reference() {
       setLastViewedPhoto(null);
     }
   }, [curIndex, lastViewedPhoto, setLastViewedPhoto]);
+
+  useHotkeys(
+    "ArrowRight",
+    () => {
+      if (curIndex !== null && curIndex + 1 < images.length) {
+        changePhotoId(curIndex + 1);
+      }
+    },
+    [curIndex, images.length]
+  );
+
+  useHotkeys(
+    "ArrowLeft",
+    () => {
+      if (curIndex !== null && curIndex > 0) {
+        changePhotoId(curIndex - 1);
+      }
+    },
+    [curIndex]
+  );
+
+  useHotkeys(
+    "Escape",
+    () => {
+      handleClose();
+    },
+    []
+  );
 
   return (
     <>

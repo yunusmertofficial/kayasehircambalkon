@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import LinkButton from "@/components/LinkButton";
 import { useSwipeable } from "react-swipeable";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const HeroCarousel = () => {
   const handlers = useSwipeable({
@@ -26,6 +27,22 @@ const HeroCarousel = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  useHotkeys(
+    "ArrowRight",
+    () => {
+      nextSlide();
+    },
+    [currentSlide]
+  );
+
+  useHotkeys(
+    "ArrowLeft",
+    () => {
+      prevSlide();
+    },
+    [currentSlide]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
