@@ -6,3 +6,9 @@ export interface ImageProps {
   format: string;
   blurDataUrl?: string;
 }
+
+export interface HeroCarouselThumbnailImageProps {
+  id: number;
+  href: string;
+  alt: string;
+}

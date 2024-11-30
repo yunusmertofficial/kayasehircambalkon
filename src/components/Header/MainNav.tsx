@@ -35,8 +35,8 @@ const MainNav: React.FC<Props> = ({
             <Image
               src="/logo.webp"
               alt="logo"
-              width={200}
-              height={60}
+              width={250}
+              height={73}
               placeholder="blur"
               blurDataURL={"/logo.webp"}
             />

@@ -1,17 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import LinkButton from "@/components/LinkButton";
-import { useSwipeable } from "react-swipeable";
 import { useHotkeys } from "react-hotkeys-hook";
+import { range } from "@/utils/range";
+import Thumbnail from "./ThumbnailComponent";
+import Link from "next/link";
 
 const HeroCarousel = () => {
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
-    trackMouse: true,
-  });
+  const [index, setIndex] = useState(0); // Yeni index state
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
@@ -26,7 +24,48 @@ const HeroCarousel = () => {
     },
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const nextSlide = useCallback(() => {
+    const newIndex = (currentSlide + 1) % slides.length;
+    setIndex(newIndex);
+    setCurrentSlide(newIndex);
+  }, [currentSlide, slides.length]);
+
+  const prevSlide = () => {
+    const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+    setIndex(newIndex);
+    setCurrentSlide(newIndex);
+  };
+
+  //slider 5 saniyede bir geçiş yapacak
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  const images = [
+    {
+      href: "/images/carousel-1.webp",
+      alt: "Cam balkon sistemi",
+      id: 0,
+    },
+    {
+      href: "/images/carousel-2.webp",
+      alt: "Katlanır cam balkon",
+      id: 1,
+    },
+  ];
+
+  const filteredImages = images?.filter((img) =>
+    range(index - 15, index + 15).includes(img.id)
+  );
+
+  const changePhotoId = (id: number) => {
+    setIndex(id); // Yeni resmi ayarla
+    setCurrentSlide(id); // Slayt indexini güncelle
+  };
 
   useHotkeys(
     "ArrowRight",
@@ -44,30 +83,15 @@ const HeroCarousel = () => {
     [currentSlide]
   );
 
-  /*   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000); // 6 saniye aralıklarla slayt değişimi
-    return () => clearInterval(interval);
-  }, [slides.length]); */
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   return (
     <div className="relative w-full h-[75vh] overflow-hidden">
       {/* Slide Container */}
-      <div className="relative w-full h-full" {...handlers}>
-        {slides.map((slide, index) => (
+      <div className="relative w-full h-full">
+        {slides.map((slide, slideIndex) => (
           <div
-            key={index}
+            key={slideIndex}
             className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-              currentSlide === index ? "opacity-100 z-10" : "opacity-0 z-0"
+              currentSlide === slideIndex ? "opacity-100 z-2" : "opacity-0 z-0"
             }`}
           >
             <Image
@@ -76,26 +100,29 @@ const HeroCarousel = () => {
               fill
               style={{ objectFit: "cover" }}
               className="brightness-75"
-              priority={index === 0}
+              placeholder="blur"
+              blurDataURL={slide.src}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight shadow-lg">
-                {slide.title}
-              </h2>
-              <p className="mt-4 text-lg md:text-2xl shadow-md">
-                {slide.description}
-              </p>
+            <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
+              <h2 className="text-4xl md:text-5xl font-bold">{slide.title}</h2>
+              <p className="mt-4 text-lg md:text-xl">{slide.description}</p>
               <div className="mt-6 flex space-x-4">
-                <LinkButton
-                  label="Fiyat Hesapla"
+                <Link
                   href={"/fiyat-hesapla"}
-                  bgColor="bg-primary hover:scale-105 transition-all duration-300"
-                />
-                <LinkButton
-                  label="İletişim"
+                  passHref
+                  className={`px-6 py-3 text-white text-lg font-semibold rounded-lg hover:brightness-110  bg-primary hover:scale-105 transition-all duration-300`}
+                  style={{ fontFamily: "var(--font-geist-sans)" }}
+                >
+                  Fiyat Hesapla
+                </Link>
+                <Link
                   href="/iletisim"
-                  bgColor="bg-accent-foreground hover:scale-105 transition-all duration-300"
-                />
+                  passHref
+                  className={`px-6 py-3 text-white text-lg font-semibold rounded-lg hover:brightness-110  bg-accent-foreground hover:scale-105 transition-all duration-300`}
+                  style={{ fontFamily: "var(--font-geist-sans)" }}
+                >
+                  İletişim
+                </Link>
               </div>
             </div>
           </div>
@@ -104,7 +131,7 @@ const HeroCarousel = () => {
 
       {/* Controls */}
       <button
-        className="absolute top-1/2 left-0 z-30 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+        className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
         onClick={prevSlide}
         aria-label="Önceki Slide"
       >
@@ -113,7 +140,7 @@ const HeroCarousel = () => {
         </span>
       </button>
       <button
-        className="absolute top-1/2 right-0 z-30 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+        className="absolute top-1/2 right-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
         onClick={nextSlide}
         aria-label="Sonraki Slide"
       >
@@ -121,6 +148,13 @@ const HeroCarousel = () => {
           <FaChevronRight className="text-white" size={20} />
         </span>
       </button>
+
+      <Thumbnail
+        totalImageLength={images.length}
+        filteredImages={filteredImages}
+        index={index}
+        changePhotoId={changePhotoId}
+      />
     </div>
   );
 };

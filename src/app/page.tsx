@@ -1,3 +1,4 @@
+import Commitments from "@/components/Commitments";
 import HeroCarousel from "@/components/HeroCarousel";
 //import GlassBalconyPriceCalculator from "@/components/GlassBalconyPriceCalculator";
 
@@ -6,6 +7,12 @@ export default function Home() {
     <>
       <section aria-label="Cam Balkon">
         <HeroCarousel />
+      </section>
+      <section
+        className="relative z-2 w-full max-w-screen-xl mx-auto -mt-32 px-4"
+        aria-label="Taahhütler"
+      >
+        <Commitments />
       </section>
       {/*     <section aria-label="Cam Balkon Fiyat Hesaplama">
         <GlassBalconyPriceCalculator />
