@@ -35,8 +35,8 @@ export default function Contact() {
           <div className="mt-5">
             <div className="flex items-center mt-2 space-x-2 text-gray-600">
               <span className="text-gray-400 w-4 h-4">✉️</span>
-              <a href="mailto:kayasehircambalkon@gmail.com">
-                kayasehircambalkon@gmail.com
+              <a href="mailto:info@kayasehircambalkon.com">
+                info@kayasehircambalkon.com
               </a>
             </div>
             <div className="flex items-center mt-2 space-x-2 text-gray-600">
