@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { HeroCarouselThumbnailImageProps } from "@/utils/types";
+import { ImageProps } from "@/utils/types";
 
 const Thumbnail = ({
   totalImageLength,
@@ -9,7 +9,7 @@ const Thumbnail = ({
   index,
   changePhotoId,
 }: {
-  filteredImages: HeroCarouselThumbnailImageProps[];
+  filteredImages: ImageProps[];
   index: number;
   totalImageLength: number;
   changePhotoId: (id: number) => void;
@@ -22,7 +22,7 @@ const Thumbnail = ({
           className="mx-auto mb-6 mt-6 flex aspect-[3/2] h-10"
         >
           <AnimatePresence initial={false}>
-            {filteredImages.map(({ href, alt, id }) => (
+            {filteredImages.map(({ alt, public_id, id, format }) => (
               <motion.button
                 initial={{
                   width: "0%",
@@ -45,7 +45,7 @@ const Thumbnail = ({
                 } relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
               >
                 <Image
-                  alt={alt}
+                  alt={alt || ""}
                   width={180}
                   height={120}
                   className={`${
@@ -53,7 +53,7 @@ const Thumbnail = ({
                       ? "brightness-110 hover:brightness-110"
                       : "brightness-50 contrast-125 hover:brightness-75"
                   } h-full transform object-cover transition`}
-                  src={href}
+                  src={`/images/carousel/${public_id}.${format}`}
                 />
               </motion.button>
             ))}

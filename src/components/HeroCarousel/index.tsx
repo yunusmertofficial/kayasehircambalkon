@@ -6,20 +6,23 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { range } from "@/utils/range";
 import Thumbnail from "./ThumbnailComponent";
 import Link from "next/link";
-import Carousel1 from "/public/images/carousel-1.webp";
-import Carousel2 from "/public/images/carousel-2.webp";
+
 const HeroCarousel = () => {
   const [index, setIndex] = useState(0); // Yeni index state
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      src: Carousel1,
+      id: 0,
+      public_id: "1",
+      format: "webp",
       title: "CAM BALKON SİSTEMLERİ",
       description: "Cam balkon montajı, üretimi ve satışı.",
     },
     {
-      src: Carousel2,
+      id: 1,
+      public_id: "2",
+      format: "webp",
       title: "KATLANIR CAM BALKON",
       description: "Farklı tasarım ve Katlanır modelleri sizlerle.",
     },
@@ -46,20 +49,7 @@ const HeroCarousel = () => {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  const images = [
-    {
-      href: Carousel1,
-      alt: "Cam balkon sistemi",
-      id: 0,
-    },
-    {
-      href: Carousel2,
-      alt: "Katlanır cam balkon",
-      id: 1,
-    },
-  ];
-
-  const filteredImages = images?.filter((img) =>
+  const filteredImages = slides?.filter((img) =>
     range(index - 15, index + 15).includes(img.id)
   );
 
@@ -95,7 +85,7 @@ const HeroCarousel = () => {
             }`}
           >
             <Image
-              src={slide.src}
+              src={`/images/carousel/${slide.public_id}.${slide.format}`}
               alt={slide.title}
               fill
               style={{ objectFit: "cover" }}
@@ -149,8 +139,13 @@ const HeroCarousel = () => {
       </button>
 
       <Thumbnail
-        totalImageLength={images.length}
-        filteredImages={filteredImages}
+        totalImageLength={slides.length}
+        filteredImages={filteredImages.map((img) => ({
+          id: img.id,
+          public_id: img.public_id,
+          format: img.format,
+          alt: img.title,
+        }))}
         index={index}
         changePhotoId={changePhotoId}
       />
