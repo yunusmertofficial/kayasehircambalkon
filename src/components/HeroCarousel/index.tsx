@@ -16,11 +16,13 @@ const HeroCarousel = () => {
     {
       src: Carousel1,
       title: "CAM BALKON SİSTEMLERİ",
+      blurDataURL: "/images/carousel-1-blur.webp",
       description: "Cam balkon montajı, üretimi ve satışı.",
     },
     {
       src: Carousel2,
       title: "KATLANIR CAM BALKON",
+      blurDataURL: "/images/carousel-2-blur.webp",
       description: "Farklı tasarım ve Katlanır modelleri sizlerle.",
     },
   ];
@@ -100,7 +102,8 @@ const HeroCarousel = () => {
               fill
               style={{ objectFit: "cover" }}
               className="brightness-75"
-              quality={50}
+              placeholder="blur"
+              blurDataURL={slide.blurDataURL}
               priority={slideIndex === 0}
             />
             <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
