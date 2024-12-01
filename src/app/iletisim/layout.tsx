@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Kayaşehir Cam Balkon, iletişim, cam balkon iletişim, cam balkon öneri, cam balkon sorular",
 };
 
-export default function CamBalkonReferanslarLayout({
+export default function CamBalkonIletisimLayout({
   children,
 }: {
   children: React.ReactNode;
