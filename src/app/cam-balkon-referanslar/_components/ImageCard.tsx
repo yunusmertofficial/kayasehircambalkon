@@ -51,6 +51,7 @@ export default function SharedModal({ currentPhoto }: SharedModalProps) {
             src={`/images/referanslar/${currentPhoto.public_id}.${currentPhoto.format}`}
             width={1920}
             height={1280}
+            style={{ objectFit: "contain" }}
             priority
             alt="Selected image"
             className="rounded-lg shadow-lg"

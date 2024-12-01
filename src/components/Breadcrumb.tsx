@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const Breadcrumb = ({
   breadcrumbs,
@@ -14,12 +13,6 @@ const Breadcrumb = ({
     <div className="relative text-center">
       {/* Sabit Arka Plan Resmi */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/images/background.jpg" // Sabit arka plan resmi
-          alt="Background"
-          fill
-          style={{ objectFit: "cover" }}
-        />
         {/* Karartma ve Blur Efekti */}
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-md"></div>
       </div>
@@ -55,7 +48,7 @@ const Breadcrumb = ({
                   </span>
                 )}
                 {index !== breadcrumbs.length - 1 && (
-                  <span className="mx-2 text-gray-500">/</span>
+                  <span className="mx-2 text-primary-foreground">/</span>
                 )}
               </li>
             ))}
