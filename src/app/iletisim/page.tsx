@@ -33,7 +33,7 @@ export default function Contact() {
           <h2 className="font-semibold text-2xl text-gray-800">
             Bizimle İletişime Geçin
           </h2>
-          <p className="text-md  text-slate-500 mt-4">
+          <p className="mt-4 text-gray-600">
             Herhangi bir sorunuz varsa, formu doldurun ya da bize e-posta
             gönderin veya telefonla ulaşın. Size yardımcı olmaktan mutluluk
             duyarız!
