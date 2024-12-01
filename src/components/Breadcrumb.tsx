@@ -26,7 +26,7 @@ const Breadcrumb = ({
       <div className="relative z-10 py-16 px-4">
         {/* Başlık */}
         <h1
-          className="text-5xl font-extrabold text-white tracking-tight"
+          className="text-4xl font-bold text-white"
           style={{
             fontFamily: "Inter, sans-serif", // Fallback font ekleyin
           }}
