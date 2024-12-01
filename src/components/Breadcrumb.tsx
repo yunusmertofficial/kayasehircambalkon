@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Inter } from "next/font/google";
 
-// Google Font'un yüklenmesini optimize et
+// Font optimizasyonu
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap", // Fontu hızlı göstermek için swap modunu kullan
+  weight: ["400", "700"], // Sadece gerekli ağırlıkları yükleyin
+  display: "swap", // İlk yükleme süresini hızlandırır
 });
 
 const Breadcrumb = ({
@@ -18,16 +19,18 @@ const Breadcrumb = ({
 }) => {
   return (
     <div className={`relative text-center ${inter.className}`}>
-      {/* Sabit Arka Plan */}
-      <div className="absolute inset-0 -z-10">
-        {/* Karartma ve Blur Efekti */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      </div>
+      {/* Arka Plan */}
+      <div className="absolute inset-0 -z-10 bg-black bg-opacity-40"></div>
 
       {/* İçerik */}
       <div className="relative z-10 py-16 px-4">
         {/* Başlık */}
-        <h1 className="text-5xl font-bold text-white tracking-tight">
+        <h1
+          className="text-5xl font-extrabold text-white tracking-tight"
+          style={{
+            fontFamily: "Inter, sans-serif", // Fallback font ekleyin
+          }}
+        >
           {title}
         </h1>
 
