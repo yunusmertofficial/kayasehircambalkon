@@ -1,8 +1,13 @@
+import { images } from "@/utils/data";
+import ImageCard from "../_components/ImageCard";
+import { notFound } from "next/navigation";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const slugs = ["1", "2", "3", "4", "5", "6"];
-  return slugs.map((slug) => ({ id: slug }));
+  return images.map((image) => {
+    return { id: image.id.toString() };
+  });
 }
 
 export default async function PhotoPage({
@@ -11,5 +16,13 @@ export default async function PhotoPage({
   params: Promise<{ id: string }>;
 }) {
   const id = (await params).id;
-  return <div>{id}</div>;
+  const currentPhoto = images.find((image) => image.id === Number(id));
+  if (!currentPhoto) {
+    return notFound();
+  }
+  return (
+    <div>
+      <ImageCard currentPhoto={currentPhoto} />
+    </div>
+  );
 }

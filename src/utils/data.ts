@@ -2,7 +2,7 @@ import { ImageProps } from "./types";
 
 export const links = [
   { id: 1, label: "Anasayfa", href: "/", dropdown: [] },
-  { id: 2, label: "Hakkımızda", href: "/about", dropdown: [] },
+  { id: 2, label: "Hakkımızda", href: "/hakkimizda", dropdown: [] },
   {
     id: 3,
     label: "Hizmetlerimiz",
@@ -29,7 +29,6 @@ export const images = [
     width: "1920",
     public_id: "59",
     format: "jpg",
-    blurDataUrl: "/59.jpg",
   },
   {
     id: 1,
@@ -37,7 +36,6 @@ export const images = [
     width: "1920",
     public_id: "68",
     format: "jpg",
-    blurDataUrl: "/68.jpg",
   },
   {
     id: 2,
@@ -45,6 +43,5 @@ export const images = [
     width: "1920",
     public_id: "76",
     format: "jpg",
-    blurDataUrl: "/76.jpg",
   },
 ] as ImageProps[];
