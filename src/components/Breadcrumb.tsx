@@ -19,7 +19,6 @@ const Breadcrumb = ({
           alt="Background"
           fill
           style={{ objectFit: "cover" }}
-          priority
         />
         {/* Karartma ve Blur Efekti */}
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-md"></div>

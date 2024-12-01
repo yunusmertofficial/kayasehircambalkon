@@ -108,7 +108,7 @@ export default function SharedModal({
               )}
               <div className="absolute right-0 top-0 flex items-center gap-2 p-3 text-white">
                 <a
-                  href={`/images/referanslar/${currentImage.public_id}.${currentImage.format}`}
+                  href={`/cam-balkon-referanslar/${currentImage.id}`}
                   className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
                   target="_blank"
                   title="Open fullsize version"
