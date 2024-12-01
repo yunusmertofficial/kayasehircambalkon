@@ -53,6 +53,7 @@ export default function AboutPage() {
           objectFit="cover" // Görseli tam kapsayıcı yapar
           placeholder="blur"
           blurDataURL="/images/hakkimizda.jpg" // Bulanık veri
+          quality={20} // Kalite
           priority
         />
         {/* Başlık ve Breadcrumb */}
