@@ -30,6 +30,7 @@ export default function AboutPage() {
               placeholder="blur"
               blurDataURL="/images/background.jpg" // Bulanık veri
               className="rounded-lg shadow-lg"
+              priority
             />
           </div>
 
