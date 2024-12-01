@@ -19,7 +19,7 @@ export const links = [
     href: "/cam-balkon-referanslar",
     dropdown: [],
   },
-  { id: 5, label: "İletişim", href: "/contact", dropdown: [] },
+  { id: 5, label: "İletişim", href: "/iletisim", dropdown: [] },
 ] as const;
 
 export const images = [

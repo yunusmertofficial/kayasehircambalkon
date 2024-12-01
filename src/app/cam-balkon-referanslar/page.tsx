@@ -79,7 +79,7 @@ export default function Reference() {
           />
         </Modal>
       )}
-      <section className="mx-auto max-w-[1960px] p-4">
+      <div className="mx-auto max-w-[1960px] p-4">
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
           {images.map(({ id, public_id, format }) => (
             <button
@@ -105,7 +105,7 @@ export default function Reference() {
             </button>
           ))}
         </div>
-      </section>
+      </div>
     </>
   );
 }
