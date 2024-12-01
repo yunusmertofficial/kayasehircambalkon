@@ -44,7 +44,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [nextSlide]);
