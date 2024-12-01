@@ -15,7 +15,7 @@ const HeroCarousel = () => {
     {
       id: 0,
       public_id: "1",
-      format: "avif",
+      format: "webp",
       title: "CAM BALKON SİSTEMLERİ",
       description: "Cam balkon montajı, üretimi ve satışı.",
     },
@@ -91,6 +91,8 @@ const HeroCarousel = () => {
               style={{ objectFit: "cover" }}
               className="brightness-75"
               priority={slideIndex === 0}
+              placeholder="blur"
+              blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
             />
             <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
               <h2 className="text-4xl md:text-5xl font-bold">{slide.title}</h2>

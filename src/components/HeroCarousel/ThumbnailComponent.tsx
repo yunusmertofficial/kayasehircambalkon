@@ -54,6 +54,8 @@ const Thumbnail = ({
                       : "brightness-50 contrast-125 hover:brightness-75"
                   } h-full transform object-cover transition`}
                   src={`/images/carousel/${public_id}.${format}`}
+                  placeholder="blur"
+                  blurDataURL={`/images/carousel/blur/${public_id}.${format}`}
                 />
               </motion.button>
             ))}
