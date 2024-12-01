@@ -1,31 +1,10 @@
+"use client";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
-import Breadcrumb from "@/components/Breadcrumb";
 import ContactForm from "./_components/ContactForm";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "İletişim | Kayaşehir Cam Balkon",
-  description:
-    "Kayaşehir Cam Balkon ile iletişime geçin. Her türlü soru, öneri veya talepleriniz için bizimle kolayca bağlantı kurabilirsiniz.",
-  keywords:
-    "Kayaşehir Cam Balkon, iletişim, cam balkon iletişim, cam balkon öneri, cam balkon sorular",
-};
 
 export default function Contact() {
-  const breadcrumbs = [
-    { href: "/", label: "Anasayfa" },
-    { href: "/iletisim", label: "İletişim" },
-  ];
-
   return (
-    <section className="mb-10">
-      {/* Breadcrumb */}
-      <Breadcrumb
-        breadcrumbs={breadcrumbs}
-        title="Kayaşehir Cam Balkon"
-        description="Bizimle iletişime geçin. Her türlü sorunuz için buradayız."
-      />
-
+    <>
       {/* Content */}
       <div className="flex flex-col md:flex-row md:justify-between md:gap-10 max-w-5xl mx-auto mt-10 px-4 md:px-8">
         {/* Contact Info */}
@@ -67,6 +46,6 @@ export default function Contact() {
           <ContactForm />
         </div>
       </div>
-    </section>
+    </>
   );
 }
