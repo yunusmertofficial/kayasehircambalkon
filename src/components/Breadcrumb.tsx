@@ -47,17 +47,17 @@ const Breadcrumb = ({
                 {index !== breadcrumbs.length - 1 ? (
                   <Link
                     href={breadcrumb.href}
-                    className="text-blue-400 font-medium hover:text-gray-200 hover:underline transition-all duration-300"
+                    className="text-primary-foreground font-medium hover:text-gray-200 hover:underline transition-all duration-300"
                   >
                     {breadcrumb.label}
                   </Link>
                 ) : (
-                  <span className="text-gray-300 font-medium opacity-80">
+                  <span className="text-primary-foreground font-medium opacity-80">
                     {breadcrumb.label}
                   </span>
                 )}
                 {index !== breadcrumbs.length - 1 && (
-                  <span className="mx-2 text-gray-400">/</span>
+                  <span className="mx-2 text-primary-foreground">/</span>
                 )}
               </li>
             ))}
