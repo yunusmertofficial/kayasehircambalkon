@@ -15,7 +15,7 @@ const HeroCarousel = () => {
     {
       id: 0,
       public_id: "1",
-      format: "webp",
+      format: "avif",
       title: "CAM BALKON SİSTEMLERİ",
       description: "Cam balkon montajı, üretimi ve satışı.",
     },
