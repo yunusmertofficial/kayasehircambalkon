@@ -9,7 +9,7 @@ export default function Home() {
         <HeroCarousel />
       </section>
       <section
-        className="relative z-2 w-full max-w-screen-xl mx-auto -mt-32 px-4"
+        className="relative w-full max-w-screen-xl mx-auto px-4 bottom-20"
         aria-label="Taahhütler"
       >
         <Commitments />

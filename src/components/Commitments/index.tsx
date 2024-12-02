@@ -26,8 +26,7 @@ const Commitments = () => {
   return (
     <div
       className="grid grid-cols-1 gap-6 
-     lg:grid-cols-3
-    mt-10 px-4"
+     lg:grid-cols-3 px-4"
     >
       {cards.map((card, index) => (
         <Card

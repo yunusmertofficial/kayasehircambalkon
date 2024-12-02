@@ -73,84 +73,72 @@ const HeroCarousel = () => {
     },
     [currentSlide]
   );
+
+  const slide = slides[currentSlide];
   return (
-    <div className="relative w-full h-[75vh] overflow-hidden">
-      {/* Slide Container */}
-      <div className="relative w-full h-full">
-        {slides.map((slide, slideIndex) => (
-          <div
-            key={slideIndex}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-              currentSlide === slideIndex ? "opacity-100 z-2" : "opacity-0 z-0"
-            }`}
-          >
-            <Image
-              src={`/images/carousel/${slide.public_id}.${slide.format}`}
-              alt={slide.title}
-              fill
-              style={{ objectFit: "cover" }}
-              className="brightness-75"
-              priority={slideIndex === 0}
-              placeholder="blur"
-              blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
-            />
-            <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
-              <h2 className="text-4xl md:text-5xl font-bold">{slide.title}</h2>
-              <p className="mt-4 text-lg md:text-xl">{slide.description}</p>
-              <div className="mt-6 flex space-x-4">
-                <Link
-                  href={"/fiyat-hesapla"}
-                  passHref
-                  className={`px-6 py-3 text-white text-lg font-semibold rounded-lg hover:brightness-110  bg-primary hover:scale-105 transition-all duration-300`}
-                  style={{ fontFamily: "var(--font-geist-sans)" }}
-                >
-                  Fiyat Hesapla
-                </Link>
-                <Link
-                  href="/iletisim"
-                  passHref
-                  className={`px-6 py-3 text-white text-lg font-semibold rounded-lg hover:brightness-110  bg-accent-foreground hover:scale-105 transition-all duration-300`}
-                  style={{ fontFamily: "var(--font-geist-sans)" }}
-                >
-                  İletişim
-                </Link>
-              </div>
+    <div>
+      <div className="relative w-full h-[75vh] overflow-hidden">
+        <Image
+          src={`/images/carousel/${slide.public_id}.${slide.format}`}
+          alt={slide.title}
+          fill
+          style={{ objectFit: "cover" }}
+          className="brightness-75"
+          priority
+          placeholder="blur"
+          blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
+        />
+        <div className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out">
+          <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold">{slide.title}</h2>
+            <p className="mt-4 text-lg md:text-xl">{slide.description}</p>
+            <div className="mt-4 flex space-x-4 z-10">
+              <Link
+                href="/fiyat-hesaplama"
+                className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+              >
+                Fiyat Hesapla
+              </Link>
+              <Link
+                href="/iletisim"
+                className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+              >
+                İletişim
+              </Link>
             </div>
           </div>
-        ))}
+        </div>
+        <button
+          className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+          onClick={prevSlide}
+          aria-label="Önceki Slide"
+        >
+          <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
+            <FaChevronLeft className="text-white" size={20} />
+          </span>
+        </button>
+        <button
+          className="absolute top-1/2 right-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+          onClick={nextSlide}
+          aria-label="Sonraki Slide"
+        >
+          <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
+            <FaChevronRight className="text-white" size={20} />
+          </span>
+        </button>
+
+        <Thumbnail
+          totalImageLength={slides.length}
+          filteredImages={filteredImages.map((img) => ({
+            id: img.id,
+            public_id: img.public_id,
+            format: img.format,
+            alt: img.title,
+          }))}
+          index={index}
+          changePhotoId={changePhotoId}
+        />
       </div>
-
-      {/* Controls */}
-      <button
-        className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-        onClick={prevSlide}
-        aria-label="Önceki Slide"
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
-          <FaChevronLeft className="text-white" size={20} />
-        </span>
-      </button>
-      <button
-        className="absolute top-1/2 right-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-        onClick={nextSlide}
-        aria-label="Sonraki Slide"
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
-          <FaChevronRight className="text-white" size={20} />
-        </span>
-      </button>
-
-      <Thumbnail
-        totalImageLength={slides.length}
-        filteredImages={filteredImages.map((img) => ({
-          id: img.id,
-          public_id: img.public_id,
-          format: img.format,
-          alt: img.title,
-        }))}
-        index={index}
-        changePhotoId={changePhotoId}
-      />
     </div>
   );
 };
