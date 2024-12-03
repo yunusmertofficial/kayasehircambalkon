@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FaChevronRight } from "react-icons/fa"; // React Icons ok simgesi
 
 const Breadcrumb = ({
   breadcrumbs,
@@ -12,11 +13,11 @@ const Breadcrumb = ({
   description?: string;
   image?: {
     url: string;
-    blurDataURL: string;
+    blurDataURL?: string;
   };
 }) => {
   return (
-    <div className="relative w-full h-[200px] text-center">
+    <div className="relative w-full h-[200px] lg:h-[300px] text-start">
       {/* Görselin üzerine karanlık bir katman ekleyelim */}
       {image && (
         <>
@@ -26,32 +27,46 @@ const Breadcrumb = ({
             alt={title}
             layout="fill"
             style={{ objectFit: "cover" }}
-            placeholder="blur"
-            blurDataURL={image.blurDataURL}
+            placeholder={image.blurDataURL ? "blur" : "empty"}
+            blurDataURL={image.blurDataURL ? image.blurDataURL : undefined}
             quality={20}
             priority
           />
         </>
       )}
 
-      <div className="absolute z-20 top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4">
+      {/* Başlık ve açıklama bölümü */}
+      <div className="absolute z-20 top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 w-full max-w-5xl mx-auto px-4">
+        {/* Başlık sol üstte dikey çizgi ile */}
         <h1
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white border-l-4 pl-4 border-primary"
           style={{
-            fontFamily: "Inter, sans-serif", // Fallback font ekleyin
+            fontFamily: "Inter, sans-serif",
           }}
         >
           {title}
         </h1>
 
+        {/* Açıklama */}
         {description && (
           <p className="text-sm sm:text-lg mt-4 text-gray-300">{description}</p>
         )}
 
-        <nav className="flex justify-center mt-6" aria-label="Breadcrumb">
-          <ol className="flex space-x-2 text-sm sm:text-base">
+        {/* Breadcrumb */}
+        <nav
+          className="flex flex-wrap items-center mt-6"
+          aria-label="Breadcrumb"
+        >
+          <ol className="flex items-center text-sm sm:text-base">
             {breadcrumbs.map((breadcrumb, index) => (
               <li key={index} className="flex items-center">
+                {/* Breadcrumb geçişlerinde ok simgesi */}
+                {index !== 0 && (
+                  <FaChevronRight
+                    className="mx-2 text-primary-foreground"
+                    size={12}
+                  />
+                )}
                 {index !== breadcrumbs.length - 1 ? (
                   <Link
                     href={breadcrumb.href}
@@ -63,9 +78,6 @@ const Breadcrumb = ({
                   <span className="text-primary-foreground font-medium opacity-80">
                     {breadcrumb.label}
                   </span>
-                )}
-                {index !== breadcrumbs.length - 1 && (
-                  <span className="mx-2 text-primary-foreground">/</span>
                 )}
               </li>
             ))}

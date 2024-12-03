@@ -38,7 +38,7 @@ const HeroCarousel = () => {
     setCurrentSlide(newIndex);
   };
 
-  //slider 5 saniyede bir geçiş yapacak
+  //slider 8 saniyede bir geçiş yapacak
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -78,17 +78,22 @@ const HeroCarousel = () => {
           <React.Fragment key={slide.id}>
             {slide.id === currentSlide && (
               <div className="absolute inset-0 flex items-center justify-center">
+                {/* Resim */}
                 <Image
                   src={`/images/carousel/${slide.public_id}.${slide.format}`}
                   alt={slide.title}
                   layout="fill"
                   objectFit="cover"
-                  className="brightness-75"
                   priority
                   placeholder="blur"
                   blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
                 />
-                <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white">
+
+                {/* Karanlık Overlay */}
+                <div className="absolute inset-0 bg-black opacity-40"></div>
+
+                {/* İçerik */}
+                <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white z-10">
                   <h2 className="text-4xl md:text-5xl font-bold">
                     {slide.title}
                   </h2>
@@ -112,6 +117,7 @@ const HeroCarousel = () => {
             )}
           </React.Fragment>
         ))}
+        {/* Navigasyon */}
         <button
           className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
           onClick={prevSlide}

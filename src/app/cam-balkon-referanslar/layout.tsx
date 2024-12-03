@@ -49,8 +49,11 @@ export default function CamBalkonReferanslarLayout({
       <section>
         <Breadcrumb
           breadcrumbs={breadcrumbs}
-          title="Cam Balkon Referanslar"
-          description="Kayaşehir Cam Balkon'un üretim, imalat, montaj ve tüm uygulama fotoğraflarını bu sayfada görebilir, detaylar için bizimle iletişime geçebilirsiniz."
+          title="Referanslar"
+          description="Kayaşehir Cam Balkon üretim, imalat, montaj ve tüm uygulama fotoğrafları"
+          image={{
+            url: "/images/referanslar/banner.webp",
+          }}
         />
         {children}
       </section>

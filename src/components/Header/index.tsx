@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
       </div>
       <nav
         aria-label="Ana Menü"
-        className="sticky top-0 z-20 bg-white shadow-md"
+        className="sticky top-0 z-50 bg-white shadow-md"
       >
         <MainNav
           isMobileMenuOpen={isMobileMenuOpen}

@@ -22,7 +22,10 @@ export default function Contact() {
       {/* Breadcrumb */}
       <Breadcrumb
         breadcrumbs={breadcrumbs}
-        title="Kayaşehir Cam Balkon"
+        title="İletişim"
+        image={{
+          url: "/images/iletisim/banner.webp",
+        }}
         description="Bizimle iletişime geçin. Her türlü sorunuz için buradayız."
       />
 
