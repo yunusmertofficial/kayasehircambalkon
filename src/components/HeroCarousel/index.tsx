@@ -10,7 +10,6 @@ import React from "react";
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [prevSlide, setPrevSlide] = useState<number | null>(null);
 
   const slides = [
     {
@@ -27,25 +26,31 @@ const HeroCarousel = () => {
       title: "KATLANIR CAM BALKON",
       description: "Farklı tasarım ve Katlanır modelleri sizlerle.",
     },
+    {
+      id: 2,
+      public_id: "3",
+      format: "webp",
+      title: "SÜRGÜLÜ CAM BALKON",
+      description:
+        "Şık ve dayanıklı sürgülü cam balkon sistemleri ile yaşam alanlarınızı daha geniş hale getirin.",
+    },
   ];
 
   const nextSlide = useCallback(() => {
-    setPrevSlide(currentSlide);
     const newIndex = (currentSlide + 1) % slides.length;
     setCurrentSlide(newIndex);
   }, [currentSlide, slides.length]);
 
   const prevSlideHandler = () => {
-    setPrevSlide(currentSlide);
     const newIndex = (currentSlide - 1 + slides.length) % slides.length;
     setCurrentSlide(newIndex);
   };
 
-  //slider 8 saniyede bir geçiş yapacak
+  // Slider 5 saniyede bir geçiş yapacak
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 8000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [nextSlide]);
@@ -75,87 +80,86 @@ const HeroCarousel = () => {
   );
 
   return (
-    <div>
-      <div className="relative w-full h-[75vh] overflow-hidden">
-        {slides.map((slide) => (
-          <React.Fragment key={slide.id}>
-            {(slide.id === currentSlide || slide.id === prevSlide) && (
-              <div
-                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${
-                  slide.id === currentSlide ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {/* Resim */}
-                <Image
-                  src={`/images/carousel/${slide.public_id}.${slide.format}`}
-                  alt={slide.title}
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                  placeholder="blur"
-                  blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
-                />
+    <div className="relative w-full h-[75vh] overflow-hidden">
+      {slides.map((slide) => (
+        <React.Fragment key={slide.id}>
+          <div
+            className={`flex items-center justify-center absolute inset-0 transition-all ease-in-out duration-1000 
+              ${
+                slide.id === currentSlide
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-110"
+              }
+            `}
+          >
+            {/* Resim */}
+            <Image
+              src={`/images/carousel/${slide.public_id}.${slide.format}`}
+              alt={slide.title}
+              layout="fill"
+              objectFit="cover"
+              priority
+              placeholder="blur"
+              blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
+            />
 
-                {/* Karanlık Overlay */}
-                <div className="absolute inset-0 bg-black opacity-40"></div>
+            {/* Karanlık Overlay */}
+            <div className="absolute inset-0 bg-black opacity-40"></div>
 
-                {/* İçerik */}
-                <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white z-10">
-                  <h2 className="text-4xl md:text-5xl font-bold">
-                    {slide.title}
-                  </h2>
-                  <p className="mt-4 text-lg md:text-xl">{slide.description}</p>
-                  <div className="mt-4 flex space-x-4 z-10">
-                    <Link
-                      href="/fiyat-hesaplama"
-                      className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
-                    >
-                      Fiyat Hesapla
-                    </Link>
-                    <Link
-                      href="/iletisim"
-                      className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
-                    >
-                      İletişim
-                    </Link>
-                  </div>
-                </div>
+            {/* İçerik */}
+            <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white z-10 transition-all ease-in-out duration-1000">
+              <h2 className="text-4xl md:text-5xl font-bold">{slide.title}</h2>
+              <p className="mt-4 text-lg md:text-xl">{slide.description}</p>
+              <div className="mt-4 flex space-x-4 z-10">
+                <Link
+                  href="/fiyat-hesaplama"
+                  className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+                >
+                  Fiyat Hesapla
+                </Link>
+                <Link
+                  href="/iletisim"
+                  className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+                >
+                  İletişim
+                </Link>
               </div>
-            )}
-          </React.Fragment>
-        ))}
-        {/* Navigasyon */}
-        <button
-          className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-          onClick={prevSlideHandler}
-          aria-label="Önceki Slide"
-        >
-          <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
-            <FaChevronLeft className="text-white" size={20} />
-          </span>
-        </button>
-        <button
-          className="absolute top-1/2 right-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-          onClick={nextSlide}
-          aria-label="Sonraki Slide"
-        >
-          <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
-            <FaChevronRight className="text-white" size={20} />
-          </span>
-        </button>
+            </div>
+          </div>
+        </React.Fragment>
+      ))}
 
-        <Thumbnail
-          totalImageLength={slides.length}
-          filteredImages={filteredImages.map((img) => ({
-            id: img.id,
-            public_id: img.public_id,
-            format: img.format,
-            alt: img.title,
-          }))}
-          index={currentSlide}
-          changePhotoId={changePhotoId}
-        />
-      </div>
+      {/* Navigasyon */}
+      <button
+        className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+        onClick={prevSlideHandler}
+        aria-label="Önceki Slide"
+      >
+        <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
+          <FaChevronLeft className="text-white" size={20} />
+        </span>
+      </button>
+      <button
+        className="absolute top-1/2 right-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
+        onClick={nextSlide}
+        aria-label="Sonraki Slide"
+      >
+        <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
+          <FaChevronRight className="text-white" size={20} />
+        </span>
+      </button>
+
+      <Thumbnail
+        totalImageLength={slides.length}
+        filteredImages={filteredImages.map((img) => ({
+          id: img.id,
+          public_id: img.public_id,
+          format: img.format,
+          alt: img.title,
+        }))}
+        index={currentSlide}
+        changePhotoId={changePhotoId}
+      />
     </div>
   );
 };
