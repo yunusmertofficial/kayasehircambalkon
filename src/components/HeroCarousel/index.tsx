@@ -10,6 +10,7 @@ import React from "react";
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [prevSlide, setPrevSlide] = useState<number | null>(null);
 
   const slides = [
     {
@@ -29,11 +30,13 @@ const HeroCarousel = () => {
   ];
 
   const nextSlide = useCallback(() => {
+    setPrevSlide(currentSlide);
     const newIndex = (currentSlide + 1) % slides.length;
     setCurrentSlide(newIndex);
   }, [currentSlide, slides.length]);
 
-  const prevSlide = () => {
+  const prevSlideHandler = () => {
+    setPrevSlide(currentSlide);
     const newIndex = (currentSlide - 1 + slides.length) % slides.length;
     setCurrentSlide(newIndex);
   };
@@ -52,7 +55,7 @@ const HeroCarousel = () => {
   );
 
   const changePhotoId = (id: number) => {
-    setCurrentSlide(id); // Slayt indexini güncelle
+    setCurrentSlide(id);
   };
 
   useHotkeys(
@@ -66,7 +69,7 @@ const HeroCarousel = () => {
   useHotkeys(
     "ArrowLeft",
     () => {
-      prevSlide();
+      prevSlideHandler();
     },
     [currentSlide]
   );
@@ -76,8 +79,12 @@ const HeroCarousel = () => {
       <div className="relative w-full h-[75vh] overflow-hidden">
         {slides.map((slide) => (
           <React.Fragment key={slide.id}>
-            {slide.id === currentSlide && (
-              <div className="absolute inset-0 flex items-center justify-center">
+            {(slide.id === currentSlide || slide.id === prevSlide) && (
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${
+                  slide.id === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+              >
                 {/* Resim */}
                 <Image
                   src={`/images/carousel/${slide.public_id}.${slide.format}`}
@@ -120,7 +127,7 @@ const HeroCarousel = () => {
         {/* Navigasyon */}
         <button
           className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
-          onClick={prevSlide}
+          onClick={prevSlideHandler}
           aria-label="Önceki Slide"
         >
           <span className="inline-flex items-center justify-center w-10 h-10 bg-white/30 rounded-full">
