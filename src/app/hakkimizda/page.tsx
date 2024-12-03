@@ -1,5 +1,5 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | Kayaşehir Cam Balkon",
@@ -44,43 +44,18 @@ export default function AboutPage() {
   return (
     <section>
       {/* Banner ve Breadcrumb */}
-      <div className="relative w-full h-64 lg:h-96">
-        {/* Görsel */}
-        <Image
-          src="/images/hakkimizda.webp" // Örnek görsel yolu
-          alt="Firmamız Hakkında"
-          layout="fill"
-          objectFit="cover" // Görseli tam kapsayıcı yapar
-          placeholder="blur"
-          blurDataURL="/images/hakkimizda.jpg" // Bulanık veri
-          quality={20} // Kalite
-          priority
-        />
-        {/* Başlık ve Breadcrumb */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-            Firmamız Hakkında
-          </h1>
-          <nav className="text-sm text-gray-300">
-            {breadcrumbs.map((crumb, index) => (
-              <span key={index}>
-                <a href={crumb.href} className="text-white hover:underline">
-                  {crumb.label}
-                </a>
-                {index < breadcrumbs.length - 1 && (
-                  <span className="mx-2 text-gray-400">/</span>
-                )}
-              </span>
-            ))}
-          </nav>
-        </div>
-      </div>
+      <Breadcrumb
+        title="Hakkımızda"
+        breadcrumbs={breadcrumbs}
+        image={{
+          blurDataURL: "/images/hakkimizda/banner-blur.webp",
+          url: "/images/hakkimizda/banner.webp",
+        }}
+      />
 
       {/* Sayfa İçeriği */}
       <div className="container mx-auto mt-12 px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">
-          Firmamız Hakkında
-        </h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-6">Hakkımızda</h2>
         <p className="text-lg text-gray-700 leading-relaxed">
           Kayaşehir Cam Balkon olarak 20 yıldır cam balkon sistemlerinde kalite
           ve güveni temsil ediyoruz. Deneyimli ekibimizle birlikte İstanbul
