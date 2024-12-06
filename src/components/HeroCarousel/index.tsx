@@ -108,7 +108,9 @@ const HeroCarousel = () => {
 
             {/* İçerik */}
             <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white z-10 transition-all ease-in-out duration-1000">
-              <h2 className="text-4xl md:text-5xl font-bold">{slide.title}</h2>
+              <h2 className="text-4xl md:text-5xl font-bold pr-2">
+                {slide.title}
+              </h2>
               <p className="mt-4 text-lg md:text-xl pr-2">
                 {slide.description}
               </p>

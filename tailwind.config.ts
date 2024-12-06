@@ -10,19 +10,17 @@ export default {
     extend: {
       keyframes: {
         fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
         },
-
-        slideDown: {
-          "0%": { opacity: "0", transform: "translateY(-20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+        fadeOut: {
+          "0%": { opacity: "1", transform: "scale(1)" },
+          "100%": { opacity: "0", transform: "scale(1.05)" },
         },
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in-out",
-
-        slideDown: "slideDown 1s ease-out",
+        fadeOut: "fadeOut 1s ease-in-out",
       },
       colors: {
         background: "hsl(var(--background))",

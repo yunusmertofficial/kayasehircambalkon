@@ -1,4 +1,4 @@
-import { ImageProps } from "./types";
+import { ImageProps, Post } from "./types";
 
 export const links = [
   { id: 1, label: "Anasayfa", href: "/", dropdown: [] },
@@ -108,3 +108,41 @@ export const images = [
     format: "webp",
   },
 ] as ImageProps[];
+
+export const categories = [
+  {
+    title: "Cam Balkon Servisi",
+    slug: "cam-balkon-servisi",
+  },
+  {
+    title: "Kategori 2",
+    slug: "kategori-2",
+  },
+];
+
+export const posts: Post[] = [
+  {
+    title: "9 Farklı Balkon Kapatma Modeli",
+    slug: "balkon-kapatma",
+    //  excerpt: "Bu bir örnek açıklamadır.",
+    category: categories[0],
+    image: {
+      src: "https://via.placeholder.com/600x400",
+      blurDataURL: "data:image/jpeg;base64,...", // Blur verisi (isteğe bağlı)
+      alt: "Ana Resim Alt Metni",
+    },
+    publishedAt: new Date().toISOString(),
+  },
+  {
+    title: "9 Farklı Balkon Kapatma Modeli",
+    slug: "balkon-kapatma2",
+    //  excerpt: "Bu bir örnek açıklamadır.",
+    category: categories[0],
+    image: {
+      src: "https://via.placeholder.com/600x400",
+      blurDataURL: "data:image/jpeg;base64,...", // Blur verisi (isteğe bağlı)
+      alt: "Ana Resim Alt Metni",
+    },
+    publishedAt: new Date().toISOString(),
+  },
+];

@@ -17,7 +17,7 @@ const Breadcrumb = ({
   };
 }) => {
   return (
-    <div className="relative w-full h-[200px] lg:h-[300px] text-start">
+    <div className="relative w-full h-[200px] lg:h-[250px] text-start">
       {/* Görselin üzerine karanlık bir katman ekleyelim */}
       {image && (
         <>
@@ -25,7 +25,7 @@ const Breadcrumb = ({
           <Image
             src={image.url}
             alt={title}
-            layout="fill"
+            fill
             style={{ objectFit: "cover" }}
             placeholder={image.blurDataURL ? "blur" : "empty"}
             blurDataURL={image.blurDataURL ? image.blurDataURL : undefined}

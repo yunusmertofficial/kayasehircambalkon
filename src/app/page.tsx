@@ -1,5 +1,9 @@
+import PostList from "@/components/Blog/PostList";
 import Commitments from "@/components/Commitments";
+import Container from "@/components/Container";
 import HeroCarousel from "@/components/HeroCarousel";
+import { posts } from "@/utils/data";
+import React from "react";
 //import GlassBalconyPriceCalculator from "@/components/GlassBalconyPriceCalculator";
 
 export default function Home() {
@@ -9,11 +13,24 @@ export default function Home() {
         <HeroCarousel />
       </section>
       <section
-        className="relative w-full max-w-screen-xl mx-auto px-4 bottom-20"
+        className="relative w-full max-w-screen-xl mx-auto px-4 bottom-20 "
         aria-label="Taahhütler"
       >
         <Commitments />
       </section>
+      <Container>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          {posts.map((post) => (
+            <PostList
+              key={post.slug}
+              post={post}
+              aspect="landscape"
+              preloadImage={true}
+            />
+          ))}
+        </div>
+      </Container>
+
       {/*     <section aria-label="Cam Balkon Fiyat Hesaplama">
         <GlassBalconyPriceCalculator />
       </section> */}
