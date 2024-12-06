@@ -7,6 +7,7 @@ import { range } from "@/utils/range";
 import Thumbnail from "./ThumbnailComponent";
 import Link from "next/link";
 import React from "react";
+import Container from "../Container";
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -78,62 +79,52 @@ const HeroCarousel = () => {
     },
     [currentSlide]
   );
+  const slide = slides[currentSlide];
 
   return (
-    <div className="relative w-full h-[75vh] overflow-hidden">
-      {slides.map((slide) => (
-        <React.Fragment key={slide.id}>
-          <div
-            className={`flex items-center justify-center absolute inset-0 transition-all ease-in-out duration-1000 
-              ${
-                slide.id === currentSlide
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-110"
-              }
-            `}
-          >
-            {/* Resim */}
-            <Image
-              src={`/images/carousel/${slide.public_id}.${slide.format}`}
-              alt={slide.title}
-              layout="fill"
-              objectFit="cover"
-              priority
-              placeholder="blur"
-              blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
-            />
+    <div className="relative w-full h-[75vh] overflow-hidden flex items-center">
+      <Image
+        src={`/images/carousel/${slide.public_id}.${slide.format}`}
+        alt={slide.title}
+        key={slide.id}
+        fill
+        style={{ objectFit: "cover" }}
+        priority
+        placeholder="blur"
+        blurDataURL={`/images/carousel/blur/${slide.public_id}.${slide.format}`}
+        className="animate-fadeIn"
+      />
 
-            {/* Karanlık Overlay */}
-            <div className="absolute inset-0 bg-black opacity-40"></div>
+      {/* Karanlıklaştırma Katmanı */}
+      <div className="absolute inset-0 bg-black opacity-50"></div>
 
-            {/* İçerik */}
-            <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 text-white z-10 transition-all ease-in-out duration-1000">
-              <h2 className="text-4xl md:text-5xl font-bold pr-2">
-                {slide.title}
-              </h2>
-              <p className="mt-4 text-lg md:text-xl pr-2">
-                {slide.description}
-              </p>
-              <div className="mt-4 flex space-x-4 z-10">
-                <Link
-                  href="/fiyat-hesaplama"
-                  className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
-                >
-                  Fiyat Hesapla
-                </Link>
-                <Link
-                  href="/iletisim"
-                  className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
-                >
-                  İletişim
-                </Link>
-              </div>
-            </div>
+      {/* İçerik */}
+      <Container>
+        <div className="relative z-10 flex flex-col items-start justify-center h-full text-white">
+          <React.Fragment key={slide.id}>
+            <h2 className="text-4xl md:text-5xl font-bold pr-2 animate-slideIn">
+              {slide.title}
+            </h2>
+            <p className="mt-4 text-lg md:text-xl pr-2 animate-slideIn">
+              {slide.description}
+            </p>
+          </React.Fragment>
+          <div className="mt-4 flex space-x-4">
+            <Link
+              href="/fiyat-hesaplama"
+              className="px-6 py-3  bg-green-500  text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+            >
+              Fiyat Hesapla
+            </Link>
+            <Link
+              href="/iletisim"
+              className="px-6 py-3 bg-blue-500  text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+            >
+              İletişim
+            </Link>
           </div>
-        </React.Fragment>
-      ))}
-
-      {/* Navigasyon */}
+        </div>
+      </Container>
       <button
         className="absolute top-1/2 left-0 z-2 hidden md:flex items-center justify-center px-4 transform -translate-y-1/2 hover:scale-110 transition-transform duration-300"
         onClick={prevSlideHandler}
