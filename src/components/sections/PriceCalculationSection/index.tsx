@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import ButtonLink from "@/components/ButtonLink";
 
 const PriceCalculationSection = () => {
   return (
@@ -21,13 +21,11 @@ const PriceCalculationSection = () => {
           </p>
         </div>
 
-        {/* Sağ Taraf: Buton */}
-        <Link
+        <ButtonLink
           href="/fiyat-hesaplama"
-          className="flex items-center animate-bounce gap-2 text-sm sm:text-base px-6 py-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary-foreground hover:text-primary transition-all"
-        >
-          Fiyat Hesaplama
-        </Link>
+          text="Fiyat Hesaplama"
+          additionalClass="animate-bounce"
+        />
       </div>
     </section>
   );

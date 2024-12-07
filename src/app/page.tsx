@@ -1,16 +1,13 @@
-import AnimatedSection from "@/components/AnimatedSection";
-import Commitments from "@/components/Commitments";
-import Solutions from "@/components/Solutions";
-import Container from "@/components/Container";
-import FaqSummary from "@/components/FaqSummary";
-import HeroCarousel from "@/components/HeroCarousel";
-import LastPost from "@/components/LastPosts";
-import PriceCalculationSection from "@/components/PriceCalculationSection";
-import Services from "@/components/Services";
-import StatisticsAndAchievements from "@/components/StatisticsAndAchievements";
-import { services } from "@/utils/data";
+import Commitments from "@/components/sections/Commitments";
+import Solutions from "@/components/sections/Solutions";
+import FaqSummary from "@/components/sections/FaqSummary";
+import PriceCalculationSection from "@/components/sections/PriceCalculationSection";
+import StatisticsAndAchievements from "@/components/sections/StatisticsAndAchievements";
 import React from "react";
-import CompletedProjectsSection from "@/components/CompletedProjectsSection";
+import CompletedProjects from "@/components/sections/CompletedProjects";
+import HeroCarousel from "@/components/sections/HeroCarousel";
+import LastPost from "@/components/sections/LastPosts";
+import PreferredServices from "@/components/sections/PreferredServices";
 //import GlassBalconyPriceCalculator from "@/components/GlassBalconyPriceCalculator";
 
 export default function Home() {
@@ -18,23 +15,13 @@ export default function Home() {
     <main>
       <HeroCarousel />
       <Commitments />
-      <AnimatedSection>
-        <Container className="pb-16">
-          <Services services={services} />
-        </Container>
-      </AnimatedSection>
+      <PreferredServices />
       <PriceCalculationSection />
       <Solutions />
-      <CompletedProjectsSection />
+      <CompletedProjects />
       <StatisticsAndAchievements />
-      <AnimatedSection>
-        <LastPost />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Container>
-          <FaqSummary />
-        </Container>
-      </AnimatedSection>
+      <LastPost />
+      <FaqSummary />
     </main>
   );
 }

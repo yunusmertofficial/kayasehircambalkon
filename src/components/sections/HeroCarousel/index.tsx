@@ -7,7 +7,7 @@ import { range } from "@/utils/range";
 import Thumbnail from "./ThumbnailComponent";
 import Link from "next/link";
 import React from "react";
-import Container from "../Container";
+import Container from "@/components/Container";
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { FiArrowRight } from "react-icons/fi";
 import Container from "@/components/Container";
+import AnimatedSection from "@/components/AnimatedSection";
+import ButtonLink from "@/components/ButtonLink";
 
-const CompletedProjectsSection = () => {
+const CompletedProjects = () => {
   const projects = [
     {
       title: "Modern Katlanır Cam Balkon",
@@ -34,7 +34,7 @@ const CompletedProjectsSection = () => {
         <header className="text-center mb-16">
           <h3
             id="completed-projects-title"
-            className="text-4xl font-extrabold text-foreground"
+            className="text-4xl font-bold text-foreground"
           >
             Tamamlanan Cam Balkon Projelerimiz
           </h3>
@@ -46,48 +46,43 @@ const CompletedProjectsSection = () => {
         {/* Proje Listesi */}
         <div className="space-y-16">
           {projects.map((project, index) => (
-            <article
-              key={index}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } items-center gap-8`}
-              aria-label={project.title}
-            >
-              {/* Görsel */}
-              <div className="relative w-full md:w-5/12 h-72 overflow-hidden rounded-lg shadow-md">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+            <AnimatedSection key={index}>
+              <article
+                key={index}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } items-center gap-8`}
+                aria-label={project.title}
+              >
+                {/* Görsel */}
+                <div className="relative w-full md:w-5/12 h-72 overflow-hidden rounded-lg shadow-md">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
 
-              {/* Metin */}
-              <div className="md:w-7/12 text-center md:text-left">
-                <h4 className="text-2xl font-semibold text-foreground mb-4">
-                  {project.title}
-                </h4>
-                <p className="text-muted-foreground">{project.description}</p>
-              </div>
-            </article>
+                {/* Metin */}
+                <div className="md:w-7/12 text-center md:text-left">
+                  <h4 className="text-2xl font-semibold text-foreground mb-4">
+                    {project.title}
+                  </h4>
+                  <p className="text-muted-foreground">{project.description}</p>
+                </div>
+              </article>
+            </AnimatedSection>
           ))}
         </div>
 
-        {/* Daha Fazlasını Görüntüle Butonu */}
         <div className="mt-16 flex justify-end">
-          <Link
-            href="/referanslar"
-            className="flex items-center gap-2 text-sm sm:text-base px-6 py-3 bg-primary text-primary-foreground rounded-lg shadow-lg hover:bg-primary-foreground hover:text-primary transition-all"
-          >
-            Daha Fazlasını Görüntüle
-            <FiArrowRight className="text-lg" />
-          </Link>
+          <ButtonLink href="/iletisim" text="Daha Fazla Görüntüle" />
         </div>
       </Container>
     </section>
   );
 };
 
-export default CompletedProjectsSection;
+export default CompletedProjects;
