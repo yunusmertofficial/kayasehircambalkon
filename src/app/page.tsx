@@ -6,6 +6,7 @@ import HeroCarousel from "@/components/HeroCarousel";
 import LastPost from "@/components/LastPosts";
 import PriceCalculationSection from "@/components/PriceCalculationSection";
 import Services from "@/components/Services";
+import StatisticsAndAchievements from "@/components/StatisticsAndAchievements";
 import { services } from "@/utils/data";
 import React from "react";
 //import GlassBalconyPriceCalculator from "@/components/GlassBalconyPriceCalculator";
@@ -24,6 +25,7 @@ export default function Home() {
       <AnimatedSection>
         <LastPost />
       </AnimatedSection>
+      <StatisticsAndAchievements />
       <AnimatedSection>
         <Container>
           <FaqSummary />
