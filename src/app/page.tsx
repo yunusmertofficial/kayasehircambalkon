@@ -1,5 +1,6 @@
 import AnimatedSection from "@/components/AnimatedSection";
 import Commitments from "@/components/Commitments";
+import Solutions from "@/components/Solutions";
 import Container from "@/components/Container";
 import FaqSummary from "@/components/FaqSummary";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -9,6 +10,7 @@ import Services from "@/components/Services";
 import StatisticsAndAchievements from "@/components/StatisticsAndAchievements";
 import { services } from "@/utils/data";
 import React from "react";
+import CompletedProjectsSection from "@/components/CompletedProjectsSection";
 //import GlassBalconyPriceCalculator from "@/components/GlassBalconyPriceCalculator";
 
 export default function Home() {
@@ -22,10 +24,12 @@ export default function Home() {
         </Container>
       </AnimatedSection>
       <PriceCalculationSection />
+      <Solutions />
+      <CompletedProjectsSection />
+      <StatisticsAndAchievements />
       <AnimatedSection>
         <LastPost />
       </AnimatedSection>
-      <StatisticsAndAchievements />
       <AnimatedSection>
         <Container>
           <FaqSummary />

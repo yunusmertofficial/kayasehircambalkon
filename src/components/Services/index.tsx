@@ -17,7 +17,7 @@ const Services = ({ services }: ServicesProps) => {
   return (
     <section aria-label="Hizmetler">
       <h2 className="text-3xl font-bold text-center mb-6 text-foreground">
-        Hizmetlerimiz
+        En Çok Tercih Edilen Hizmetlerimiz
       </h2>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
