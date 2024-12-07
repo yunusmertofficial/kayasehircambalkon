@@ -45,7 +45,7 @@ const Solutions = () => {
               id="completed-projects-title"
               className="text-4xl font-bold text-foreground"
             >
-              Cam Balkon Hizmetlerimiz
+              Cam Balkon Çözümlerimiz
             </h3>
             <p className="text-muted-foreground mt-4">
               Cam balkon imalatı, tedarik, montaj ve satış hizmetlerinde
