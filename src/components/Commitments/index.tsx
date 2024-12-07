@@ -24,9 +24,10 @@ const Commitments = () => {
   ];
 
   return (
-    <div
-      className="grid grid-cols-1 gap-6 
+    <section
+      className="relative w-full max-w-screen-xl mx-auto  bottom-20 grid grid-cols-1 gap-6 
      lg:grid-cols-3 px-4"
+      aria-label="Taahhütler"
     >
       {cards.map((card, index) => (
         <Card
@@ -36,7 +37,7 @@ const Commitments = () => {
           description={card.description}
         />
       ))}
-    </div>
+    </section>
   );
 };
 

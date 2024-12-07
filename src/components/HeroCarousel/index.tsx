@@ -82,7 +82,10 @@ const HeroCarousel = () => {
   const slide = slides[currentSlide];
 
   return (
-    <div className="relative w-full h-[75vh] overflow-hidden flex items-center">
+    <section
+      className="relative w-full h-[75vh] overflow-hidden flex items-center"
+      aria-label="Cam Balkon"
+    >
       <Image
         src={`/images/carousel/${slide.public_id}.${slide.format}`}
         alt={slide.title}
@@ -155,7 +158,7 @@ const HeroCarousel = () => {
         index={currentSlide}
         changePhotoId={changePhotoId}
       />
-    </div>
+    </section>
   );
 };
 

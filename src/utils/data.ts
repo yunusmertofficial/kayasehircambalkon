@@ -146,3 +146,27 @@ export const posts: Post[] = [
     publishedAt: new Date().toISOString(),
   },
 ];
+
+export const services = [
+  {
+    title: "Cam Balkon Sistemleri",
+    description:
+      "Estetik ve kullanışlı cam balkon çözümleri ile yaşam alanlarınızı güzelleştiriyoruz.",
+    href: "/hizmetler/cam-balkon",
+    image: "/images/services/cam-balkon.jpg",
+  },
+  {
+    title: "Alüminyum Doğrama",
+    description:
+      "Dayanıklı ve kaliteli alüminyum doğrama hizmetlerimizle tanışın.",
+    href: "/hizmetler/aluminyum-dograma",
+    image: "/images/services/aluminyum-dograma.jpg",
+  },
+  {
+    title: "Kış Bahçesi Sistemleri",
+    description:
+      "Kış bahçesi sistemlerimizle dört mevsim doğanın keyfini çıkarın.",
+    href: "/hizmetler/kis-bahcesi",
+    image: "/images/services/kis-bahcesi.jpg",
+  },
+];
