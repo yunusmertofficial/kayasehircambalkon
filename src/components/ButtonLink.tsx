@@ -15,7 +15,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   additionalClass,
 }) => {
   return (
-    <div className="text-center mt-8">
+    <div className="text-center">
       <Link
         href={href}
         className={cx(

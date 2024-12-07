@@ -113,15 +113,18 @@ const HeroCarousel = () => {
             </p>
           </React.Fragment>
           <div className="mt-4 flex space-x-4">
+            {/* Fiyat Hesapla Butonu */}
             <Link
               href="/fiyat-hesaplama"
-              className="px-6 py-3  bg-green-500  text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               Fiyat Hesapla
             </Link>
+
+            {/* İletişim Butonu */}
             <Link
               href="/iletisim"
-              className="px-6 py-3 bg-blue-500  text-white rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+              className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               İletişim
             </Link>

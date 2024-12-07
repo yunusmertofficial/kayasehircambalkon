@@ -51,9 +51,9 @@ const FaqSummary = () => {
                 >
                   <h3 className="text-primary font-semibold">{faq.question}</h3>
                   {openIndex === index ? (
-                    <FiMinus className="text-primary hover:text-primary-foreground transition" />
+                    <FiMinus className="text-primary hover:text-secondary-foreground transition" />
                   ) : (
-                    <FiPlus className="text-primary hover:text-primary-foreground transition" />
+                    <FiPlus className="text-primary hover:text-secondary-foreground transition" />
                   )}
                 </div>
                 {openIndex === index && (

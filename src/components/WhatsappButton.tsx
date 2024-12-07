@@ -6,14 +6,14 @@ export default function WhatsAppButton() {
     <div className="fixed bottom-4 right-4 flex items-center group">
       <Link href="https://wa.me/905365608595" passHref>
         <div className="flex items-center space-x-2">
-          {/* Yazı */}
-          <span className="bg-green-500 text-white px-5 py-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-lg">
+          {/* Hover ile Yazı */}
+          <span className="group-hover:block hidden bg-green-500 text-white px-5 py-3 rounded-full shadow-lg whitespace-nowrap text-lg">
             WhatsApp Destek
           </span>
 
           {/* WhatsApp İkonu */}
-          <div className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300 cursor-pointer">
-            <FaWhatsapp size={32} />
+          <div className="bg-green-500 text-white p-4 rounded-full shadow-lg cursor-pointer">
+            <FaWhatsapp size={28} />
           </div>
         </div>
       </Link>
