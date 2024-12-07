@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Image from "next/image";
 import ButtonLink from "./ButtonLink";
@@ -39,7 +38,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <p className="text-muted-foreground text-center mb-6">{description}</p>
 
       {/* Daha Fazla Bilgi */}
-
       <ButtonLink href={href} text="Daha Fazla Bilgi" additionalClass="mt-5" />
     </article>
   );

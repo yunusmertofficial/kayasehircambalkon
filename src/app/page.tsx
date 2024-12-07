@@ -4,7 +4,6 @@ import FaqSummary from "@/components/sections/FaqSummary";
 import PriceCalculationSection from "@/components/sections/PriceCalculationSection";
 import StatisticsAndAchievements from "@/components/sections/StatisticsAndAchievements";
 import React from "react";
-import CompletedProjects from "@/components/sections/CompletedProjects";
 import HeroCarousel from "@/components/sections/HeroCarousel";
 import LastPost from "@/components/sections/LastPosts";
 import PreferredServices from "@/components/sections/PreferredServices";
@@ -18,7 +17,6 @@ export default function Home() {
       <PreferredServices />
       <PriceCalculationSection />
       <Solutions />
-      <CompletedProjects />
       <StatisticsAndAchievements />
       <LastPost />
       <FaqSummary />
