@@ -10,35 +10,35 @@ const serviceCategories = [
     description:
       "Isıcamlı katlanır sistemler ve şık tasarımlar sunarak mekanlarınızı modernleştiriyoruz.",
     products: ["Isıcamlı Katlanır Sistem", "Katlanır Cam Balkon"],
-    image: "/images/hizmetlerimiz/kucuk-resimler/katlanir-cam-balkon.webp",
+    image: "/images/hizmetlerimiz/katlanir-cam-balkon.webp",
   },
   {
     title: "Sürme Sistemler",
     description:
       "Eşikli ve eşiksiz sürme sistemlerimizle mekanlarınıza şıklık ve pratiklik katıyoruz.",
     products: ["Eşikli Isıcamlı Sürme", "Eşiksiz Sürme Sistemleri"],
-    image: "/images/hizmetlerimiz/kucuk-resimler/surme-cam-balkon.webp",
+    image: "/images/hizmetlerimiz/surme-cam-balkon.webp",
   },
   {
     title: "Giyotin Sistemler",
     description:
       "Isıcamlı giyotin sistemlerimiz ile modern ve pratik çözümler sunuyoruz.",
     products: ["Isıcamlı Giyotin Sistem", "Silinebilir Giyotin Sistem"],
-    image: "/images/hizmetlerimiz/kucuk-resimler/giyotin-cam-balkon.webp",
+    image: "/images/hizmetlerimiz/giyotin-cam-balkon.webp",
   },
   {
     title: "Gölgelendirme Sistemleri",
     description:
       "Rolling Roof gibi gölgelendirme çözümlerimizle dış mekanlarınıza estetik bir dokunuş ekliyoruz.",
     products: ["Rolling Roof"],
-    image: "/images/hizmetlerimiz/kucuk-resimler/golgelendirme-cam-balkon.webp",
+    image: "/images/hizmetlerimiz/golgelendirme-cam-balkon.webp",
   },
   {
     title: "Üstten Askılı Sistemler",
     description:
       "Zarif üstten askılı sistemlerimiz, mekanlarınıza modern ve işlevsel çözümler sunar.",
     products: ["Üstten Askılı Sistem"],
-    image: "/images/hizmetlerimiz/kucuk-resimler/ustten-askili-cam-balkon.webp",
+    image: "/images/hizmetlerimiz/ustten-askili-cam-balkon.webp",
   },
 ];
 
@@ -73,7 +73,7 @@ const CategoriesPage = () => {
                 className="group flex flex-col bg-white border rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:scale-105"
               >
                 {/* Resim */}
-                <div className="relative w-full h-40 overflow-hidden">
+                <div className="relative w-full h-48 overflow-hidden">
                   <Image
                     src={category.image}
                     alt={category.title}
