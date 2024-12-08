@@ -2,7 +2,6 @@ import Commitments from "@/components/sections/Commitments";
 import Solutions from "@/components/sections/Solutions";
 import FaqSummary from "@/components/sections/FaqSummary";
 import PriceCalculationSection from "@/components/sections/PriceCalculationSection";
-import StatisticsAndAchievements from "@/components/sections/StatisticsAndAchievements";
 import React from "react";
 import HeroCarousel from "@/components/sections/HeroCarousel";
 import LastPost from "@/components/sections/LastPosts";
@@ -17,7 +16,6 @@ export default function Home() {
       <PreferredServices />
       <PriceCalculationSection />
       <Solutions />
-      <StatisticsAndAchievements />
       <LastPost />
       <FaqSummary />
     </main>

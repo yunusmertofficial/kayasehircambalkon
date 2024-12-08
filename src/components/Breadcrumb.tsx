@@ -17,7 +17,7 @@ const Breadcrumb = ({
   };
 }) => {
   return (
-    <div className="relative w-full h-[200px] lg:h-[250px] text-start">
+    <section className="relative w-full h-[200px] lg:h-[250px] text-start">
       {/* Görselin üzerine karanlık bir katman ekleyelim */}
       {image && (
         <>
@@ -84,7 +84,7 @@ const Breadcrumb = ({
           </ol>
         </nav>
       </div>
-    </div>
+    </section>
   );
 };
 

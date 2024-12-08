@@ -8,7 +8,7 @@ const PriceCalculationSection = () => {
     <AnimatedSection>
       <section
         aria-label="Cam Balkon Fiyat Hesaplama ve Sistemler"
-        className="bg-gradient-to-r from-blue-50 via-white to-purple-50 py-12"
+        className="bg-gradient-to-r from-blue-50 via-white to-purple-50 py-12 mt-16"
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 gap-6 sm:gap-0">
           {/* Sol Taraf: Açıklama */}

@@ -76,13 +76,14 @@ export const links = [
       },
     ],
   },
+  { id: 4, label: "Blog", href: "/blog", type: "standard" },
   {
-    id: 4,
+    id: 5,
     label: "Referanslar",
     href: "/cam-balkon-referanslar",
     type: "standard",
   },
-  { id: 5, label: "İletişim", href: "/iletisim", type: "standard" },
+  { id: 6, label: "İletişim", href: "/iletisim", type: "standard" },
 ] as NavItem[];
 
 export const images = [
@@ -215,7 +216,7 @@ export const serviceCategories = [
     title: "Katlanır Sistemler",
     description:
       "Modern ve şık tasarımlarıyla geniş mekanlar için katlanır sistemler sunuyoruz.",
-    image: "https://via.placeholder.com/400x300?text=Katlanir+Sistemler",
+    image: "/images/hizmetlerimiz/katlanir-cam-balkon.webp",
     products: [
       {
         title: "Isıcamlı Katlanır Sistem",
@@ -233,7 +234,7 @@ export const serviceCategories = [
     title: "Sürme Sistemler",
     description:
       "Yüksek kaliteli ve güvenli sürme sistemleri ile iç mekanlarda şıklığı yakalayın.",
-    image: "https://via.placeholder.com/400x300?text=Surme+Sistemler",
+    image: "/images/hizmetlerimiz/surme-cam-balkon.webp",
     products: [
       {
         title: "Eşikli Isıcamlı Sürme",
@@ -261,7 +262,7 @@ export const serviceCategories = [
     title: "Giyotin Sistemler",
     description:
       "Eşsiz giyotin sistemleri ile mekânlarınıza modern bir dokunuş ekleyin.",
-    image: "https://via.placeholder.com/400x300?text=Giyotin+Sistemler",
+    image: "/images/hizmetlerimiz/giyotin-cam-balkon.webp",
     products: [
       {
         title: "Silinebilir Isıcamlı Giyotin Sistem",
@@ -278,7 +279,7 @@ export const serviceCategories = [
   {
     title: "Gölgelendirme Sistemleri",
     description: "Dış mekanlarınıza şıklık katacak gölgelendirme sistemleri.",
-    image: "https://via.placeholder.com/400x300?text=Golgelendirme+Sistemler",
+    image: "/images/hizmetlerimiz/golgelendirme-cam-balkon.webp",
     products: [
       {
         title: "Rolling Roof",
@@ -291,7 +292,7 @@ export const serviceCategories = [
     title: "Üstten Askılı Sistemler",
     description:
       "Zarif üstten askılı sistemlerle iç mekanınıza modern dokunuşlar.",
-    image: "https://via.placeholder.com/400x300?text=Ustten+Askili+Sistemler",
+    image: "/images/hizmetlerimiz/ustten-askili-cam-balkon.webp",
     products: [
       {
         title: "Üstten Askılı",

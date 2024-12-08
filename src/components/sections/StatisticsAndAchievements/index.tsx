@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useInView } from "react-intersection-observer"; // Intersection Observer hook
 import CountUp from "react-countup"; // React CountUp kütüphanesi
 import Container from "@/components/Container"; // Sizin Container bileşeniniz
 import { FiBriefcase, FiCheckCircle, FiSmile, FiMapPin } from "react-icons/fi"; // React Icons
@@ -13,11 +14,15 @@ const StatisticsAndAchievements = () => {
     { value: 10, label: "Hizmet Alanı", icon: <FiMapPin /> },
   ];
 
-  // Intersection Observer Hook
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Sadece bir kez tetiklenmesini istiyorsanız
+    threshold: 0.2, // Görünürlük oranı (örneğin %20)
+  });
 
   return (
     <AnimatedSection>
       <section
+        ref={ref} // Intersection Observer için referans
         className="py-16 bg-muted"
         aria-label="İstatistikler ve Başarılarımız"
       >
@@ -39,7 +44,12 @@ const StatisticsAndAchievements = () => {
                 >
                   <div className="text-primary text-5xl mb-4">{stat.icon}</div>
                   <p className="text-4xl font-bold text-primary mb-2">
-                    <CountUp start={0} end={stat.value} duration={2} />+
+                    {inView ? (
+                      <CountUp start={0} end={stat.value} duration={2} />
+                    ) : (
+                      "0"
+                    )}
+                    +
                   </p>
                   <p className="text-muted-foreground">{stat.label}</p>
                 </div>

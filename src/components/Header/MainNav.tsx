@@ -52,7 +52,7 @@ const MainNav: React.FC<Props> = ({
                         : "text-gray-700"
                     } hover:text-gray-500`}
                   >
-                    <span className="relative">{link.label}</span>
+                    <Link href={link.href}>{link.label}</Link>
                     <motion.div
                       className="absolute -bottom-2 left-0 h-[2px] bg-primary"
                       initial={{ width: 0 }}
@@ -74,7 +74,7 @@ const MainNav: React.FC<Props> = ({
                   </div>
                   <div className="absolute left-0 w-full z-10 group-hover:block hidden transition-all duration-300 ease-in-out">
                     <div className="mt-7"></div>
-                    <div className="grid grid-cols-2 gap-8 p-8 bg-background shadow-xl">
+                    <div className="grid grid-cols-3 gap-8 p-8 bg-background shadow-xl">
                       {link.dropdown.map((dropdownCategory, idx) => (
                         <div key={idx} className="space-y-4">
                           <h6 className="text-lg font-semibold text-primary">

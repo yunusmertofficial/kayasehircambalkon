@@ -1,171 +1,110 @@
-"use client";
 import React from "react";
-import Image from "next/image"; // next/image import
+import Image from "next/image";
+import ButtonLink from "@/components/ButtonLink";
 import Container from "@/components/Container";
 import AnimatedSection from "@/components/AnimatedSection";
-import Link from "next/link";
 
-const CamBalkonSistemleri = () => {
-  const categories = [
-    {
-      title: "Katlanır Sistemler",
-      description:
-        "Modern ve şık tasarımlarıyla geniş mekanlar için katlanır sistemler sunuyoruz.",
-      image: "https://via.placeholder.com/400x300?text=Katlanir+Sistemler",
-      products: [
-        {
-          title: "Isıcamlı Katlanır Sistem",
-          description: "Isıcamlı ve şık tasarımlar",
-          href: "/orion",
-        },
-        {
-          title: "Katlanır Sistem",
-          description: "Farklı mekanlar için ideal çözüm",
-          href: "/leo",
-        },
-      ],
-    },
-    {
-      title: "Sürme Sistemler",
-      description:
-        "Yüksek kaliteli ve güvenli sürme sistemleri ile iç mekanlarda şıklığı yakalayın.",
-      image: "https://via.placeholder.com/400x300?text=Surme+Sistemler",
-      products: [
-        {
-          title: "Eşikli Isıcamlı Sürme",
-          description: "Isıcamlı ve yüksek güvenlikli sürme sistem",
-          href: "/arista",
-        },
-        {
-          title: "Eşikli Sürme",
-          description: "Eşikli sürme sistemleri ile pratik kullanım",
-          href: "/arista-minor",
-        },
-        {
-          title: "Eşiksiz Isıcamlı Sürme",
-          description: "Isıcamlı, eşiksiz sürme sistemleri",
-          href: "/alecto",
-        },
-        {
-          title: "Eşiksiz Sürme",
-          description: "Pratik ve şık sürme sistemleri",
-          href: "/alecto-minor",
-        },
-      ],
-    },
-    {
-      title: "Giyotin Sistemler",
-      description:
-        "Eşsiz giyotin sistemleri ile mekânlarınıza modern bir dokunuş ekleyin.",
-      image: "https://via.placeholder.com/400x300?text=Giyotin+Sistemler",
-      products: [
-        {
-          title: "Silinebilir Isıcamlı Giyotin Sistem",
-          description: "Silinebilir yüzeyli ısıcamlı giyotin sistem",
-          href: "/vega",
-        },
-        {
-          title: "Isıcamlı Giyotin Sistem",
-          description: "Şık ve modern ısıcamlı giyotin sistem",
-          href: "/virgo",
-        },
-      ],
-    },
-    {
-      title: "Gölgelendirme Sistemleri",
-      description: "Dış mekanlarınıza şıklık katacak gölgelendirme sistemleri.",
-      image: "https://via.placeholder.com/400x300?text=Golgelendirme+Sistemler",
-      products: [
-        {
-          title: "Rolling Roof",
-          description: "Dış mekanlarda esnek gölgelendirme çözümü",
-          href: "/ursa",
-        },
-      ],
-    },
-    {
-      title: "Üstten Askılı Sistemler",
-      description:
-        "Zarif üstten askılı sistemlerle iç mekanınıza modern dokunuşlar.",
-      image: "https://via.placeholder.com/400x300?text=Ustten+Askili+Sistemler",
-      products: [
-        {
-          title: "Üstten Askılı",
-          description: "Zarif tasarımlarla iç mekanlarda estetik kullanım",
-          href: "/libra",
-        },
-      ],
-    },
-  ];
+const serviceCategories = [
+  {
+    title: "Katlanır Sistemler",
+    description:
+      "Isıcamlı katlanır sistemler ve şık tasarımlar sunarak mekanlarınızı modernleştiriyoruz.",
+    products: ["Isıcamlı Katlanır Sistem", "Katlanır Cam Balkon"],
+    image: "/images/hizmetlerimiz/kucuk-resimler/katlanir-cam-balkon.webp",
+  },
+  {
+    title: "Sürme Sistemler",
+    description:
+      "Eşikli ve eşiksiz sürme sistemlerimizle mekanlarınıza şıklık ve pratiklik katıyoruz.",
+    products: ["Eşikli Isıcamlı Sürme", "Eşiksiz Sürme Sistemleri"],
+    image: "/images/hizmetlerimiz/kucuk-resimler/surme-cam-balkon.webp",
+  },
+  {
+    title: "Giyotin Sistemler",
+    description:
+      "Isıcamlı giyotin sistemlerimiz ile modern ve pratik çözümler sunuyoruz.",
+    products: ["Isıcamlı Giyotin Sistem", "Silinebilir Giyotin Sistem"],
+    image: "/images/hizmetlerimiz/kucuk-resimler/giyotin-cam-balkon.webp",
+  },
+  {
+    title: "Gölgelendirme Sistemleri",
+    description:
+      "Rolling Roof gibi gölgelendirme çözümlerimizle dış mekanlarınıza estetik bir dokunuş ekliyoruz.",
+    products: ["Rolling Roof"],
+    image: "/images/hizmetlerimiz/kucuk-resimler/golgelendirme-cam-balkon.webp",
+  },
+  {
+    title: "Üstten Askılı Sistemler",
+    description:
+      "Zarif üstten askılı sistemlerimiz, mekanlarınıza modern ve işlevsel çözümler sunar.",
+    products: ["Üstten Askılı Sistem"],
+    image: "/images/hizmetlerimiz/kucuk-resimler/ustten-askili-cam-balkon.webp",
+  },
+];
 
+const CategoriesPage = () => {
   return (
-    <section className="py-16" aria-labelledby="cam-balkon-sistemleri-title">
-      <Container>
-        {/* Başlık */}
-        <header className="text-center mb-16">
-          <h3
-            id="cam-balkon-sistemleri-title"
-            className="text-4xl font-bold text-foreground"
-          >
-            Cam Balkon Sistemlerimiz
-          </h3>
-          <p className="text-muted-foreground mt-4">
-            Geniş ve şık mekanlar için en uygun cam balkon çözümleri.
-          </p>
-        </header>
+    <AnimatedSection>
+      <section aria-labelledby="cam-balkon-sistemleri-title">
+        <Container>
+          {/* Başlık ve Buton */}
+          <div className="flex flex-col items-center gap-4 md:flex-row justify-between">
+            <h3 className="text-3xl font-bold text-center md:text-left">
+              Cam Balkon Sistemlerimiz
+            </h3>
+            <ButtonLink
+              href="/cam-balkon-sistemleri"
+              text="Daha Fazla Bilgi"
+              additionalClass="hidden md:flex"
+            />
+          </div>
 
-        {/* Kategori Listesi */}
-        <div className="space-y-16">
-          {categories.map((category, index) => (
-            <AnimatedSection key={index}>
-              <article
-                className={`flex flex-col ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } items-center gap-8`}
-                aria-label={category.title}
+          <p className="text-center pt-2 text-gray-600 mb-12 md:text-left">
+            Katlanır, sürme, giyotin ve diğer sistemlerimizle mekanlarınıza
+            modern çözümler sunuyoruz. Ürünlerimizin detayları için aşağıya göz
+            atabilirsiniz.
+          </p>
+
+          {/* Kategoriler */}
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+            {serviceCategories.map((category, index) => (
+              <div
+                key={index}
+                className="group flex flex-col bg-white border rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:scale-105"
               >
-                <div className="relative w-full h-80 rounded-lg shadow-md">
+                {/* Resim */}
+                <div className="relative w-full h-40 overflow-hidden">
                   <Image
                     src={category.image}
                     alt={category.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-
-                {/* Metin */}
-                <div className="flex flex-col items-center text-center w-full">
-                  <h4 className="text-2xl font-semibold text-foreground mb-4">
+                {/* İçerik */}
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold mb-2">
                     {category.title}
                   </h4>
-                  <p className="text-muted-foreground mb-4">
-                    {category.description}
+                  <p className="text-sm text-gray-600">
+                    {category.description} Ürünlerimiz:{" "}
+                    <span className="font-semibold">
+                      {category.products.join(", ")}.
+                    </span>
                   </p>
-                  {category.products.length > 0 && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      {category.products.map((product, productIndex) => (
-                        <Link
-                          key={productIndex}
-                          href={product.href}
-                          className="flex flex-col items-start text-start bg-card rounded-lg transition-all duration-300 p-6 bg-secondary text-foreground shadow-lg hover:shadow-xl hover:scale-105 transform-gpu "
-                        >
-                          <h5 className="text-xl">{product.title}</h5>
-                          <p className="text-muted-foreground text-sm mb-4">
-                            {product.description}
-                          </p>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
                 </div>
-              </article>
-            </AnimatedSection>
-          ))}
-        </div>
-      </Container>
-    </section>
+              </div>
+            ))}
+          </div>
+          <ButtonLink
+            href="/cam-balkon-sistemleri"
+            text="Daha Fazla Bilgi"
+            additionalClass="flex justify-center mt-8 md:hidden"
+          />
+        </Container>
+      </section>
+    </AnimatedSection>
   );
 };
 
-export default CamBalkonSistemleri;
+export default CategoriesPage;
