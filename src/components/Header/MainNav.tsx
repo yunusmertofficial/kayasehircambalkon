@@ -1,31 +1,25 @@
 "use client";
-
-import Link from "next/link";
-import Image from "next/image";
+import React from "react";
 import { motion } from "framer-motion";
 import { FaBars, FaChevronDown } from "react-icons/fa";
+import Link from "next/link";
+import Image from "next/image";
 import { links } from "@/utils/data";
-import { useState } from "react";
+import { FiArrowRight } from "react-icons/fi";
+import { usePathname } from "next/navigation";
 
 type Props = {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (open: boolean) => void;
-  activeUrl: string;
 };
 
 const MainNav: React.FC<Props> = ({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
-  activeUrl,
 }) => {
-  const [, setLoaded] = useState(false);
-  const dropdownVariants = {
-    hidden: { opacity: 0, scaleY: 0 },
-    visible: {
-      opacity: 1,
-      scaleY: 1,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
+  const pathname = usePathname(); // Aktif URL'i almak için
+  const isItemActive = (href: string) => {
+    return pathname === href;
   };
 
   return (
@@ -34,89 +28,103 @@ const MainNav: React.FC<Props> = ({
         {/* Logo */}
         <div className="text-2xl font-bold">
           <Link href="/">
-            <Image
-              src="/logo.webp"
-              alt="logo"
-              width={250}
-              height={73}
-              onLoad={() => {
-                setLoaded(true);
-              }}
-            />
+            <Image src="/logo.webp" alt="logo" width={250} height={73} />
           </Link>
         </div>
 
         {/* Main Nav Links */}
-        <div className="hidden md:flex items-center space-x-6">
-          <ul className="flex space-x-8 relative">
+        <div className="hidden md:flex items-center space-x-6 relative">
+          <ul className="flex space-x-8">
             {links.map((link) =>
-              link.dropdown.length > 0 ? (
-                <li
-                  key={link.id}
-                  className="relative group text-gray-700 hover:text-primary"
-                >
-                  <div className="flex items-center relative">
-                    <Link
-                      href={link.href}
-                      className={`capitalize relative ${
-                        activeUrl === link.href
-                          ? "text-primary font-bold"
-                          : "text-gray-700"
-                      }`}
-                    >
-                      {link.label}
-                      {/* Alt çizgi */}
-                      <motion.div
-                        className="absolute bottom-[-3px] left-0 h-[2px] bg-primary"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        animate={{
-                          width: activeUrl === link.href ? "100%" : 0,
-                        }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </Link>
+              link.dropdown &&
+              link.dropdown.length > 0 &&
+              link.type === "mega" ? (
+                <li key={link.id} className="capitalize group">
+                  <div
+                    className={`relative flex items-center ${
+                      pathname.startsWith(link.href) ||
+                      link.dropdown.some((category) =>
+                        category.dropdown.some((item) =>
+                          pathname.startsWith(item.href)
+                        )
+                      )
+                        ? "text-primary font-bold"
+                        : "text-gray-700"
+                    } hover:text-gray-500`}
+                  >
+                    <span className="relative">{link.label}</span>
+                    <motion.div
+                      className="absolute -bottom-2 left-0 h-[2px] bg-primary"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      animate={{
+                        width:
+                          pathname.startsWith(link.href) ||
+                          link.dropdown.some((category) =>
+                            category.dropdown.some((item) =>
+                              pathname.startsWith(item.href)
+                            )
+                          )
+                            ? "100%"
+                            : 0,
+                      }}
+                      transition={{ duration: 0.6 }}
+                    />
                     <FaChevronDown className="ml-1" />
                   </div>
-
-                  {/* Dropdown Menü */}
-                  <motion.ul
-                    variants={dropdownVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    className="absolute hidden group-hover:flex flex-col bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 origin-top"
-                  >
-                    {link.dropdown.map((dropdownItem, idx) => (
-                      <li key={idx}>
-                        <Link
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          {dropdownItem.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </motion.ul>
+                  <div className="absolute left-0 w-full z-10 group-hover:block hidden transition-all duration-300 ease-in-out">
+                    <div className="mt-7"></div>
+                    <div className="grid grid-cols-2 gap-8 p-8 bg-background shadow-xl">
+                      {link.dropdown.map((dropdownCategory, idx) => (
+                        <div key={idx} className="space-y-4">
+                          <h6 className="text-lg font-semibold text-primary">
+                            {dropdownCategory.label}
+                          </h6>
+                          <hr className="border-gray-300 my-2" />
+                          <ul className="space-y-3">
+                            {dropdownCategory.dropdown.map(
+                              (dropdownItem, subIdx) => (
+                                <li
+                                  key={subIdx}
+                                  className="flex items-center space-x-2 hover:pl-2 transition-all duration-200"
+                                >
+                                  <FiArrowRight className="text-primary" />
+                                  <Link
+                                    href={dropdownItem.href}
+                                    className={`block text-sm ${
+                                      isItemActive(dropdownItem.href)
+                                        ? "text-primary"
+                                        : "text-gray-700 hover:text-gray-500"
+                                    }`}
+                                  >
+                                    {dropdownItem.label}
+                                  </Link>
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </li>
               ) : (
                 <li
                   key={link.id}
-                  className={`capitalize relative ${
-                    activeUrl === link.href
+                  className={`capitalize ${
+                    pathname === link.href
                       ? "text-primary font-bold"
-                      : "text-gray-700"
-                  } hover:text-primary`}
+                      : "text-gray-700 hover:text-gray-500"
+                  }`}
                 >
-                  <Link href={link.href}>
+                  <Link href={link.href} className="relative">
                     {link.label}
-                    {/* Alt çizgi */}
                     <motion.div
-                      className="absolute bottom-[-3px] left-0 h-[2px] bg-primary"
+                      className="absolute -bottom-2 left-0 h-[2px] bg-primary"
                       initial={{ width: 0 }}
                       whileHover={{ width: "100%" }}
                       animate={{
-                        width: activeUrl === link.href ? "100%" : 0,
+                        width: isItemActive(link.href) ? "100%" : 0,
                       }}
                       transition={{ duration: 0.6 }}
                     />

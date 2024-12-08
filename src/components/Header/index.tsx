@@ -4,14 +4,14 @@ import { useState } from "react";
 import TopBar from "./TopBar";
 import MainNav from "./MainNav";
 import MobileMenu from "./MobileMenu";
-import { useSelectedLayoutSegment } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-  const segment = useSelectedLayoutSegment();
-  const activeUrl = `/${segment || ""}`;
+
+  const handleCloseMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -25,16 +25,9 @@ const Navbar: React.FC = () => {
         <MainNav
           isMobileMenuOpen={isMobileMenuOpen}
           setIsMobileMenuOpen={setIsMobileMenuOpen}
-          activeUrl={activeUrl}
         />
         <AnimatePresence>
-          {isMobileMenuOpen && (
-            <MobileMenu
-              isSubMenuOpen={isSubMenuOpen}
-              setIsSubMenuOpen={setIsSubMenuOpen}
-              setIsMobileMenuOpen={setIsMobileMenuOpen}
-            />
-          )}
+          {isMobileMenuOpen && <MobileMenu onCloseMenu={handleCloseMenu} />}
         </AnimatePresence>
       </nav>
     </>

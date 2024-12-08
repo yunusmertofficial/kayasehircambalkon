@@ -1,212 +1,175 @@
 "use client";
+import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { motion } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { links } from "@/utils/data";
 
-type Props = {
-  isSubMenuOpen: boolean;
-  setIsSubMenuOpen: (open: boolean) => void;
-  setIsMobileMenuOpen: (open: boolean) => void;
-};
+const MobileMenu: React.FC<{
+  onCloseMenu: () => void;
+}> = ({ onCloseMenu }) => {
+  const [openMegaCategories, setOpenMegaCategories] = useState<string[]>([]);
+  const pathname = usePathname();
 
-const animationVariants = {
-  initial: { x: "-100%", opacity: 0 },
-  animate: { x: "0%", opacity: 1 },
-  exit: { x: "-100%", opacity: 0 },
-};
+  const toggleMegaCategory = (label: string) => {
+    setOpenMegaCategories((prev) =>
+      prev.includes(label)
+        ? prev.filter((item) => item !== label)
+        : [...prev, label]
+    );
+  };
 
-const subMenuVariants = {
-  initial: { x: "100%", opacity: 0 },
-  animate: { x: "0%", opacity: 1 },
-  exit: { x: "100%", opacity: 0 },
-};
-
-const listVariants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.6 } },
-  exit: { opacity: 0, y: 20, transition: { duration: 0.4 } },
-};
-
-const titleVariants = {
-  initial: { opacity: 0, scale: 0.95 },
-  animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  exit: { opacity: 0, scale: 0.95, transition: { duration: 0.4 } },
-};
-
-const MobileMenu: React.FC<Props> = ({
-  isSubMenuOpen,
-  setIsSubMenuOpen,
-  setIsMobileMenuOpen,
-}) => {
-  const handleCloseMenu = () => {
-    setIsMobileMenuOpen(false);
-    setIsSubMenuOpen(false);
+  const isItemActive = (href: string) => {
+    return pathname === href;
   };
 
   return (
-    <Dialog open={true} onClose={handleCloseMenu} className="relative z-50">
+    <Dialog open={true} onClose={onCloseMenu} className="relative z-50">
       <div className="fixed inset-0 flex bg-gray-800 bg-opacity-75">
-        {/* Sol taraftaki menü */}
         <motion.div
-          variants={animationVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="relative w-4/5 h-full bg-background p-8"
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: "0%", opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="relative w-4/5 h-full bg-background p-6 overflow-auto shadow-lg"
         >
-          {isSubMenuOpen ? (
-            <motion.div
-              variants={subMenuVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-            >
-              <SubMenu
-                handleCloseMenu={handleCloseMenu}
-                setIsSubMenuOpen={setIsSubMenuOpen}
-              />
-            </motion.div>
-          ) : (
-            <motion.div
-              variants={listVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
-              <MainMenu
-                handleCloseMenu={handleCloseMenu}
-                setIsSubMenuOpen={setIsSubMenuOpen}
-              />
-            </motion.div>
-          )}
-        </motion.div>
+          <div className="flex justify-between items-center text-xl font-bold">
+            <span>Menü</span>
+            <button onClick={onCloseMenu} className="text-secondary-foreground">
+              ✕
+            </button>
+          </div>
+          <hr className="my-4 border-secondary-foreground" />
 
-        <div className="flex-1" onClick={handleCloseMenu} />
+          <ul className="space-y-4">
+            {links.map((link) =>
+              link.type === "mega" ? (
+                <li key={link.id} className="space-y-2">
+                  <div
+                    className={`flex justify-between items-center cursor-pointer text-lg font-bold ${
+                      pathname.startsWith(link.href)
+                        ? "text-primary" // Seçili durumda güçlü vurgu
+                        : "text-secondary-foreground hover:text-gray-500" // Hover için açık gri renk
+                    }`}
+                  >
+                    <Link href={link.href}>
+                      <span>{link.label}</span>
+                    </Link>
+                    <motion.div
+                      initial={{ rotate: 0 }}
+                      animate={{
+                        rotate: openMegaCategories.includes(link.label)
+                          ? 180
+                          : 0,
+                      }}
+                      transition={{ duration: 0.4 }}
+                      className="text-base"
+                    >
+                      {openMegaCategories.includes(link.label) ? (
+                        <FaMinus
+                          onClick={() => toggleMegaCategory(link.label)}
+                        />
+                      ) : (
+                        <FaPlus
+                          onClick={() => toggleMegaCategory(link.label)}
+                        />
+                      )}
+                    </motion.div>
+                  </div>
+                  {openMegaCategories.includes(link.label) && (
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="mt-3 space-y-2 ml-4"
+                    >
+                      {link.dropdown?.map((category, idx) => (
+                        <li key={idx} className="space-y-1">
+                          <div
+                            onClick={() => toggleMegaCategory(category.label)}
+                            className={`flex justify-between items-center cursor-pointer text-base font-semibold ${
+                              category.dropdown?.some((item) =>
+                                isItemActive(item.href)
+                              )
+                                ? "text-primary"
+                                : "text-secondary-foreground hover:text-gray-500"
+                            }`}
+                          >
+                            <span>{category.label}</span>
+                            <motion.div
+                              initial={{ rotate: 0 }}
+                              animate={{
+                                rotate: openMegaCategories.includes(
+                                  category.label
+                                )
+                                  ? 180
+                                  : 0,
+                              }}
+                              transition={{ duration: 0.4 }}
+                              className="text-sm"
+                            >
+                              {openMegaCategories.includes(category.label) ? (
+                                <FaMinus />
+                              ) : (
+                                <FaPlus />
+                              )}
+                            </motion.div>
+                          </div>
+                          {openMegaCategories.includes(category.label) && (
+                            <motion.ul
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.5, ease: "easeInOut" }}
+                              className="mt-2 ml-4 space-y-1"
+                            >
+                              {category.dropdown?.map((item, subIdx) => (
+                                <li key={subIdx}>
+                                  <Link
+                                    href={item.href}
+                                    className={`block text-sm ${
+                                      isItemActive(item.href)
+                                        ? "text-primary"
+                                        : "text-secondary-foreground hover:text-gray-500"
+                                    }`}
+                                    onClick={onCloseMenu}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </li>
+              ) : (
+                <li key={link.id}>
+                  <Link
+                    href={link.href}
+                    className={`block text-lg font-bold ${
+                      isItemActive(link.href)
+                        ? "text-primary"
+                        : "text-secondary-foreground hover:text-gray-500"
+                    }`}
+                    onClick={onCloseMenu}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            )}
+          </ul>
+        </motion.div>
+        <div className="flex-1" onClick={onCloseMenu} />
       </div>
     </Dialog>
   );
 };
-
-const MainMenu: React.FC<{
-  handleCloseMenu: () => void;
-  setIsSubMenuOpen: (open: boolean) => void;
-}> = ({ handleCloseMenu, setIsSubMenuOpen }) => (
-  <>
-    <motion.div
-      className="text-2xl font-bold flex justify-between items-center"
-      variants={titleVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      <span>Menü</span>
-      <button
-        onClick={handleCloseMenu}
-        className="text-secondary-foreground"
-        aria-label="Menüyü Kapat"
-      >
-        <IoClose size={30} />
-      </button>
-    </motion.div>
-    <br />
-    <hr />
-    <motion.ul
-      className="mt-8 space-y-6"
-      variants={listVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      {links.map((link) =>
-        link.dropdown.length > 0 ? (
-          <li key={link.id} className="flex justify-between items-center">
-            <Link
-              href={link.href || ""}
-              className="text-secondary-foreground hover:text-primary"
-              onClick={handleCloseMenu}
-            >
-              {link.label}
-            </Link>
-            <div
-              className="cursor-pointer"
-              onClick={() => setIsSubMenuOpen(true)}
-            >
-              <FaChevronRight />
-            </div>
-          </li>
-        ) : (
-          <li key={link.id}>
-            <Link
-              href={link.href || ""}
-              className="text-secondary-foreground hover:text-primary"
-              onClick={handleCloseMenu}
-            >
-              {link.label}
-            </Link>
-          </li>
-        )
-      )}
-    </motion.ul>
-  </>
-);
-
-const SubMenu: React.FC<{
-  handleCloseMenu: () => void;
-  setIsSubMenuOpen: (open: boolean) => void;
-}> = ({ handleCloseMenu, setIsSubMenuOpen }) => (
-  <>
-    <motion.div
-      className="flex justify-between items-center text-xl"
-      variants={titleVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      <div className="flex items-center">
-        <button
-          onClick={() => setIsSubMenuOpen(false)}
-          className="text-secondary-foreground flex items-center"
-          aria-label="Ana Menüye Geri Dön"
-        >
-          <FaChevronLeft className="mr-2" />
-        </button>
-        <div>Hizmetlerimiz</div>
-      </div>
-      <button
-        onClick={handleCloseMenu}
-        className="text-secondary-foreground"
-        aria-label="Menüyü Kapat"
-      >
-        <IoClose size={30} />
-      </button>
-    </motion.div>
-    <br />
-    <hr />
-    <motion.ul
-      className="mt-8 space-y-6"
-      variants={listVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      {links[2].dropdown?.map((dropdownItem, idx) => (
-        <li key={idx}>
-          <Link
-            href={dropdownItem.href}
-            className="text-secondary-foreground hover:text-primary"
-            onClick={handleCloseMenu}
-          >
-            {dropdownItem.label}
-          </Link>
-        </li>
-      ))}
-    </motion.ul>
-  </>
-);
 
 export default MobileMenu;

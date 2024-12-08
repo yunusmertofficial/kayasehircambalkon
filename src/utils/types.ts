@@ -1,3 +1,18 @@
+export interface NavItem {
+  id: number;
+  label: string;
+  href: string;
+  dropdown?: MegaMenuItem[];
+  type: "standard" | "mega";
+}
+
+export interface MegaMenuItem {
+  id: number;
+  label: string;
+  href: string;
+  dropdown: NavItem[];
+}
+
 export interface ImageProps {
   id: number;
   height?: string;

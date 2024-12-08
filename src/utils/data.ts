@@ -1,26 +1,89 @@
-import { ImageProps, Post } from "./types";
+import { ImageProps, NavItem, Post } from "./types";
 
 export const links = [
-  { id: 1, label: "Anasayfa", href: "/", dropdown: [] },
-  { id: 2, label: "Hakkımızda", href: "/hakkimizda", dropdown: [] },
+  { id: 1, label: "Anasayfa", href: "/", type: "standard" },
+  { id: 2, label: "Hakkımızda", href: "/hakkimizda", type: "standard" },
   {
     id: 3,
     label: "Hizmetlerimiz",
-    href: "/services",
+    href: "/cam-balkon-sistemleri",
+    type: "mega",
     dropdown: [
-      { label: "Doctors", href: "/services/deneme" },
-      { label: "Gallery", href: "/gallery" },
-      { label: "FAQs", href: "/faqs" },
+      {
+        label: "Katlanır Sistemler",
+        dropdown: [
+          {
+            label: "Isıcamlı Katlanır Sistem",
+            href: "/cam-balkon-sistemleri/katlanir-sistemler/isicamli",
+          },
+          {
+            label: "Katlanır Sistem",
+            href: "/cam-balkon-sistemleri/katlanir-sistemler/katlanir",
+          },
+        ],
+      },
+      {
+        label: "Sürme Sistemler",
+        dropdown: [
+          {
+            label: "Isıcamlı Eşikli Sürme",
+            href: "/cam-balkon-sistemleri/surme-sistemler/esikli-isicamli",
+          },
+          {
+            label: "Eşikli Sürme",
+            href: "/cam-balkon-sistemleri/surme-sistemler/esikli",
+          },
+          {
+            label: "Isıcamlı Eşiksiz Sürme",
+            href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz-isicamli",
+          },
+          {
+            label: "Eşiksiz Sürme",
+            href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz",
+          },
+        ],
+      },
+      {
+        label: "Giyotin Sistemler",
+        dropdown: [
+          {
+            label: "Silinebilir Isıcamlı Giyotin",
+            href: "/cam-balkon-sistemleri/giyotin-sistemler/silinebilir-isicamli",
+          },
+          {
+            label: "Isıcamlı Giyotin Sistem",
+            href: "/cam-balkon-sistemleri/giyotin-sistemler/isicamli",
+          },
+        ],
+      },
+      {
+        label: "Gölgelendirme Sistemleri",
+        dropdown: [
+          {
+            label: "Rolling Roof",
+            href: "/cam-balkon-sistemleri/golelendirici-sistemler/rolling-roof",
+          },
+        ],
+      },
+      {
+        label: "Üstten Askılı Sistemler",
+        dropdown: [
+          {
+            label: "Üstten Askılı Sistem",
+            href: "/cam-balkon-sistemleri/ustten-askili-sistemler/askili",
+          },
+        ],
+      },
     ],
   },
   {
     id: 4,
     label: "Referanslar",
     href: "/cam-balkon-referanslar",
-    dropdown: [],
+    type: "standard",
   },
-  { id: 5, label: "İletişim", href: "/iletisim", dropdown: [] },
-] as const;
+  { id: 5, label: "İletişim", href: "/iletisim", type: "standard" },
+] as NavItem[];
 
 export const images = [
   {
@@ -147,26 +210,94 @@ export const posts: Post[] = [
   },
 ];
 
-export const services = [
+export const serviceCategories = [
   {
-    title: "Cam Balkon Sistemleri",
+    title: "Katlanır Sistemler",
     description:
-      "Estetik ve kullanışlı cam balkon çözümleri ile yaşam alanlarınızı güzelleştiriyoruz.",
-    href: "/hizmetler/cam-balkon",
-    image: "/images/services/cam-balkon.jpg",
+      "Modern ve şık tasarımlarıyla geniş mekanlar için katlanır sistemler sunuyoruz.",
+    image: "https://via.placeholder.com/400x300?text=Katlanir+Sistemler",
+    products: [
+      {
+        title: "Isıcamlı Katlanır Sistem",
+        description: "Isıcamlı ve şık tasarımlar",
+        href: "/orion",
+      },
+      {
+        title: "Katlanır Sistem",
+        description: "Farklı mekanlar için ideal çözüm",
+        href: "/leo",
+      },
+    ],
   },
   {
-    title: "Alüminyum Doğrama",
+    title: "Sürme Sistemler",
     description:
-      "Dayanıklı ve kaliteli alüminyum doğrama hizmetlerimizle tanışın.",
-    href: "/hizmetler/aluminyum-dograma",
-    image: "/images/services/aluminyum-dograma.jpg",
+      "Yüksek kaliteli ve güvenli sürme sistemleri ile iç mekanlarda şıklığı yakalayın.",
+    image: "https://via.placeholder.com/400x300?text=Surme+Sistemler",
+    products: [
+      {
+        title: "Eşikli Isıcamlı Sürme",
+        description: "Isıcamlı ve yüksek güvenlikli sürme sistem",
+        href: "/arista",
+      },
+      {
+        title: "Eşikli Sürme",
+        description: "Eşikli sürme sistemleri ile pratik kullanım",
+        href: "/arista-minor",
+      },
+      {
+        title: "Eşiksiz Isıcamlı Sürme",
+        description: "Isıcamlı, eşiksiz sürme sistemleri",
+        href: "/alecto",
+      },
+      {
+        title: "Eşiksiz Sürme",
+        description: "Pratik ve şık sürme sistemleri",
+        href: "/alecto-minor",
+      },
+    ],
   },
   {
-    title: "Kış Bahçesi Sistemleri",
+    title: "Giyotin Sistemler",
     description:
-      "Kış bahçesi sistemlerimizle dört mevsim doğanın keyfini çıkarın.",
-    href: "/hizmetler/kis-bahcesi",
-    image: "/images/services/kis-bahcesi.jpg",
+      "Eşsiz giyotin sistemleri ile mekânlarınıza modern bir dokunuş ekleyin.",
+    image: "https://via.placeholder.com/400x300?text=Giyotin+Sistemler",
+    products: [
+      {
+        title: "Silinebilir Isıcamlı Giyotin Sistem",
+        description: "Silinebilir yüzeyli ısıcamlı giyotin sistem",
+        href: "/vega",
+      },
+      {
+        title: "Isıcamlı Giyotin Sistem",
+        description: "Şık ve modern ısıcamlı giyotin sistem",
+        href: "/virgo",
+      },
+    ],
+  },
+  {
+    title: "Gölgelendirme Sistemleri",
+    description: "Dış mekanlarınıza şıklık katacak gölgelendirme sistemleri.",
+    image: "https://via.placeholder.com/400x300?text=Golgelendirme+Sistemler",
+    products: [
+      {
+        title: "Rolling Roof",
+        description: "Dış mekanlarda esnek gölgelendirme çözümü",
+        href: "/ursa",
+      },
+    ],
+  },
+  {
+    title: "Üstten Askılı Sistemler",
+    description:
+      "Zarif üstten askılı sistemlerle iç mekanınıza modern dokunuşlar.",
+    image: "https://via.placeholder.com/400x300?text=Ustten+Askili+Sistemler",
+    products: [
+      {
+        title: "Üstten Askılı",
+        description: "Zarif tasarımlarla iç mekanlarda estetik kullanım",
+        href: "/libra",
+      },
+    ],
   },
 ];
