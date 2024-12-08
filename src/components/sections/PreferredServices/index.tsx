@@ -45,11 +45,14 @@ const serviceCategories = [
 const CategoriesPage = () => {
   return (
     <AnimatedSection>
-      <section aria-labelledby="cam-balkon-sistemleri-title">
+      <section
+        aria-labelledby="cam-balkon-sistemleri-title"
+        className="pb-16 pt-6"
+      >
         <Container>
           {/* Başlık ve Buton */}
           <div className="flex flex-col items-center gap-4 md:flex-row justify-between">
-            <h3 className="text-3xl font-bold text-center md:text-left">
+            <h3 className="text-4xl font-bold text-center md:text-left">
               Cam Balkon Sistemlerimiz
             </h3>
             <ButtonLink
@@ -59,7 +62,7 @@ const CategoriesPage = () => {
             />
           </div>
 
-          <p className="text-center pt-2 text-gray-600 mb-12 md:text-left">
+          <p className="text-center pt-2 text-gray-600 mb-12 mt-4 md:text-left">
             Katlanır, sürme, giyotin ve diğer sistemlerimizle mekanlarınıza
             modern çözümler sunuyoruz. Ürünlerimizin detayları için aşağıya göz
             atabilirsiniz.
