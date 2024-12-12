@@ -10,20 +10,6 @@ const Services = () => {
   return (
     <section className="py-16" aria-labelledby="cam-balkon-sistemleri-title">
       <Container>
-        {/* Başlık */}
-        <header className="text-center mb-16">
-          <h3
-            id="cam-balkon-sistemleri-title"
-            className="text-4xl font-bold text-foreground"
-          >
-            Cam Balkon Sistemlerimiz
-          </h3>
-          <p className="text-muted-foreground mt-4">
-            Geniş ve şık mekanlar için en uygun cam balkon çözümleri.
-          </p>
-        </header>
-
-        {/* Kategori Listesi */}
         <div className="space-y-16">
           {serviceCategories.map((category, index) => (
             <AnimatedSection key={index}>

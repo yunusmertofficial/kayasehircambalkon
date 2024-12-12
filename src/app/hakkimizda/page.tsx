@@ -1,5 +1,9 @@
+import React from "react";
 import Breadcrumb from "@/components/Breadcrumb";
+import StatisticsAndAchievements from "@/components/sections/StatisticsAndAchievements";
 import type { Metadata } from "next";
+import AboutUsSection from "./_components/AboutUsSection";
+import WhyUsSection from "./_components/WhyUsSection";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | Kayaşehir Cam Balkon",
@@ -13,10 +17,10 @@ export const metadata: Metadata = {
       "Firmamız 20 yıllık tecrübesiyle şık, dayanıklı ve kaliteli cam balkon çözümleri sunuyor. Müşteri memnuniyetini ön planda tutuyoruz.",
     images: [
       {
-        url: "/images/hakkimizda.webp",
+        url: "/images/hakkimizda/hakkimizda.webp",
         width: 1200,
         height: 630,
-        alt: "Kayaşehir Cam Balkon hakkında",
+        alt: "Kayaşehir Cam Balkon Hakkımızda Görseli",
       },
     ],
     type: "website",
@@ -28,8 +32,8 @@ export const metadata: Metadata = {
       "Kayaşehir Cam Balkon hakkında bilgi alın. 20 yıllık tecrübemizle cam balkon çözümlerinde öncü bir firmayız.",
     images: [
       {
-        url: "/images/hakkimizda.webp",
-        alt: "Kayaşehir Cam Balkon hakkında",
+        url: "/images//hakkimizda/hakkimizda.webp",
+        alt: "Kayaşehir Cam Balkon Hakkımızda Görseli",
       },
     ],
   },
@@ -53,26 +57,9 @@ export default function AboutPage() {
         }}
       />
 
-      {/* Sayfa İçeriği */}
-      <div className="container mx-auto mt-12 px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">Hakkımızda</h2>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          Kayaşehir Cam Balkon olarak 20 yıldır cam balkon sistemlerinde kalite
-          ve güveni temsil ediyoruz. Deneyimli ekibimizle birlikte İstanbul
-          genelinde binlerce mutlu müşteriye hizmet verdik. Yüksek kalite
-          standartlarımız ve müşteri odaklı yaklaşımımızla sektörde öncü bir
-          konuma sahibiz.
-        </p>
-        <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-          Firmamız, hem bireysel hem de ticari alanlarda şık ve dayanıklı cam
-          balkon çözümleri sunmaktadır. Teknolojik altyapımız ve yenilikçi
-          üretim süreçlerimizle uzun ömürlü ve estetik çözümler üretiyoruz.
-          Kayaşehir Cam Balkon ile kalite ve güveni tercih edin!
-        </p>
-      </div>
-
-      {/* Footer ile Boşluk */}
-      <div className="mt-20"></div>
+      <AboutUsSection />
+      <StatisticsAndAchievements />
+      <WhyUsSection />
     </section>
   );
 }

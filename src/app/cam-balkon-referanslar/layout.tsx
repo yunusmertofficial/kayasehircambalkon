@@ -46,7 +46,7 @@ export default function CamBalkonReferanslarLayout({
   ];
   return (
     <>
-      <section>
+      <main>
         <Breadcrumb
           breadcrumbs={breadcrumbs}
           title="Referanslar"
@@ -56,7 +56,7 @@ export default function CamBalkonReferanslarLayout({
           }}
         />
         {children}
-      </section>
+      </main>
       ;
     </>
   );
