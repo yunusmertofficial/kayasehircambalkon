@@ -17,7 +17,10 @@ const Breadcrumb = ({
   };
 }) => {
   return (
-    <section className="relative w-full h-[200px] lg:h-[250px] text-start">
+    <section
+      className="relative w-full h-[200px] lg:h-[250px] text-start"
+      aria-label="Breadcrumb"
+    >
       {/* Görselin üzerine karanlık bir katman ekleyelim */}
       {image && (
         <>

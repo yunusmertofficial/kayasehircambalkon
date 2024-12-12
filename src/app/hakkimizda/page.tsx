@@ -46,7 +46,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <section>
+    <main>
       {/* Banner ve Breadcrumb */}
       <Breadcrumb
         title="Hakkımızda"
@@ -60,6 +60,6 @@ export default function AboutPage() {
       <AboutUsSection />
       <StatisticsAndAchievements />
       <WhyUsSection />
-    </section>
+    </main>
   );
 }
