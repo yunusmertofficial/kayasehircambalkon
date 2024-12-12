@@ -73,6 +73,7 @@ const Breadcrumb = ({
                 {index !== breadcrumbs.length - 1 ? (
                   <Link
                     href={breadcrumb.href}
+                    aria-label={breadcrumb.label}
                     className="text-primary-foreground font-medium hover:text-gray-200 hover:underline transition-all duration-300"
                   >
                     {breadcrumb.label}

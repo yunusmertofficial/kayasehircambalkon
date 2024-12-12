@@ -10,6 +10,7 @@ export const Copyright = () => {
           <Link
             href="https://kayasehircambalkon.com"
             className="hover:text-primary"
+            aria-label="Kayaşehir Cam Balkon"
           >
             kayasehircambalkon.com
           </Link>

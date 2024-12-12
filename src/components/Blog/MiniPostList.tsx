@@ -21,6 +21,7 @@ const MiniPostList = ({ title, posts }: MiniPostListProps) => {
                       <Link
                         href={`/blog/${post.slug}`}
                         className="hover:text-black transition-colors"
+                        aria-label={post.title}
                       >
                         <span
                           className="bg-gradient-to-r from-blue-200 to-blue-100 bg-[length:0px_10px] bg-left-bottom

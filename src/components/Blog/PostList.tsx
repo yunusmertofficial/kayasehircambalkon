@@ -66,7 +66,11 @@ export default function PostList({
 
       <div className={cx(minimal && "flex items-center")}>
         <div>
-          <Link href={`/category/${post.category.slug}`}>
+          <Link
+            href={`/category/${post.category.slug}`}
+            passHref
+            aria-label="Kategori"
+          >
             <Label nomargin={false} color={"green"} pill>
               {post.category.title}
             </Label>
@@ -107,6 +111,7 @@ export default function PostList({
                   href={`/blog/${pathPrefix ? `${pathPrefix}/` : ""}${
                     post.slug
                   }`}
+                  aria-label={post.excerpt}
                 >
                   {post.excerpt}
                 </Link>

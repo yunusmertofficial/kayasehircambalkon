@@ -43,6 +43,8 @@ const Services = () => {
                         <Link
                           key={productIndex}
                           href={product.href}
+                          passHref
+                          aria-label={product.title}
                           className="flex flex-col items-start text-start bg-card rounded-lg transition-all duration-300 p-6 bg-secondary text-foreground shadow-lg hover:shadow-xl hover:scale-105 transform-gpu "
                         >
                           <h5 className="text-xl">{product.title}</h5>

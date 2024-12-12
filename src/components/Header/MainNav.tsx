@@ -27,7 +27,7 @@ const MainNav: React.FC<Props> = ({
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full px-8">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link href="/">
+          <Link href="/" aria-label="Ana Sayfa" passHref>
             <Image src="/logo.webp" alt="logo" width={250} height={73} />
           </Link>
         </div>
@@ -52,7 +52,9 @@ const MainNav: React.FC<Props> = ({
                         : "text-gray-700"
                     } hover:text-gray-500`}
                   >
-                    <Link href={link.href}>{link.label}</Link>
+                    <Link href={link.href} aria-label={link.label}>
+                      {link.label}
+                    </Link>
                     <motion.div
                       className="absolute -bottom-2 left-0 h-[2px] bg-primary"
                       initial={{ width: 0 }}
@@ -96,6 +98,7 @@ const MainNav: React.FC<Props> = ({
                                         ? "text-primary"
                                         : "text-gray-700 hover:text-gray-500"
                                     }`}
+                                    aria-label={dropdownItem.label}
                                   >
                                     {dropdownItem.label}
                                   </Link>
@@ -117,7 +120,11 @@ const MainNav: React.FC<Props> = ({
                       : "text-gray-700 hover:text-gray-500"
                   }`}
                 >
-                  <Link href={link.href} className="relative">
+                  <Link
+                    href={link.href}
+                    className="relative"
+                    aria-label={link.label}
+                  >
                     {link.label}
                     <motion.div
                       className="absolute -bottom-2 left-0 h-[2px] bg-primary"

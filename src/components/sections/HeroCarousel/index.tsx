@@ -116,6 +116,7 @@ const HeroCarousel = () => {
             {/* Fiyat Hesapla Butonu */}
             <Link
               href="/fiyat-hesaplama"
+              aria-label="Fiyat Hesapla"
               className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               Fiyat Hesapla
@@ -124,6 +125,7 @@ const HeroCarousel = () => {
             {/* İletişim Butonu */}
             <Link
               href="/iletisim"
+              aria-label="İletişim"
               className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               İletişim

@@ -20,6 +20,7 @@ export const FooterContact = () => {
           <Link
             href="tel:+905555555555"
             className="hover:text-primary transition-all"
+            aria-label="Telefon"
           >
             +90 536 560 8595
           </Link>

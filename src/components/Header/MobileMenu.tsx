@@ -54,7 +54,7 @@ const MobileMenu: React.FC<{
                         : "text-secondary-foreground hover:text-gray-500" // Hover için açık gri renk
                     }`}
                   >
-                    <Link href={link.href}>
+                    <Link href={link.href} onClick={onCloseMenu}>
                       <span>{link.label}</span>
                     </Link>
                     <motion.div
@@ -136,6 +136,7 @@ const MobileMenu: React.FC<{
                                         : "text-secondary-foreground hover:text-gray-500"
                                     }`}
                                     onClick={onCloseMenu}
+                                    aria-label={item.label}
                                   >
                                     {item.label}
                                   </Link>
@@ -158,6 +159,7 @@ const MobileMenu: React.FC<{
                         : "text-secondary-foreground hover:text-gray-500"
                     }`}
                     onClick={onCloseMenu}
+                    aria-label={link.label}
                   >
                     {link.label}
                   </Link>

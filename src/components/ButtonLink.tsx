@@ -22,6 +22,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
           "inline-flex items-center justify-center gap-2 px-5 py-2 bg-primary text-primary-foreground text-lg font-medium rounded-full hover:bg-primary-foreground hover:text-primary transition-all group",
           additionalClass // Eğer ekstra bir class varsa ekle
         )}
+        aria-label={text}
       >
         {text}
         <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
