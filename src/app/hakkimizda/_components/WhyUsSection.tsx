@@ -8,12 +8,12 @@ const WhyUsSection = () => {
     <AnimatedSection>
       <Container>
         <div className="py-16">
-          <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+          <h3 className="text-center text-3xl md:text-4xl font-bold text-gray-900 mb-8">
             <span className="bg-gradient-to-r from-blue-600 to-blue-400 text-transparent bg-clip-text">
               Neden
             </span>{" "}
             <span className="text-gray-900">Kayaşehir Cam Balkon?</span>
-          </h2>
+          </h3>
           <div className="grid gap-8 md:grid-cols-3">
             <SolutionCard
               title="Uzman Ekip"

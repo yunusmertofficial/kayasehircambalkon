@@ -9,10 +9,10 @@ export default function AboutUsSection() {
       <Container>
         <section className="grid gap-8 md:grid-cols-2 items-start py-16">
           <header>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
               Kayaşehir Cam Balkon:{" "}
               <span className="text-blue-600">20 Yıllık Tecrübe ve Kalite</span>
-            </h3>
+            </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               <strong>Kayaşehir Cam Balkon</strong> olarak, 20 yılı aşkın
               süredir cam balkon sektöründe faaliyet göstermekteyiz. Yenilikçi
