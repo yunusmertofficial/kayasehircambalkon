@@ -46,14 +46,14 @@ const FaqSummary = () => {
           <div className="grid gap-8 md:grid-cols-2 items-start">
             {/* Sol Sütun (Başlık ve Açıklama) */}
             <header>
-              <h1
+              <h3
                 id="faq-heading"
                 className="text-3xl md:text-4xl font-bold text-foreground mb-4"
               >
                 Balkonlarınızı Dönüştürün <br className="hidden lg:block" />
                 <span className="text-blue-600">Kayaşehir Cam Balkon</span>{" "}
                 Sistemleri
-              </h1>
+              </h3>
               <p className="text-muted-foreground mb-6 text-base md:text-lg">
                 Kayaşehir cam balkon çözümlerimiz, estetik ve fonksiyonelliği
                 bir araya getirerek yaşam alanlarınızı dönüştürmenize yardımcı
