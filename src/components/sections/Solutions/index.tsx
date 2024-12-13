@@ -95,8 +95,8 @@ const KayaSehirCamBalkon = () => {
                 <Image
                   src="/images/cam-balkon1.webp"
                   alt="Cam Balkon Tasarımı"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="rounded-lg shadow-md"
                 />
               </div>
@@ -105,8 +105,8 @@ const KayaSehirCamBalkon = () => {
                 <Image
                   src="/images/cam-balkon2.webp"
                   alt="Cam Balkon Montaj Hizmeti"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="rounded-lg shadow-md"
                 />
               </div>

@@ -33,7 +33,7 @@ export default function LastPost() {
           </div>
           <div className="text-center">
             <ButtonLink
-              href="/iletisim"
+              href="/blog"
               text="Daha Fazla Görüntüle"
               additionalClass="mt-8"
             />

@@ -67,7 +67,7 @@ export default function PostList({
       <div className={cx(minimal && "flex items-center")}>
         <div>
           <Link
-            href={`/category/${post.category.slug}`}
+            href={`/kategori/${post.category.slug}`}
             passHref
             aria-label="Kategori"
           >

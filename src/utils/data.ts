@@ -177,35 +177,46 @@ export const categories = [
   {
     title: "Cam Balkon Servisi",
     slug: "cam-balkon-servisi",
-  },
-  {
-    title: "Kategori 2",
-    slug: "kategori-2",
+    metadata: {
+      title: "Cam Balkon Servisi - Modern ve Şık Çözümler",
+      description:
+        "Cam balkon servisi hakkında bilgi alın ve yaşam alanlarınızı daha kullanışlı hale getirin.",
+      keywords: "Cam Balkon, Cam Balkon Servisi, Balkon Sistemleri",
+    },
   },
 ];
 
 export const posts: Post[] = [
   {
-    title: "9 Farklı Balkon Kapatma Modeli",
-    slug: "balkon-kapatma",
-    //  excerpt: "Bu bir örnek açıklamadır.",
+    title: "Cam Balkonun Avantajları ve Hayatınıza Kattığı Konfor",
+    slug: "cam-balkon-avantajlari",
     category: categories[0],
     image: {
-      src: "https://via.placeholder.com/600x400",
-      blurDataURL: "data:image/jpeg;base64,...", // Blur verisi (isteğe bağlı)
-      alt: "Ana Resim Alt Metni",
+      src: "/images/blog/blog1.webp", // Görsel URL'sini ekleyin
+      blurDataURL: "data:image/jpeg;base64,...", // Bulanık veri
+      alt: "Cam balkonun avantajları ve hayatınıza kattığı konfor",
     },
     publishedAt: new Date().toISOString(),
   },
   {
-    title: "9 Farklı Balkon Kapatma Modeli",
-    slug: "balkon-kapatma2",
-    //  excerpt: "Bu bir örnek açıklamadır.",
+    title: "Cam Balkon Alırken Dikkat Edilmesi Gerekenler",
+    slug: "cam-balkon-alirken-dikkat-edilmesi-gerekenler",
     category: categories[0],
     image: {
-      src: "https://via.placeholder.com/600x400",
+      src: "/images/blog/blog2.webp", // Resim URL'sini değiştirin
       blurDataURL: "data:image/jpeg;base64,...", // Blur verisi (isteğe bağlı)
-      alt: "Ana Resim Alt Metni",
+      alt: "Cam balkon alırken dikkat edilmesi gerekenler",
+    },
+    publishedAt: new Date().toISOString(),
+  },
+  {
+    title: "Cam Balkon Sistemlerinde Yalıtımın Önemi",
+    slug: "cam-balkon-yalitim",
+    category: categories[0],
+    image: {
+      src: "/images/blog/blog3.webp",
+      blurDataURL: "data:image/jpeg;base64,...",
+      alt: "Cam balkon sistemlerinde yalıtımın önemi",
     },
     publishedAt: new Date().toISOString(),
   },
