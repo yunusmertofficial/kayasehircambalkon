@@ -5,21 +5,21 @@ const Commitments = () => {
   const cards = [
     {
       icon: <FaShieldAlt />,
-      title: "Garantili Hizmet",
+      title: "Garantili Cam Balkon Hizmeti",
       description:
-        "Verdiğimiz hizmetler doğrultusunda belirli periyotlarla garanti sunuyoruz.",
+        "Kayaşehir'de garantili cam balkon çözümleriyle uzun ömürlü kalite sunuyoruz.",
     },
     {
       icon: <FaHeadset />,
-      title: "7/24 Destek",
+      title: "7/24 Cam Balkon Destek",
       description:
-        "Acil veya normal durumlar için 7/24 destek hizmeti sunuyoruz.",
+        "Kayaşehir cam balkon hizmetlerinde 7/24 destekle her zaman yanınızdayız.",
     },
     {
       icon: <FaUsers />,
       title: "10 Bin+ Mutlu Müşteri",
       description:
-        "İstanbul'da 15 yıllık deneyimimizle 10 bin mutlu müşteri referansına ulaştık.",
+        "15 yıllık tecrübeyle İstanbul'da 10.000’den fazla mutlu müşteri referansına sahibiz.",
     },
   ];
 

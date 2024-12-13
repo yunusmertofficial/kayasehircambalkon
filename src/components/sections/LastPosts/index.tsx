@@ -9,7 +9,7 @@ export default function LastPost() {
   const lastPosts = posts.slice(0, 3);
   return (
     <AnimatedSection>
-      <section aria-label="Son Gönderiler" className="py-16">
+      <section aria-label="Son Gönderiler" className="py-1">
         <Container>
           {/* Başlık ve Buton */}
           <header className="text-center mb-16">
@@ -31,11 +31,13 @@ export default function LastPost() {
               />
             ))}
           </div>
-          <ButtonLink
-            href="/iletisim"
-            text="Daha Fazla Görüntüle"
-            additionalClass="mt-5"
-          />
+          <div className="text-center">
+            <ButtonLink
+              href="/iletisim"
+              text="Daha Fazla Görüntüle"
+              additionalClass="mt-8"
+            />
+          </div>
         </Container>
       </section>
     </AnimatedSection>

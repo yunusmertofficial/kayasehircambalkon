@@ -1,67 +1,116 @@
 "use client";
 import React from "react";
-import { FiSettings, FiPackage, FiTool, FiShoppingCart } from "react-icons/fi";
+import Image from "next/image";
+import {
+  MdDesignServices,
+  MdBuild,
+  MdHomeRepairService,
+  MdOutlineSettingsSuggest,
+} from "react-icons/md";
 import Container from "@/components/Container";
-import SolutionCard from "@/components/SolutionCard";
 import AnimatedSection from "@/components/AnimatedSection";
+import ButtonLink from "@/components/ButtonLink";
 
-const Solutions = () => {
-  const services = [
+const KayaSehirCamBalkon = () => {
+  const solutions = [
     {
-      title: "Cam Balkon İmalatçısı",
+      title: "Cam Balkon Tasarımı",
       description:
-        "Dayanıklı ve uzun ömürlü cam balkon sistemleri üretiyoruz. Modern tasarım ve teknoloji ile projelerinize özel çözümler sunuyoruz.",
-      icon: <FiSettings />,
+        "Kayaşehir'deki ev ve iş yerleri için modern, estetik ve fonksiyonel cam balkon tasarımları sunuyoruz.",
+      icon: <MdDesignServices />,
     },
     {
-      title: "Cam Balkon Tedarikçisi",
+      title: "Cam Balkon İmalatı",
       description:
-        "Projelerinize özel cam balkon sistemlerini hızlı ve güvenilir şekilde tedarik ediyoruz.",
-      icon: <FiPackage />,
+        "Dayanıklı, uzun ömürlü ve yüksek kaliteli malzemelerle cam balkon üretimi gerçekleştiriyoruz.",
+      icon: <MdBuild />,
     },
     {
       title: "Cam Balkon Montajı",
       description:
-        "Profesyonel ekibimizle cam balkon sistemlerinizin güvenli ve hızlı montajını gerçekleştiriyoruz.",
-      icon: <FiTool />,
+        "Profesyonel ekibimizle cam balkonlarınızı titizlikle ve kusursuz bir şekilde monte ediyoruz.",
+      icon: <MdHomeRepairService />,
     },
     {
-      title: "Cam Balkon Satışı",
+      title: "Cam Balkon Bakımı ve Onarımı",
       description:
-        "Her ihtiyaca uygun cam balkon sistemlerini uygun fiyatlarla sunuyoruz.",
-      icon: <FiShoppingCart />,
+        "Cam balkonlarınızın performansını artırmak ve ilk günkü görünümünü korumak için bakım ve onarım hizmetleri sunuyoruz.",
+      icon: <MdOutlineSettingsSuggest />,
     },
   ];
 
   return (
     <AnimatedSection>
       <section
-        className="py-16 animate-fadeIn"
-        aria-labelledby="solutions-title"
+        className="py-16 animate-fadeIn bg-light"
+        aria-labelledby="kayasehir-title"
       >
         <Container>
-          <header className="text-center mb-16">
-            <h3
-              id="completed-projects-title"
-              className="text-4xl font-bold text-foreground"
-            >
-              Cam Balkon Çözümlerimiz
-            </h3>
-            <p className="text-muted-foreground mt-4">
-              Cam balkon imalatı, tedarik, montaj ve satış hizmetlerinde
-              uzmanız.
-            </p>
-          </header>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative">
+            {/* Left Section */}
+            <div>
+              <h2
+                id="kayasehir-title"
+                className="text-4xl font-bold text-foreground"
+              >
+                Kayaşehir Cam Balkon{" "}
+                <span className="text-primary">Çözümleri</span>
+              </h2>
+              <p className="text-muted-foreground mt-4">
+                {`Kayaşehir'de müşterilerimize özel cam balkon çözümleri
+                sunuyoruz. Tasarımdan montaja kadar tüm süreçlerde yüksek kalite
+                ve müşteri memnuniyeti sağlıyoruz.`}
+              </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <SolutionCard
-                key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
+              {/* Solutions Section */}
+              <div className="mt-8 space-y-6">
+                {solutions.map((solution, index) => (
+                  <div key={index} className="flex items-center">
+                    <div className="text-primary text-5xl mr-4">
+                      {solution.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground">
+                        {solution.title}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {solution.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <ButtonLink
+                href="/iletisim"
+                text="Hemen Teklif Alın"
+                additionalClass="mt-8 text-lef"
               />
-            ))}
+            </div>
+
+            {/* Right Section with Positioned Images */}
+            <div className="relative w-full h-[400px]">
+              {/* Bottom-left Image */}
+              <div className="absolute bottom-0 left-0 w-[60%] h-[70%]">
+                <Image
+                  src="/images/cam-balkon1.webp"
+                  alt="Cam Balkon Tasarımı"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg shadow-md"
+                />
+              </div>
+              {/* Top-right Image */}
+              <div className="absolute top-0 right-0 w-[60%] h-[70%]">
+                <Image
+                  src="/images/cam-balkon2.webp"
+                  alt="Cam Balkon Montaj Hizmeti"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg shadow-md"
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -69,4 +118,4 @@ const Solutions = () => {
   );
 };
 
-export default Solutions;
+export default KayaSehirCamBalkon;
