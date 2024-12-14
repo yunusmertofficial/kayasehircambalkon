@@ -42,8 +42,8 @@ export default async function Page({ params }: Props) {
     <main>
       <Breadcrumb
         breadcrumbs={breadcrumbs}
-        title="Bloglarım" // "Referanslar" yerine "Bloglarım"
-        description="Kayaşehir Cam Balkon ile ilgili tüm blog gönderileri, haberler ve bilgiler"
+        title={category.title}
+        description={`${category.title} ile ilgili en güncel gönderileri buradan takip edebilirsiniz.`}
         image={{
           url: "/images/referanslar/banner.webp",
         }}

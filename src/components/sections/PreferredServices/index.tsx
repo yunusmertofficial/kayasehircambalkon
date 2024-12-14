@@ -3,44 +3,7 @@ import Image from "next/image";
 import ButtonLink from "@/components/ButtonLink";
 import Container from "@/components/Container";
 import AnimatedSection from "@/components/AnimatedSection";
-
-const serviceCategories = [
-  {
-    title: "Katlanır Sistemler",
-    description:
-      "Isıcamlı katlanır sistemler ve şık tasarımlar sunarak mekanlarınızı modernleştiriyoruz.",
-    products: ["Isıcamlı Katlanır Sistem", "Katlanır Cam Balkon"],
-    image: "/images/hizmetlerimiz/katlanir-cam-balkon.webp",
-  },
-  {
-    title: "Sürme Sistemler",
-    description:
-      "Eşikli ve eşiksiz sürme sistemlerimizle mekanlarınıza şıklık ve pratiklik katıyoruz.",
-    products: ["Eşikli Isıcamlı Sürme", "Eşiksiz Sürme Sistemleri"],
-    image: "/images/hizmetlerimiz/surme-cam-balkon.webp",
-  },
-  {
-    title: "Giyotin Sistemler",
-    description:
-      "Isıcamlı giyotin sistemlerimiz ile modern ve pratik çözümler sunuyoruz.",
-    products: ["Isıcamlı Giyotin Sistem", "Silinebilir Giyotin Sistem"],
-    image: "/images/hizmetlerimiz/giyotin-cam-balkon.webp",
-  },
-  {
-    title: "Gölgelendirme Sistemleri",
-    description:
-      "Rolling Roof gibi gölgelendirme çözümlerimizle dış mekanlarınıza estetik bir dokunuş ekliyoruz.",
-    products: ["Rolling Roof"],
-    image: "/images/hizmetlerimiz/golgelendirme-cam-balkon.webp",
-  },
-  {
-    title: "Üstten Askılı Sistemler",
-    description:
-      "Zarif üstten askılı sistemlerimiz, mekanlarınıza modern ve işlevsel çözümler sunar.",
-    products: ["Üstten Askılı Sistem"],
-    image: "/images/hizmetlerimiz/ustten-askili-cam-balkon.webp",
-  },
-];
+import { serviceCategories } from "@/utils/data";
 
 const CategoriesPage = () => {
   return (
@@ -92,7 +55,9 @@ const CategoriesPage = () => {
                   <p className="text-sm text-gray-600">
                     {category.description} Ürünlerimiz:{" "}
                     <span className="font-semibold">
-                      {category.products.join(", ")}.
+                      {category.products
+                        .map((product) => product.title)
+                        .join(", ")}
                     </span>
                   </p>
                 </div>

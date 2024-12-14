@@ -224,75 +224,89 @@ export const posts: Post[] = [
 
 export const serviceCategories = [
   {
+    id: 1,
     title: "Katlanır Sistemler",
     description:
-      "Modern ve şık tasarımlarıyla geniş mekanlar için katlanır sistemler sunuyoruz.",
+      "Isıcamlı katlanır sistemler ve şık tasarımlar sunarak mekanlarınızı modernleştiriyoruz",
     image: "/images/hizmetlerimiz/katlanir-cam-balkon.webp",
     products: [
       {
+        id: 1,
         title: "Isıcamlı Katlanır Sistem",
         description: "Isıcamlı ve şık tasarımlar",
-        href: "/orion",
+        href: "/cam-balkon-sistemleri/katlanir-sistemler/isicamli",
       },
       {
+        id: 2,
         title: "Katlanır Sistem",
         description: "Farklı mekanlar için ideal çözüm",
-        href: "/leo",
+        href: "/cam-balkon-sistemleri/katlanir-sistemler/katlanir",
       },
     ],
   },
   {
+    id: 2,
     title: "Sürme Sistemler",
     description:
-      "Yüksek kaliteli ve güvenli sürme sistemleri ile iç mekanlarda şıklığı yakalayın.",
+      "Eşikli ve eşiksiz sürme sistemlerimizle mekanlarınıza şıklık ve pratiklik katıyoruz.",
     image: "/images/hizmetlerimiz/surme-cam-balkon.webp",
     products: [
       {
+        id: 1,
         title: "Eşikli Isıcamlı Sürme",
         description: "Isıcamlı ve yüksek güvenlikli sürme sistem",
-        href: "/arista",
+        href: "/cam-balkon-sistemleri/surme-sistemler/esikli-isicamli",
       },
       {
+        id: 2,
         title: "Eşikli Sürme",
         description: "Eşikli sürme sistemleri ile pratik kullanım",
-        href: "/arista-minor",
+        href: "/cam-balkon-sistemleri/surme-sistemler/esikli",
       },
       {
+        id: 3,
         title: "Eşiksiz Isıcamlı Sürme",
         description: "Isıcamlı, eşiksiz sürme sistemleri",
-        href: "/alecto",
+        href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz-isicamli",
       },
       {
+        id: 4,
         title: "Eşiksiz Sürme",
         description: "Pratik ve şık sürme sistemleri",
-        href: "/alecto-minor",
+        href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz",
       },
     ],
   },
   {
+    id: 3,
     title: "Giyotin Sistemler",
     description:
-      "Eşsiz giyotin sistemleri ile mekânlarınıza modern bir dokunuş ekleyin.",
+      "Isıcamlı giyotin sistemlerimiz ile modern ve pratik çözümler sunuyoruz.",
     image: "/images/hizmetlerimiz/giyotin-cam-balkon.webp",
     products: [
       {
+        id: 1,
         title: "Silinebilir Isıcamlı Giyotin Sistem",
         description: "Silinebilir yüzeyli ısıcamlı giyotin sistem",
-        href: "/vega",
+        href: "/cam-balkon-sistemleri/giyotin-sistemler/silinebilir-isicamli",
       },
       {
+        id: 2,
         title: "Isıcamlı Giyotin Sistem",
         description: "Şık ve modern ısıcamlı giyotin sistem",
-        href: "/virgo",
+        href: "/cam-balkon-sistemleri/giyotin-sistemler/isicamli",
       },
     ],
   },
   {
+    id: 4,
     title: "Gölgelendirme Sistemleri",
-    description: "Dış mekanlarınıza şıklık katacak gölgelendirme sistemleri.",
+    description:
+      "Rolling Roof gibi gölgelendirme çözümlerimizle dış mekanlarınıza estetik bir dokunuş ekliyoruz. ",
     image: "/images/hizmetlerimiz/golgelendirme-cam-balkon.webp",
     products: [
       {
+        id: 1,
         title: "Rolling Roof",
         description: "Dış mekanlarda esnek gölgelendirme çözümü",
         href: "/ursa",
@@ -300,16 +314,38 @@ export const serviceCategories = [
     ],
   },
   {
+    id: 5,
     title: "Üstten Askılı Sistemler",
     description:
-      "Zarif üstten askılı sistemlerle iç mekanınıza modern dokunuşlar.",
+      "Zarif üstten askılı sistemlerimiz, mekanlarınıza modern ve işlevsel çözümler sunar.",
     image: "/images/hizmetlerimiz/ustten-askili-cam-balkon.webp",
     products: [
       {
+        id: 1,
         title: "Üstten Askılı",
         description: "Zarif tasarımlarla iç mekanlarda estetik kullanım",
-        href: "/libra",
+        href: "/cam-balkon-sistemleri/ustten-askili-sistemler/askili",
       },
     ],
   },
 ];
+
+/* 
+
+├── katlanir/
+│   ├── isicamli-katlanir.tsx 
+│   └── katlanir-sistem.tsx
+├── surme/
+│   ├── isicamli-esikli-surme.tsx
+│   ├── esikli-surme.tsx
+│   ├── isicamli-esiksiz-surme.tsx
+│   └── esiksiz-surme.tsx
+├── giyotin/
+│   ├── silinebilir-isicamli-giyotin.tsx
+│   └── isicamli-giyotin.tsx
+├── golgelendirme/
+│   └── rolling-roof.tsx
+├── ustten-askili/
+│   └── ustten-askili-sistem.tsx
+
+*/
