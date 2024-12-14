@@ -121,14 +121,12 @@ const HeroCarousel = () => {
             >
               Fiyat Hesapla
             </Link>
-
-            {/* İletişim Butonu */}
             <Link
-              href="/iletisim"
-              aria-label="İletişim"
+              href="tel:+905365608595"
+              aria-label="heemen ara"
               className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
-              İletişim
+              Hemen Ara
             </Link>
           </div>
         </div>

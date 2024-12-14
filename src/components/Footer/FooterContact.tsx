@@ -18,7 +18,7 @@ export const FooterContact = () => {
         <li className="flex items-center space-x-2">
           <FaPhoneAlt className="text-primary" />
           <Link
-            href="tel:+905555555555"
+            href="tel:+905365608595"
             className="hover:text-primary transition-all"
             aria-label="Telefon"
           >

@@ -5,13 +5,13 @@ import Services from "./_components/Services";
 export const metadata: Metadata = {
   title: "Hakkımızda | Kayaşehir Cam Balkon",
   description:
-    "Kayaşehir Cam Balkon olarak 20 yıllık deneyimimizle kaliteli ve güvenilir cam balkon çözümleri sunuyoruz. Firmamız hakkında detaylı bilgi alın.",
+    "Kayaşehir Cam Balkon olarak 15 yıllık deneyimimizle kaliteli ve güvenilir cam balkon çözümleri sunuyoruz. Firmamız hakkında detaylı bilgi alın.",
   keywords:
     "Kayaşehir Cam Balkon, cam balkon çözümleri, kaliteli cam balkon, müşteri memnuniyeti, cam balkon firması, Hakkımızda",
   openGraph: {
     title: "Hakkımızda | Kayaşehir Cam Balkon",
     description:
-      "Firmamız 20 yıllık tecrübesiyle şık, dayanıklı ve kaliteli cam balkon çözümleri sunuyor. Müşteri memnuniyetini ön planda tutuyoruz.",
+      "Firmamız 15 yıllık tecrübesiyle şık, dayanıklı ve kaliteli cam balkon çözümleri sunuyor. Müşteri memnuniyetini ön planda tutuyoruz.",
     images: [
       {
         url: "/images/hakkimizda.webp",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hakkımızda | Kayaşehir Cam Balkon",
     description:
-      "Kayaşehir Cam Balkon hakkında bilgi alın. 20 yıllık tecrübemizle cam balkon çözümlerinde öncü bir firmayız.",
+      "Kayaşehir Cam Balkon hakkında bilgi alın. 15 yıllık tecrübemizle cam balkon çözümlerinde öncü bir firmayız.",
     images: [
       {
         url: "/images/hakkimizda.webp",

@@ -4,16 +4,16 @@ import Card from "./Card";
 const Commitments = () => {
   const cards = [
     {
-      icon: <FaShieldAlt />,
-      title: "Garantili Cam Balkon Hizmeti",
-      description:
-        "Kayaşehir'de garantili cam balkon çözümleriyle uzun ömürlü kalite sunuyoruz.",
-    },
-    {
       icon: <FaHeadset />,
       title: "7/24 Cam Balkon Destek",
       description:
         "Kayaşehir cam balkon hizmetlerinde 7/24 destekle her zaman yanınızdayız.",
+    },
+    {
+      icon: <FaShieldAlt />,
+      title: "Garantili Cam Balkon Hizmeti",
+      description:
+        "Kayaşehir'de garantili cam balkon çözümleriyle uzun ömürlü kalite sunuyoruz.",
     },
     {
       icon: <FaUsers />,

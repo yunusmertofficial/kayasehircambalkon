@@ -93,7 +93,7 @@ const KayaSehirCamBalkon = () => {
               {/* Bottom-left Image */}
               <div className="absolute bottom-0 left-0 w-[60%] h-[70%]">
                 <Image
-                  src="/images/cam-balkon1.webp"
+                  src="/images/cam-balkon3.webp"
                   alt="Cam Balkon Tasarımı"
                   fill
                   style={{ objectFit: "cover" }}
@@ -103,7 +103,7 @@ const KayaSehirCamBalkon = () => {
               {/* Top-right Image */}
               <div className="absolute top-0 right-0 w-[60%] h-[70%]">
                 <Image
-                  src="/images/cam-balkon2.webp"
+                  src="/images/cam-balkon4.webp"
                   alt="Cam Balkon Montaj Hizmeti"
                   fill
                   style={{ objectFit: "cover" }}
