@@ -17,7 +17,7 @@ const HeroCarousel = () => {
       id: 0,
       public_id: "1",
       format: "webp",
-      title: "CAM BALKON SİSTEMLERİ",
+      title: "KAYAŞEHİR CAM BALKON SİSTEMLERİ",
       description: "Cam balkon montajı, üretimi ve satışı.",
     },
     {
@@ -105,9 +105,15 @@ const HeroCarousel = () => {
       <Container>
         <div className="relative z-10 flex flex-col items-start justify-center h-full text-white">
           <React.Fragment key={slide.id}>
-            <h2 className="text-4xl md:text-5xl font-bold pr-2 animate-slideIn">
-              {slide.title}
-            </h2>
+            {currentSlide == 0 ? (
+              <h1 className="text-4xl md:text-5xl font-bold pr-2 animate-slideIn">
+                {slide.title}
+              </h1>
+            ) : (
+              <h2 className="text-4xl md:text-5xl font-bold pr-2 animate-slideIn">
+                {slide.title}
+              </h2>
+            )}
             <p className="mt-4 text-lg md:text-xl pr-2 animate-slideIn">
               {slide.description}
             </p>
