@@ -1,30 +1,36 @@
+import { links, posts, serviceCategories } from "@/utils/data";
 import Link from "next/link";
 import React from "react";
 
 const linksData = [
   {
-    title: "Hakkımızda",
-    links: [
-      { name: "Hakkımızda", href: "/hakkimizda" },
-      { name: "Referanslar", href: "/referanslar" },
-      { name: "Hizmetlerimiz", href: "/hizmetlerimiz" },
-    ],
+    title: "Hızlı Linkler",
+    links: links.map((link) => ({
+      name: link.label,
+      href: link.href,
+    })),
   },
   {
-    title: "Ürünler",
-    links: [
-      { name: "Cam Balkon Sistemleri", href: "/urunler/cam-balkon" },
-      { name: "Katlanır Cam", href: "/urunler/katlanir-cam" },
-      { name: "Sürgülü Sistemler", href: "/urunler/surgulu-sistemler" },
-    ],
+    title: "Bazı Ürünler",
+    links: serviceCategories.slice(0, 2).flatMap((category) =>
+      category.products.map((product) => ({
+        name: product.title,
+        href: product.href,
+      }))
+    ),
   },
   {
-    title: "Kaynaklar",
-    links: [
+    title: "Son Blog Yazıları",
+    /*     links: [
       { name: "Sıkça Sorulan Sorular", href: "/sss" },
       { name: "Kullanıcı Kılavuzu", href: "/kullanim-kilavuzu" },
       { name: "Blog", href: "/blog" },
-    ],
+    ], */
+    links: posts.slice(0, 3).map((post) => ({
+      name:
+        post.title.length > 30 ? post.title.slice(0, 30) + "..." : post.title,
+      href: `/blog/${post.slug}`,
+    })),
   },
 ];
 
