@@ -1,10 +1,10 @@
 "use client";
-import React, { useState } from "react";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import React from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import Container from "@/components/Container";
+import FaqSummary from "@/components/FaqSummary";
 
-const FaqSummary = () => {
+const FaqSummarySection = () => {
   const faqs = [
     {
       question: "Kayaşehir cam balkon fiyatları nasıl belirlenir?",
@@ -32,12 +32,6 @@ const FaqSummary = () => {
         "Isıcamlı cam balkon sistemlerimiz, soğuk havalarda ısı yalıtımı sağlayarak iç mekan konforunu artırır. Bu sayede kış aylarında da balkonunuzu keyifle kullanabilirsiniz.",
     },
   ];
-
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenIndex(index === openIndex ? null : index);
-  };
 
   return (
     <AnimatedSection>
@@ -70,42 +64,7 @@ const FaqSummary = () => {
               </p>
             </header>
 
-            {/* Sağ Sütun (Sıkça Sorulan Sorular) */}
-            <div>
-              <h2 className="sr-only">Sıkça Sorulan Sorular</h2>
-              <div className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <div
-                    key={index}
-                    className="bg-card p-4 rounded-lg shadow-md hover:shadow-lg transition-all"
-                  >
-                    <button
-                      className="flex gap-2 items-center w-full text-left"
-                      onClick={() => toggleFaq(index)}
-                      aria-expanded={openIndex === index}
-                      aria-controls={`faq-content-${index}`}
-                    >
-                      {openIndex === index ? (
-                        <FiMinus className="text-primary hover:text-secondary-foreground transition" />
-                      ) : (
-                        <FiPlus className="text-primary hover:text-secondary-foreground transition" />
-                      )}
-                      <span className="text-primary font-semibold">
-                        {faq.question}
-                      </span>
-                    </button>
-                    {openIndex === index && (
-                      <p
-                        id={`faq-content-${index}`}
-                        className="text-muted-foreground mt-4 text-sm md:text-base"
-                      >
-                        {faq.answer}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <FaqSummary faqs={faqs} />
           </div>
         </Container>
       </section>
@@ -113,4 +72,4 @@ const FaqSummary = () => {
   );
 };
 
-export default FaqSummary;
+export default FaqSummarySection;

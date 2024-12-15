@@ -23,7 +23,7 @@ const StatisticsAndAchievements = () => {
     <AnimatedSection>
       <section
         ref={ref} // Intersection Observer için referans
-        className="py-16 bg-muted"
+        className="py-16"
         aria-label="İstatistikler ve Başarılarımız"
       >
         <Container>

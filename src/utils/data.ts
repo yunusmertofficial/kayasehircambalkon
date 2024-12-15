@@ -14,11 +14,11 @@ export const links = [
         dropdown: [
           {
             label: "Isıcamlı Katlanır Sistem",
-            href: "/cam-balkon-sistemleri/katlanir-sistemler/isicamli",
+            href: "/cam-balkon-sistemleri/katlanir/isicamli-katlanir",
           },
           {
             label: "Katlanır Sistem",
-            href: "/cam-balkon-sistemleri/katlanir-sistemler/katlanir",
+            href: "/cam-balkon-sistemleri/katlanir/katlanir-sistem",
           },
         ],
       },
@@ -27,19 +27,19 @@ export const links = [
         dropdown: [
           {
             label: "Isıcamlı Eşikli Sürme",
-            href: "/cam-balkon-sistemleri/surme-sistemler/esikli-isicamli",
+            href: "/cam-balkon-sistemleri/surme/isicamli-esikli-surme",
           },
           {
             label: "Eşikli Sürme",
-            href: "/cam-balkon-sistemleri/surme-sistemler/esikli",
+            href: "/cam-balkon-sistemleri/surme/esikli-surme",
           },
           {
             label: "Isıcamlı Eşiksiz Sürme",
-            href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz-isicamli",
+            href: "/cam-balkon-sistemleri/surme/isicamli-esiksiz-surme",
           },
           {
             label: "Eşiksiz Sürme",
-            href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz",
+            href: "/cam-balkon-sistemleri/surme/esiksiz-surme",
           },
         ],
       },
@@ -48,11 +48,11 @@ export const links = [
         dropdown: [
           {
             label: "Silinebilir Isıcamlı Giyotin",
-            href: "/cam-balkon-sistemleri/giyotin-sistemler/silinebilir-isicamli",
+            href: "/cam-balkon-sistemleri/giyotin/silinebilir-isicamli-giyotin",
           },
           {
             label: "Isıcamlı Giyotin Sistem",
-            href: "/cam-balkon-sistemleri/giyotin-sistemler/isicamli",
+            href: "/cam-balkon-sistemleri/giyotin/isicamli-giyotin",
           },
         ],
       },
@@ -234,13 +234,13 @@ export const serviceCategories = [
         id: 1,
         title: "Isıcamlı Katlanır Sistem",
         description: "Isıcamlı ve şık tasarımlar",
-        href: "/cam-balkon-sistemleri/katlanir-sistemler/isicamli",
+        href: "/cam-balkon-sistemleri/katlanir/isicamli-katlanir",
       },
       {
         id: 2,
         title: "Katlanır Sistem",
         description: "Farklı mekanlar için ideal çözüm",
-        href: "/cam-balkon-sistemleri/katlanir-sistemler/katlanir",
+        href: "/cam-balkon-sistemleri/katlanir/katlanir-sistem",
       },
     ],
   },
@@ -288,13 +288,13 @@ export const serviceCategories = [
         id: 1,
         title: "Silinebilir Isıcamlı Giyotin Sistem",
         description: "Silinebilir yüzeyli ısıcamlı giyotin sistem",
-        href: "/cam-balkon-sistemleri/giyotin-sistemler/silinebilir-isicamli",
+        href: "/cam-balkon-sistemleri/giyotin/silinebilir-isicamli-giyotin",
       },
       {
         id: 2,
         title: "Isıcamlı Giyotin Sistem",
         description: "Şık ve modern ısıcamlı giyotin sistem",
-        href: "/cam-balkon-sistemleri/giyotin-sistemler/isicamli",
+        href: "/cam-balkon-sistemleri/giyotin/isicamli-giyotin",
       },
     ],
   },

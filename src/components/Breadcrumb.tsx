@@ -8,7 +8,7 @@ const Breadcrumb = ({
   description,
   image,
 }: {
-  breadcrumbs: { href: string; label: string }[];
+  breadcrumbs: { href?: string; label: string }[];
   title: string;
   description?: string;
   image?: {
@@ -24,7 +24,7 @@ const Breadcrumb = ({
       {/* Görselin üzerine karanlık bir katman ekleyelim */}
       {image && (
         <>
-          <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
+          <div className="absolute inset-0 bg-black bg-opacity-70 z-10" />
           <Image
             src={image.url}
             alt={title}
@@ -71,13 +71,21 @@ const Breadcrumb = ({
                   />
                 )}
                 {index !== breadcrumbs.length - 1 ? (
-                  <Link
-                    href={breadcrumb.href}
-                    aria-label={breadcrumb.label}
-                    className="text-primary-foreground font-medium hover:text-gray-200 hover:underline transition-all duration-300"
-                  >
-                    {breadcrumb.label}
-                  </Link>
+                  <>
+                    {breadcrumb.href ? (
+                      <Link
+                        href={breadcrumb.href}
+                        aria-label={breadcrumb.label}
+                        className="text-primary-foreground font-medium hover:text-gray-200 hover:underline transition-all duration-300"
+                      >
+                        {breadcrumb.label}
+                      </Link>
+                    ) : (
+                      <span className="text-primary-foreground font-medium opacity-80">
+                        {breadcrumb.label}
+                      </span>
+                    )}
+                  </>
                 ) : (
                   <span className="text-primary-foreground font-medium opacity-80">
                     {breadcrumb.label}

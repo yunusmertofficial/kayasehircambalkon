@@ -1,0 +1,29 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import Container from "@/components/Container";
+import FaqSummary from "@/components/FaqSummary";
+
+const FAQSection: React.FC<{
+  faqs: { question: string; answer: string }[];
+}> = ({ faqs }) => (
+  <AnimatedSection>
+    <section className="py-12">
+      <Container>
+        <header className="mb-10">
+          <h3
+            id="faq-heading"
+            className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center"
+          >
+            {`Kayaşehir'de Modern ve Enerji Tasarruflu Sistemler`}
+            <br className="hidden lg:block" />
+            <span className="text-blue-600">
+              Isıcamlı Eşikli Sürme Cam Balkon
+            </span>
+          </h3>
+        </header>
+        <FaqSummary faqs={faqs} />
+      </Container>
+    </section>
+  </AnimatedSection>
+);
+
+export default FAQSection;
