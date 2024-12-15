@@ -1,5 +1,5 @@
 import Blog from "../_components/Blog";
-import Blog1 from "@/components/Blog/Blog1";
+import Blog4 from "@/components/Blog/Blog4";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function CamBalkonYalitim() {
   return (
     <Blog slug={"cam-balkon-yalitim"}>
-      <Blog1 />
+      <Blog4 />
     </Blog>
   );
 }

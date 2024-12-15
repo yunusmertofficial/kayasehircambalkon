@@ -1,5 +1,5 @@
+import Blog2 from "@/components/Blog/Blog2";
 import Blog from "../_components/Blog";
-import Blog1 from "@/components/Blog/Blog1";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function CamBalkonDikkatEdilmesiGerekenler() {
   return (
     <Blog slug="cam-balkon-alirken-dikkat-edilmesi-gerekenler">
-      <Blog1 />
+      <Blog2 />
     </Blog>
   );
 }
