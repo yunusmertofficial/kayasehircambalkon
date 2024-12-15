@@ -184,6 +184,17 @@ export const categories = [
       keywords: "Cam Balkon, Cam Balkon Servisi, Balkon Sistemleri",
     },
   },
+  {
+    title: "Cam Balkon Fiyatları",
+    slug: "cam-balkon-fiyatlari",
+    metadata: {
+      title: "Cam Balkon Fiyatları - Detaylı Rehber",
+      description:
+        "Cam balkon fiyatları hakkında detaylı bilgi edinin. Malzeme kalitesi, ölçüler ve yalıtım gibi faktörlerin fiyatlara etkisini öğrenin.",
+      keywords:
+        "Cam Balkon Fiyatları, Cam Balkon Maliyeti, Kayaşehir Cam Balkon",
+    },
+  },
 ];
 
 export const posts: Post[] = [
@@ -210,11 +221,22 @@ export const posts: Post[] = [
     publishedAt: new Date().toISOString(),
   },
   {
+    title: "Cam Balkon Fiyatları ve Etkileyen Faktörler",
+    slug: "cam-balkon-fiyatlari",
+    category: categories[1], // Yeni kategoriye ekliyoruz
+    image: {
+      src: "/images/blog/blog3.webp", // Blog görsel URL'si
+      blurDataURL: "data:image/jpeg;base64,...", // Opsiyonel bulanık veri
+      alt: "Cam balkon fiyatlarını etkileyen faktörler",
+    },
+    publishedAt: new Date().toISOString(),
+  },
+  {
     title: "Cam Balkon Sistemlerinde Yalıtımın Önemi",
     slug: "cam-balkon-yalitim",
     category: categories[0],
     image: {
-      src: "/images/blog/blog3.webp",
+      src: "/images/blog/blog4.webp",
       blurDataURL: "data:image/jpeg;base64,...",
       alt: "Cam balkon sistemlerinde yalıtımın önemi",
     },
@@ -235,12 +257,14 @@ export const serviceCategories = [
         title: "Isıcamlı Katlanır Sistem",
         description: "Isıcamlı ve şık tasarımlar",
         href: "/cam-balkon-sistemleri/katlanir/isicamli-katlanir",
+        pricePerSquareMeter: 0,
       },
       {
         id: 2,
         title: "Katlanır Sistem",
         description: "Farklı mekanlar için ideal çözüm",
         href: "/cam-balkon-sistemleri/katlanir/katlanir-sistem",
+        pricePerSquareMeter: 0,
       },
     ],
   },
@@ -256,24 +280,28 @@ export const serviceCategories = [
         title: "Eşikli Isıcamlı Sürme",
         description: "Isıcamlı ve yüksek güvenlikli sürme sistem",
         href: "/cam-balkon-sistemleri/surme-sistemler/esikli-isicamli",
+        pricePerSquareMeter: 0,
       },
       {
         id: 2,
         title: "Eşikli Sürme",
         description: "Eşikli sürme sistemleri ile pratik kullanım",
         href: "/cam-balkon-sistemleri/surme-sistemler/esikli",
+        pricePerSquareMeter: 0,
       },
       {
         id: 3,
         title: "Eşiksiz Isıcamlı Sürme",
         description: "Isıcamlı, eşiksiz sürme sistemleri",
         href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz-isicamli",
+        pricePerSquareMeter: 0,
       },
       {
         id: 4,
         title: "Eşiksiz Sürme",
         description: "Pratik ve şık sürme sistemleri",
         href: "/cam-balkon-sistemleri/surme-sistemler/esiksiz",
+        pricePerSquareMeter: 0,
       },
     ],
   },
@@ -289,12 +317,14 @@ export const serviceCategories = [
         title: "Silinebilir Isıcamlı Giyotin Sistem",
         description: "Silinebilir yüzeyli ısıcamlı giyotin sistem",
         href: "/cam-balkon-sistemleri/giyotin/silinebilir-isicamli-giyotin",
+        pricePerSquareMeter: 0,
       },
       {
         id: 2,
         title: "Isıcamlı Giyotin Sistem",
         description: "Şık ve modern ısıcamlı giyotin sistem",
         href: "/cam-balkon-sistemleri/giyotin/isicamli-giyotin",
+        pricePerSquareMeter: 0,
       },
     ],
   },
@@ -310,6 +340,7 @@ export const serviceCategories = [
         title: "Rolling Roof",
         description: "Dış mekanlarda esnek gölgelendirme çözümü",
         href: "/cam-balkon-sistemleri/golgelendirme/rolling-roof",
+        pricePerSquareMeter: 0,
       },
     ],
   },
@@ -325,27 +356,8 @@ export const serviceCategories = [
         title: "Üstten Askılı",
         description: "Zarif tasarımlarla iç mekanlarda estetik kullanım",
         href: "/cam-balkon-sistemleri/ustten-askili/ustten-askili-sistem",
+        pricePerSquareMeter: 0,
       },
     ],
   },
 ];
-
-/* 
-
-├── katlanir/
-│   ├── isicamli-katlanir.tsx 
-│   └── katlanir-sistem.tsx
-├── surme/
-│   ├── isicamli-esikli-surme.tsx
-│   ├── esikli-surme.tsx
-│   ├── isicamli-esiksiz-surme.tsx
-│   └── esiksiz-surme.tsx
-├── giyotin/
-│   ├── silinebilir-isicamli-giyotin.tsx
-│   └── isicamli-giyotin.tsx
-├── golgelendirme/
-│   └── rolling-roof.tsx
-├── ustten-askili/
-│   └── ustten-askili-sistem.tsx
-
-*/

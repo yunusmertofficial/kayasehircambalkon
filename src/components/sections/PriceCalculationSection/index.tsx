@@ -15,7 +15,7 @@ const PriceCalculationSection = () => {
             hesaplayın."
         >
           <ButtonLink
-            href="/fiyat-hesaplama"
+            href="/blog/cam-balkon-fiyatlari"
             text="Fiyat Hesaplama"
             additionalClass="animate-bounce"
           />

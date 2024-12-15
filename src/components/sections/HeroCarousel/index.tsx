@@ -121,7 +121,7 @@ const HeroCarousel = () => {
           <div className="mt-4 flex space-x-4">
             {/* Fiyat Hesapla Butonu */}
             <Link
-              href="/fiyat-hesaplama"
+              href="/blog/cam-balkon-fiyatlari"
               aria-label="Fiyat Hesapla"
               className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >

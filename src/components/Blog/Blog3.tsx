@@ -1,64 +1,64 @@
-import Image from "next/image";
+import React from "react";
+import GlassBalconyPriceCalculator from "@/components/GlassBalconyPriceCalculator";
 
-const Blog3 = () => {
-  return (
-    <div>
-      <Image
-        src="/images/blog/blog3.webp" // Görsel URL'sini buraya ekleyin
-        alt="Cam balkon sistemlerinde yalıtımın önemi"
-        width={800}
-        height={450}
-        className="rounded-lg mb-6"
-        priority
-      />
+const Blog3: React.FC = () => (
+  <div className="container mx-auto py-8 px-4">
+    <GlassBalconyPriceCalculator />
 
-      <p>
-        Cam balkon sistemleri, estetik bir görünüm sunmanın yanı sıra yaşam
-        alanlarınızı konforlu hale getiren birçok özelliğe sahiptir. Bu
-        özelliklerin başında yalıtım gelir. Cam balkonlarda doğru yalıtım,
-        enerji tasarrufu sağlarken evinizin konfor seviyesini de artırır.
-      </p>
+    <p className="text-lg text-gray-700 my-4">
+      Cam balkon sistemleri, yaşam alanlarınızı modern ve estetik bir şekilde
+      dönüştürmek için harika bir çözümdür. Ancak, bu sistemlerin fiyatları
+      birçok faktöre bağlı olarak değişiklik gösterebilir. İşte cam balkon
+      fiyatlarını etkileyen en önemli unsurlar.
+    </p>
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">1. Isı Yalıtımı</h2>
-      <p>
-        Cam balkonlarda kullanılan kaliteli camlar ve sızdırmazlık elemanları,
-        ısı kaybını önlemeye yardımcı olur. Özellikle kış aylarında içerideki
-        sıcaklığı koruyarak enerji tasarrufu sağlar.
-      </p>
+    <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+      Cam Balkon Fiyatlarını Belirleyen Faktörler
+    </h2>
+    <ul className="list-disc ml-6 text-gray-700 mb-6">
+      <li>
+        <strong>Balkonun Ölçüsü ve Metrekare Alanı:</strong> Cam balkon
+        fiyatları genellikle metrekare başına hesaplanır. Balkon ne kadar
+        büyükse toplam maliyet o kadar artar.
+      </li>
+      <li>
+        <strong>Kullanılan Malzeme Kalitesi:</strong> Alüminyum çerçeve,
+        ısıcamlı cam veya bronz cam gibi seçenekler fiyatları doğrudan etkiler.
+      </li>
+      <li>
+        <strong>Yalıtım ve Enerji Tasarrufu:</strong> Isı yalıtımı özellikleri
+        maliyeti artırabilir ancak uzun vadede enerji tasarrufu sağlar.
+      </li>
+      <li>
+        <strong>Montaj Hizmetinin Kalitesi:</strong> Profesyonel montaj,
+        sistemin dayanıklılığını artırır ve uzun ömürlü kullanım sağlar.
+      </li>
+      <li>
+        <strong>Ek Özellikler:</strong> Reflekte cam, özel renk seçenekleri ve
+        kilit mekanizmaları gibi ekstra özellikler fiyatı etkiler.
+      </li>
+    </ul>
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">2. Ses Yalıtımı</h2>
-      <p>
-        Gürültü kirliliği, şehir yaşamının en büyük sorunlarından biridir. Cam
-        balkon sistemlerindeki yalıtım özellikleri, dışarıdan gelen gürültüyü
-        azaltarak daha huzurlu bir ortam yaratır.
-      </p>
+    <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+      Ortalama Cam Balkon Fiyatları
+    </h2>
+    <p className="text-gray-700 mb-6">
+      Türkiye genelinde cam balkon fiyatları genellikle metrekare başına
+      hesaplanır. Ortalama olarak:
+      <strong> 750 TL - 1500 TL/m²</strong> arasında değişebilir. Bu fiyatlar,
+      kullanılan malzeme ve montaj hizmetine göre değişiklik gösterebilir.
+    </p>
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">
-        3. Su ve Hava Sızdırmazlığı
-      </h2>
-      <p>
-        Cam balkon sistemlerinin doğru montajı ve yalıtım malzemeleri, yağmur ve
-        rüzgar gibi dış etkenlerin içeri girmesini engeller. Bu sayede
-        balkonlarınız her mevsimde kullanılabilir.
-      </p>
-
-      <h2 className="text-xl font-semibold mt-6 mb-2">
-        4. Enerji Tasarrufu Sağlama
-      </h2>
-      <p>
-        Doğru yalıtım, enerji maliyetlerini düşürür. Isı kaybının önlenmesi, hem
-        çevre dostu bir yaklaşım hem de bütçe açısından faydalıdır.
-      </p>
-
-      <p className="mt-6">
-        Cam balkon sistemlerinde yalıtım, uzun ömürlü kullanım ve maksimum
-        konfor için kritik bir öneme sahiptir. Kayaşehir Cam Balkon olarak,
-        yüksek kaliteli yalıtım çözümleri sunarak yaşam alanlarınızı daha
-        kullanışlı hale getiriyoruz. Ücretsiz keşif için bizimle iletişime
-        geçebilirsiniz!
-      </p>
-    </div>
-  );
-};
+    <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+      Kayaşehir Cam Balkon Hizmetleri
+    </h2>
+    <p className="text-gray-700 mb-6">
+      Kayaşehir Cam Balkon olarak, müşterilerimize kaliteli ve uygun fiyatlı
+      çözümler sunuyoruz. Profesyonel montaj ekibimiz, ihtiyacınıza en uygun
+      sistemleri kurarak yaşam alanlarınızı güzelleştirir. Daha fazla bilgi ve
+      fiyat teklifi almak için aşağıdaki hesaplama aracını kullanabilirsiniz.
+    </p>
+  </div>
+);
 
 export default Blog3;
