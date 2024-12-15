@@ -17,7 +17,9 @@ const PriceCalculator = ({
     const widthInMeters = (Number(width) || 0) / 100; // Genişliği metreye çevir
     const heightInMeters = (Number(height) || 0) / 100; // Yüksekliği metreye çevir
     const area = widthInMeters * heightInMeters;
-    const price = area * pricePerSquareMeter;
+    console.log(pricePerSquareMeter);
+    // const price = area * pricePerSquareMeter;
+    const price = area * 0;
     return { area, price };
   };
 
