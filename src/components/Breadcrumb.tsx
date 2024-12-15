@@ -8,8 +8,8 @@ const Breadcrumb = ({
   description,
   image,
 }: {
-  breadcrumbs: { href?: string; label: string }[];
-  title: string;
+  breadcrumbs: { href?: string; label?: string }[];
+  title?: string;
   description?: string;
   image?: {
     url: string;
@@ -27,7 +27,7 @@ const Breadcrumb = ({
           <div className="absolute inset-0 bg-black bg-opacity-70 z-10" />
           <Image
             src={image.url}
-            alt={title}
+            alt={title || ""}
             fill
             style={{ objectFit: "cover" }}
             placeholder={image.blurDataURL ? "blur" : "empty"}
