@@ -1,11 +1,7 @@
-import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaGoogle,
-  FaYoutube,
-} from "react-icons/fa";
+import Link from "next/link";
+import { FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
+import { SiGmail } from "react-icons/si";
 
 const TopBar: React.FC = () => {
   return (
@@ -18,7 +14,7 @@ const TopBar: React.FC = () => {
           </span>
           <span className="flex items-center space-x-1">
             <MdEmail className="text-gray-600" />
-            <span>info@kayasehircambalkon.com</span>
+            <span>cambalkonkayasehir@gmail.com</span>
           </span>
           <span className="flex items-center space-x-1">
             <MdLocationOn className="text-gray-600" />
@@ -26,11 +22,18 @@ const TopBar: React.FC = () => {
           </span>
         </div>
         <div className="flex items-center space-x-3">
-          <FaFacebook className="text-gray-600 hover:text-blue-600 cursor-pointer" />
-          <FaTwitter className="text-gray-600 hover:text-blue-400 cursor-pointer" />
-          <FaInstagram className="text-gray-600 hover:text-pink-600 cursor-pointer" />
-          <FaGoogle className="text-gray-600 hover:text-red-600 cursor-pointer" />
-          <FaYoutube className="text-gray-600 hover:text-red-500 cursor-pointer" />
+          <Link href="https://www.instagram.com/kayasehircambalkon/">
+            <FaInstagram className="text-gray-600 hover:text-pink-600 cursor-pointer" />
+          </Link>
+          <Link href="mailto:cambalkonkayasehir@gmail.com">
+            <SiGmail className="text-gray-600 hover:text-red-600 cursor-pointer" />
+          </Link>
+          <Link href="https://www.youtube.com/channel/UC3qqkhOpd8YYLrlacBT6Exw">
+            <FaYoutube className="text-gray-600 hover:text-red-500 cursor-pointer" />
+          </Link>
+          <Link href="https://wa.me/905365608595">
+            <FaWhatsapp className="text-gray-600 hover:text-green-500 cursor-pointer" />
+          </Link>
         </div>
       </div>
     </div>

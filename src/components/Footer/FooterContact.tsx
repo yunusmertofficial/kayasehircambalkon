@@ -1,12 +1,8 @@
 import React from "react";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 export const FooterContact = () => {
   return (
@@ -27,28 +23,28 @@ export const FooterContact = () => {
         </li>
         <li className="flex mt-4 space-x-4">
           <Link
-            href="https://facebook.com"
+            href="mailto:cambalkonkayasehir@gmail.com"
             className="w-9 h-9 bg-muted flex justify-center items-center rounded-full hover:bg-primary transition-all"
             aria-label="Facebook"
           >
-            <FaFacebookF className="text-foreground" />
+            <SiGmail className="text-foreground" />
           </Link>
           <Link
-            href="https://instagram.com"
+            href="https://instagram.com/kayasehircambalkon"
             className="w-9 h-9 bg-muted flex justify-center items-center rounded-full hover:bg-primary transition-all"
             aria-label="Instagram"
           >
             <FaInstagram className="text-foreground" />
           </Link>
           <Link
-            href="https://linkedin.com"
+            href="https://www.youtube.com/channel/UC3qqkhOpd8YYLrlacBT6Exw"
             className="w-9 h-9 bg-muted flex justify-center items-center rounded-full hover:bg-primary transition-all"
             aria-label="LinkedIn"
           >
-            <FaLinkedinIn className="text-foreground" />
+            <FaYoutube className="text-foreground" />
           </Link>
           <Link
-            href="https://wa.me"
+            href="https://wa.me/905365608595"
             className="w-9 h-9 bg-muted flex justify-center items-center rounded-full hover:bg-primary transition-all"
             aria-label="WhatsApp"
           >

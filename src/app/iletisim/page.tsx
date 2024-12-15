@@ -58,10 +58,10 @@ export default function Contact() {
                   <div className="flex items-center text-gray-600">
                     <FaEnvelope className="w-6 h-6 text-blue-500" />
                     <a
-                      href="mailto:info@kayasehircambalkon.com"
+                      href="mailto:cambalkonkayasehir@gmail.com"
                       className="text-base underline ml-3 text-blue-700"
                     >
-                      info@kayasehircambalkon.com
+                      cambalkonkayasehir@gmail.com
                     </a>
                   </div>
                   {/* Phone */}
