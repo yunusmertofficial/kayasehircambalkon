@@ -1,49 +1,27 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import Container from "@/components/Container";
 import { categories, posts } from "@/utils/data";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import AnimatedSection from "@/components/AnimatedSection";
 import PostList from "@/components/Blog/PostList";
-export const dynamicParams = false;
 
-type Props = {
-  params: Promise<{ slug: string }>;
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const id = (await params).slug;
-  const category = categories.find((category) => category.slug === id);
-  if (!category) notFound();
-  return category.metadata;
-}
-
-export function generateStaticParams() {
-  return categories.map((post) => ({
-    params: { slug: post.slug },
-  }));
-}
-
-export default async function Page({ params }: Props) {
-  const id = (await params).slug;
-  const category = categories.find((category) => category.slug === id);
-  if (!category) notFound();
+export default async function Category({ slug }: { slug: string }) {
+  const category = categories.find((category) => category.slug === slug);
 
   const breadcrumbs = [
     { label: "Anasayfa", href: "/" },
-    { label: category.title, href: `/kategori/${category.slug}` },
+    { label: category?.title, href: `/kategori/${category?.slug}` },
   ];
 
   const filteredPosts = posts.filter(
-    (post) => post.category.slug === category.slug
+    (post) => post.category.slug === category?.slug
   );
 
   return (
     <main>
       <Breadcrumb
         breadcrumbs={breadcrumbs}
-        title={category.title}
-        description={`${category.title} ile ilgili en güncel gönderileri buradan takip edebilirsiniz.`}
+        title={category?.title}
+        description={`${category?.title} ile ilgili en güncel gönderileri buradan takip edebilirsiniz.`}
         image={{
           url: "/images/referanslar/banner.webp",
         }}

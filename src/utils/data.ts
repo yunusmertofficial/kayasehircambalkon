@@ -177,23 +177,10 @@ export const categories = [
   {
     title: "Cam Balkon Servisi",
     slug: "cam-balkon-servisi",
-    metadata: {
-      title: "Cam Balkon Servisi - Modern ve Şık Çözümler",
-      description:
-        "Cam balkon servisi hakkında bilgi alın ve yaşam alanlarınızı daha kullanışlı hale getirin.",
-      keywords: "Cam Balkon, Cam Balkon Servisi, Balkon Sistemleri",
-    },
   },
   {
     title: "Cam Balkon Fiyatları",
     slug: "cam-balkon-fiyatlari",
-    metadata: {
-      title: "Cam Balkon Fiyatları - Detaylı Rehber",
-      description:
-        "Cam balkon fiyatları hakkında detaylı bilgi edinin. Malzeme kalitesi, ölçüler ve yalıtım gibi faktörlerin fiyatlara etkisini öğrenin.",
-      keywords:
-        "Cam Balkon Fiyatları, Cam Balkon Maliyeti, Kayaşehir Cam Balkon",
-    },
   },
 ];
 
