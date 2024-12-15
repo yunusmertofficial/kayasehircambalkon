@@ -61,7 +61,7 @@ export const links = [
         dropdown: [
           {
             label: "Rolling Roof",
-            href: "/cam-balkon-sistemleri/golelendirici-sistemler/rolling-roof",
+            href: "/cam-balkon-sistemleri/golgelendirme/rolling-roof",
           },
         ],
       },
@@ -70,7 +70,7 @@ export const links = [
         dropdown: [
           {
             label: "Üstten Askılı Sistem",
-            href: "/cam-balkon-sistemleri/ustten-askili-sistemler/askili",
+            href: "/cam-balkon-sistemleri/ustten-askili/ustten-askili-sistem",
           },
         ],
       },
@@ -309,7 +309,7 @@ export const serviceCategories = [
         id: 1,
         title: "Rolling Roof",
         description: "Dış mekanlarda esnek gölgelendirme çözümü",
-        href: "/ursa",
+        href: "/cam-balkon-sistemleri/golgelendirme/rolling-roof",
       },
     ],
   },
@@ -324,7 +324,7 @@ export const serviceCategories = [
         id: 1,
         title: "Üstten Askılı",
         description: "Zarif tasarımlarla iç mekanlarda estetik kullanım",
-        href: "/cam-balkon-sistemleri/ustten-askili-sistemler/askili",
+        href: "/cam-balkon-sistemleri/ustten-askili/ustten-askili-sistem",
       },
     ],
   },
