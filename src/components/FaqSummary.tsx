@@ -15,7 +15,7 @@ const FaqSummary = ({
 
   return (
     <div>
-      <h4 className="sr-only">Sıkça Sorulan Sorular</h4>
+      <h3 className="sr-only">Sıkça Sorulan Sorular</h3>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
