@@ -28,7 +28,7 @@ export default function LastPost() {
                 key={post.slug}
                 post={post}
                 aspect="landscape"
-                preloadImage={true}
+                preloadImage={false}
               />
             ))}
           </div>
