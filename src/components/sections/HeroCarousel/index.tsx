@@ -84,7 +84,7 @@ const HeroCarousel = () => {
   return (
     <section
       className="relative w-full h-[75vh] overflow-hidden flex items-center"
-      aria-label="Cam Balkon"
+      aria-label="Kayaşehir Cam Balkon"
     >
       <Image
         src={`/images/carousel/${slide.public_id}.${slide.format}`}
@@ -105,15 +105,10 @@ const HeroCarousel = () => {
       <Container>
         <div className="relative z-10 flex flex-col items-start justify-center h-full text-white">
           <React.Fragment key={slide.id}>
-            {currentSlide == 0 ? (
-              <h1 className="text-4xl md:text-5xl font-bold pr-2 animate-slideIn">
-                {slide.title}
-              </h1>
-            ) : (
-              <h2 className="text-4xl md:text-5xl font-bold pr-2 animate-slideIn">
-                {slide.title}
-              </h2>
-            )}
+            <h1 className="text-4xl md:text-5xl font-bold pr-2 animate-slideIn">
+              {slide.title}
+            </h1>
+
             <p className="mt-4 text-lg md:text-xl pr-2 animate-slideIn">
               {slide.description}
             </p>

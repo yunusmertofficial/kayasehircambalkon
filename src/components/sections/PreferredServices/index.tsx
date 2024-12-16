@@ -15,9 +15,10 @@ const CategoriesPage = () => {
         <Container>
           {/* Başlık ve Buton */}
           <div className="flex flex-col items-center gap-4 md:flex-row justify-between">
-            <h3 className="text-4xl font-bold text-center md:text-left">
-              Cam Balkon Sistemlerimiz
-            </h3>
+            <h2 className="text-4xl font-bold text-center md:text-left">
+              <span className="text-blue-600">Kayaşehir Cam Balkon</span>{" "}
+              Sistemlerimiz
+            </h2>
             <ButtonLink
               href="/cam-balkon-sistemleri"
               text="Daha Fazla Bilgi"
@@ -49,9 +50,9 @@ const CategoriesPage = () => {
                 </div>
                 {/* İçerik */}
                 <div className="p-4">
-                  <h4 className="text-lg font-semibold mb-2">
+                  <h3 className="text-lg font-semibold mb-2">
                     {category.title}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-gray-600">
                     {category.description} Ürünlerimiz:{" "}
                     <span className="font-semibold">

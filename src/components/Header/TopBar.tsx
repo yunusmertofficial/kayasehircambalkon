@@ -22,16 +22,22 @@ const TopBar: React.FC = () => {
           </span>
         </div>
         <div className="flex items-center space-x-3">
-          <Link href="https://www.instagram.com/kayasehircambalkon/">
+          <Link
+            href="https://www.instagram.com/kayasehircambalkon/"
+            aria-label="Instagram"
+          >
             <FaInstagram className="text-gray-600 hover:text-pink-600 cursor-pointer" />
           </Link>
-          <Link href="mailto:cambalkonkayasehir@gmail.com">
+          <Link href="mailto:cambalkonkayasehir@gmail.com" aria-label="Gmail">
             <SiGmail className="text-gray-600 hover:text-red-600 cursor-pointer" />
           </Link>
-          <Link href="https://www.youtube.com/channel/UC3qqkhOpd8YYLrlacBT6Exw">
+          <Link
+            href="https://www.youtube.com/channel/UC3qqkhOpd8YYLrlacBT6Exw"
+            aria-label="Youtube"
+          >
             <FaYoutube className="text-gray-600 hover:text-red-500 cursor-pointer" />
           </Link>
-          <Link href="https://wa.me/905365608595">
+          <Link href="https://wa.me/905365608595" aria-label="Whatsapp">
             <FaWhatsapp className="text-gray-600 hover:text-green-500 cursor-pointer" />
           </Link>
         </div>

@@ -13,12 +13,13 @@ export default function LastPost() {
         <Container>
           {/* Başlık ve Buton */}
           <header className="text-center mb-16">
-            <h3
+            <h2
               id="completed-projects-title"
               className="text-4xl font-bold text-foreground"
             >
-              Son Gönderiler
-            </h3>
+              <span className="text-blue-600">Kayaşehir Cam Balkon </span>Son
+              Gönderiler
+            </h2>
           </header>
           {/* Blog Listesi */}
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   keywords: [
     // Anahtar ürün adları
     "Kayaşehir cam balkon",
+    "cam balkon Kayaşehir",
     "Katlanır cam balkon",
     "Isıcamlı katlanır sistem",
     "Sürme cam balkon",
